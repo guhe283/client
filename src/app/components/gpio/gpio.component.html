@@ -1,0 +1,43 @@
+<html>
+<title>GPIO Control</title>
+
+<body>
+  <br>
+  <div class="md-form flex">
+    <div>
+      <h4 class="item">Control GPIO 4</h4>
+    </div>
+    <div>
+      <input class="item" mdbInput type="text" name="text" [(ngModel)]="text" id="form1" class="form-control item">
+    </div>
+    <div>
+      <label for="form1" class="item">Connected URL: {{text}}</label>
+    </div>
+    <div>
+      <button  class="item" type="button" id="state" (click)="setLedOn()" style="background-color:green;">ON</button>
+      <button class="item" type="button" id="state" (click)="setLedOff()" style="background-color:red;">OFF</button>
+    </div>
+  </div>
+
+
+  <!-- Rounded switch -->
+  <!--label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+  </div>
+  </div-->
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script-->
+  <!--script>
+        var socket = io.connect(); //load socket.io-client and connect to the host
+        function LEDOn() {
+            socket.emit("state", 1); //send button state to server
+        }
+
+        function LEDOff() {
+            socket.emit("state", 0); //send button state to server
+        }
+    </script-->
+</body>
+
+</html>

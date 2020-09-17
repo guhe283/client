@@ -40,13 +40,7 @@ export class ClientService {
   }
 
 
-  getLastName() {
-    // Get client with the id
-    this.clientsCollection.doc('7vJhURfWoNYu7xfxF8Cm').collection;
-
-    console.log("Last Name", this.clientsCollection);
-
-  }
+  
 
 
   getClient(id: string): Observable<Client> {

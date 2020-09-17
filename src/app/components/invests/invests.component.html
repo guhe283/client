@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-10">
+    <h2><i class="fa fa-money"></i>Invests</h2>
+  </div>
+  <div class="col-md-2">
+    <a routerLink="/invest/add" class="btn btn-success btn-block">
+      <i class="fa fa-plus"></i> New invest
+    </a>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-sm col-md col-lg">
+    <table *ngIf="invest?.length >0; else noInvests" class="table table-hover">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Details</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invest of invest">
+          <td>{{invest.date.toDate() | date: 'dd/MM/yyyy'}}</td>
+          <td>{{invest.amount}}</td>
+          <td><a routerLink="invest/{{invest.id}}" class="btn btn-secondary btn-sm"><i
+                class="fa fa-arrow-circle-o-right"></i>Details</a></td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+<ng-template #noInvests>
+
+  <hr>
+  <h5>There are no stocks found</h5>
+</ng-template>

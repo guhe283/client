@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-6 col-lg-4">
+    <h2><i class="fa fa-users"></i>Clients</h2>
+  </div>
+  <div class="col-md-6 col-lg-8">
+    <h2 class="text-right"><i class="text-right text-secondary"></i>Total owed: {{totalOwed | currency:'EUR':true}}</h2>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-sm col-md col-lg">
+<table *ngIf="clients?.length >0; else noClients" class="table table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Balance</th>
+      <th>Details</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{client.firstName}} {{client.lastName}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.balance | currency:'EUR':true}}</td>
+      <td><a routerLink="client/{{client.id}}" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i>Details</a></td>
+    </tr>
+  </tbody>
+
+</table>
+  </div>
+</div>
+
+
+
+<ng-template #noClients>
+
+  <hr>
+  <h5>There are no clients found</h5>
+</ng-template>
+
+
+

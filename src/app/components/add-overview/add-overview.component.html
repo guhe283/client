@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/overview" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to overview!!!!
+    </a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add overview!
+  </div>
+  <div class="card-body">
+    <form #overviewForm="ngForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="text" class="form-control" name="date" #overviewDate="ngModel"
+          [ngClass]="{'is-invalid':overviewDate.errors && overviewDate.touched}" [(ngModel)]="overview.date"
+          minlength="2" required>
+
+        <div [hidden]="!overviewDate.errors?.required" class="invalid-feedback">
+          First name required
+        </div>
+
+        <div [hidden]="!overviewDate.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="depot">Depot</label>
+        <input type="number" class="form-control" name="depot" #overviewDepot="ngModel"
+          [ngClass]="{'is-invalid':overviewDepot.errors && overviewDepot.touched}" [(ngModel)]="overview.depot"
+          minlength="1" required>
+
+        <div [hidden]="!overviewDepot.errors?.required" class="invalid-feedback">
+         Depo is required
+        </div>
+
+        <div [hidden]="!overviewDepot.errors?.minlength" class="invalid-feedback">
+          Must be at least 1 character
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cash">Cash</label>
+        <input type="number" class="form-control" name="cash" #overviewCash="ngModel"
+          [ngClass]="{'is-invalid':overviewCash.errors && overviewCash.touched}" [(ngModel)]="overview.cash" required>
+
+        <div [hidden]="!overviewCash.errors?.required" class="invalid-feedback">
+          Cash is required
+        </div>
+
+        <div [hidden]="!overviewCash.errors?.pattern" class="invalid-feedback">
+          Email is not valid
+        </div>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>>

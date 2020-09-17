@@ -8,3 +8,17 @@
 [remote "origin"]
 	url = https://github.com/guhe283/client.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
+	
+	
+	
+	ng build --prod --base-href https://github.com/guhe283/client.git
+	
+	
+	https://github.com/SwarnaKishore/angular-github-pages/tree/gh-pages
+	https://swarnakishore.github.io/angular-github-pages/
+	
+	
+	https://github.com/guhe283/client/tree/gh-pages
+	https://guhe283.github.io/angular-github-pages/
+	
+	https://guhe283.github.io/client/

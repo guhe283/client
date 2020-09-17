@@ -1,18 +1,21 @@
 <div class="row">
-  <div class="col-md-6">
-    <h2><i class="fa fa-users"></i>Clients</h2>
+  <div class="col-md-6 col-lg-4">
+    <h2><i class="fa fa-users"></i>Cash & Depot</h2>
   </div>
-  <div class="col-md-6">
-    <h2><i class="text-right text-secondary"></i>Total owed:{{totalOwed | currency:'EUR':true}}</h2>
+  <div class="col-md-6 col-lg-8">
+    <h2 class="text-right"><i class="text-right text-secondary"></i>Total owed: {{totalOwed | currency:'EUR':true}}</h2>
   </div>
 
 </div>
-<table *ngIf="clients?.length >0; else noClients" class="table table-striped">
+<div class="row">
+  <div class="col-sm col-md col-lg">
+<table *ngIf="clients?.length >0; else noClients" class="table table-hover">
   <thead class="thead-inverse">
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Balance</th>
+      <th>Date</th>
+      <th>Depot</th>
+      <th>Cashkonto</th>
+      <th>Details</th>
 
     </tr>
   </thead>
@@ -26,6 +29,8 @@
   </tbody>
 
 </table>
+  </div>
+</div>
 <ng-template #noClients>
 
   <hr>

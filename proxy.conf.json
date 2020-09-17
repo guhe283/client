@@ -1,0 +1,45 @@
+{
+  "/*": {
+    "target": "https://guhe283.github.io",
+    "secure": false,
+    "pathRewrite": {
+      "^/*": ""
+    },
+    "changeOrigin": true
+  },
+
+
+
+  "/https://127.0.0.1:4200/test": {
+    "target": "https://api.openweathermap.org/data/2.5/weather?q=London&APPID=19c02af4e4dd58bf1dc19b4977ba82e3",
+    "secure": false,
+    "pathRewrite": {
+      "^/https://127.0.0.1:4200/test": ""
+    },
+    "changeOrigin": true
+  },
+  "/https://127.0.0.1:4200/my": {
+    "target": "https://samples.openweathermap.org/data/2.5/forecast?q=Vienna,DE&appid=b6907d289e10d714a6e88b30761fae22",
+    "secure": false,
+    "pathRewrite": {
+      "^/http://127.0.0.1:4200/my": ""
+    },
+    "changeOrigin": true
+  },
+  "/api": {
+    "target": "http://google.at",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
+  },
+  "/ttt/*": {
+    "target": "http://www.bild.de",
+    "secure": false,
+    "pathRewrite": {
+      "^/ttt/": ""
+    },
+    "changeOrigin": true
+  }
+}

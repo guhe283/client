@@ -1,0 +1,12 @@
+Angular deploy to GitHub
+
+Command Angular
+Execute command: ng build --prod --base-href https://guhe283.github.io/client/
+-> generate a dist folder ->C:\angular\clientpanel\dist\clientpanel
+-> copy the files from clientpanel in dist
+
+Execute command: angular-cli-ghpages
+
+URL: https://guhe283.github.io/client/
+
+Info: https://dzone.com/articles/deploy-angular-app-on-github-pages

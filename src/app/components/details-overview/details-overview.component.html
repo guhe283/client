@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col">
+    <a routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to overview
+    </a>
+  </div>
+  <div class="col">
+    <div class="btn-group pull-right">
+      <a routerLink="/overview/edit/{{id}}" class="btn btn-dark">
+        Edit
+      </a>
+      <button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div>
+<hr>
+<div *ngIf="overview" class="card">
+  <h3 class="card-header"></h3>
+  <div class="card-body">
+    <div class="row">
+      <div class="col md-8 col-sm-6">
+        <h5>Overview ID: {{overview.id}}</h5>
+      </div>
+    </div>
+    <hr>
+    <ul class="list-group">
+      <!--li class="list-group-item">Date: {{overview.date.toDate()  | date: 'dd.MM.yyyy'}}</li-->
+      <li class="list-group-item">Date: {{overview.date.toDate()  | date: 'dd.MM.yyyy'}}</li>
+      <li class="list-group-item">Depot: {{overview.depot | currency:'EUR':true}}</li>
+      <li class="list-group-item">Cash: {{overview.cash | currency:'EUR':true}}</li>
+    </ul>
+  </div>
+</div>
