@@ -1,3 +1,5 @@
+import { EditStockComponent } from './components/edit-stock/edit-stock.component';
+import { DetailsStockComponent } from './components/details-stock/details-stock.component';
 
 import { DetailsOverviewComponent } from './components/details-overview/details-overview.component';
 import { OverviewService } from './services/overview.service ';
@@ -34,7 +36,6 @@ import { InvestsComponent } from './components/invests/invests.component';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { EditOverviewComponent } from './components/edit-overview/edit-overview.component';
-
 import { OverviewsComponent } from './components/overviews/overviews.component';
 import { AddOverviewComponent } from './components/add-overview/add-overview.component';
 import localeDe from '@angular/common/locales/de';
@@ -73,6 +74,8 @@ registerLocaleData(localeDe);
     NotFoundComponent,
     OverviewsComponent,
     LineChartComponent,
+    DetailsStockComponent,
+    EditStockComponent,
     GpioComponent
   ],
   imports: [

@@ -19,6 +19,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { OverviewsComponent} from './components/overviews/overviews.component';
 import { AddOverviewComponent } from './components/add-overview/add-overview.component';
+import { DetailsStockComponent } from './components/details-stock/details-stock.component';
+import { EditStockComponent } from './components/edit-stock/edit-stock.component';
 
 
 
@@ -28,11 +30,9 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'linechart',component:LineChartComponent},
   {path:'register',component:RegisterComponent},
-  {path:'stocks',component:StocksComponent},
   {path:'invests',component:InvestsComponent},
   {path:'gpio',component:GpioComponent},
   {path:'client/add',component:AddClientComponent,canActivate:[AuthGuard]},
-  {path:'stock/add',component:AddStockComponent,canActivate:[AuthGuard]},
   {path:'invest/add',component:AddInvestComponent,canActivate:[AuthGuard]},
   {path:'client/:id',component:DetailsClientComponent,canActivate:[AuthGuard]},
   {path:'client/edit/:id',component:EditClientComponent,canActivate:[AuthGuard]},
@@ -41,6 +41,10 @@ const routes: Routes = [
   {path:'overview/add',component:AddOverviewComponent,canActivate:[AuthGuard]},
   {path:'overview/:id',component:DetailsOverviewComponent,canActivate:[AuthGuard]},
   {path:'overview/edit/:id',component:EditOverviewComponent,canActivate:[AuthGuard]},
+  {path:'stock/:id',component:DetailsStockComponent,canActivate:[AuthGuard]},
+  {path:'stock',component:StocksComponent},
+  {path:'stock/add',component:AddStockComponent,canActivate:[AuthGuard]},
+  {path:'stock/edit/:id',component:EditStockComponent,canActivate:[AuthGuard]},
   {path:'**',component:NotFoundComponent,canActivate:[AuthGuard]}
 
 ];

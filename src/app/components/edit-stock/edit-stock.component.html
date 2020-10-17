@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/stock/{{id}}" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To overview
+    </a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Edit stock!!
+  </div>
+
+
+  <div class="card">
+    <div class="card-header">
+      Edit stock
+    </div>
+    <div class="card-body">
+      <form #stockForm="ngForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+          <label for="Name">Name</label>
+          <input type="text" class="form-control" name="name" #stockName="ngModel"
+            [ngClass]="{'is-invalid':stockName.errors && stockName.touched}" [ngModel]="stock.name"
+            required>
+  
+          <div [hidden]="!stockName.errors?.required" class="invalid-feedback">
+            First name required
+          </div>
+  
+          <div [hidden]="!stockName.errors?.minlength" class="invalid-feedback">
+            Must be at least 4 characters
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="isin">ISIN</label>
+          <input type="text" class="form-control" name="isin" #stockIsin="ngModel"
+            [ngClass]="{'is-invalid':stockIsin.errors && stockIsin.touched}" [ngModel]="stock.isin"
+            required>
+  
+          <div [hidden]="!stockName.errors?.required" class="invalid-feedback">
+            ISIN is required
+          </div>
+  
+          <div [hidden]="!stockName.errors?.minlength" class="invalid-feedback">
+            Must be at least 8 characters
+          </div>
+        </div>
+  
+  
+        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+      </form>
+  
+    </div>
+  </div>

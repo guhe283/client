@@ -23,6 +23,7 @@ export class StocksComponent implements OnInit {
       }
 
     );
+    //this.stockService.getIsin();
   }
     /*getTotalOwed(){
      this.totalOwed = this.clients.reduce((total,client)=>{
