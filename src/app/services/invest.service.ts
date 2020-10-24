@@ -41,7 +41,7 @@ export class InvestService {
 
 
   getInvest(id: string): Observable<Invest> {
-    this.investDoc = this.afs.doc<Invest>(`stocks/${id}`);
+    this.investDoc = this.afs.doc<Invest>(`invests/${id}`);
     this.invest = this.investDoc.snapshotChanges().pipe(map(action => {
       if (action.payload.exists === false) {
         console.log("return NULL---------------------->");
@@ -68,6 +68,8 @@ export class InvestService {
   }
 
 }
+
+
 
 /*
 

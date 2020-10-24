@@ -1,3 +1,4 @@
+
 import { EditStockComponent } from './components/edit-stock/edit-stock.component';
 import { DetailsStockComponent } from './components/details-stock/details-stock.component';
 
@@ -10,7 +11,6 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { environment } from './../environments/environment';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +29,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AddClientComponent } from './components/add-client/add-client.component';
 import { DetailsClientComponent } from './components/details-client/details-client.component';
 import { StocksComponent } from './components/stocks/stocks.component';
-import { AddStockComponent } from './components/add-stock/add-stock.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { StockService } from './services/stock.service';
 import { InvestsComponent } from './components/invests/invests.component';
@@ -39,9 +38,12 @@ import { EditOverviewComponent } from './components/edit-overview/edit-overview.
 import { OverviewsComponent } from './components/overviews/overviews.component';
 import { AddOverviewComponent } from './components/add-overview/add-overview.component';
 import localeDe from '@angular/common/locales/de';
-import { registerLocaleData, DatePipe } from '@angular/common';
+import { registerLocaleData, DatePipe, CommonModule } from '@angular/common';
 import { FormatDateService } from './services/format-date.service';
 import { GpioComponent } from './components/gpio/gpio.component';
+import { AddStockComponent } from './components/add-stock/add-stock.component';
+import { EditInvestComponent } from './components/edit-invest/edit-invest.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 registerLocaleData(localeDe);
 
@@ -58,8 +60,8 @@ registerLocaleData(localeDe);
     DetailsOverviewComponent,
     AppComponent,
     StocksComponent,
-    AddClientComponent,
     AddStockComponent,
+    AddClientComponent,
     AddInvestComponent,
     InvestsComponent,
     NavbarComponent,
@@ -76,6 +78,7 @@ registerLocaleData(localeDe);
     LineChartComponent,
     DetailsStockComponent,
     EditStockComponent,
+    EditInvestComponent,
     GpioComponent
   ],
   imports: [
@@ -87,6 +90,7 @@ registerLocaleData(localeDe);
     AngularFirestoreModule,
     AngularFireAuthModule,
     NgSelectModule,
+    CommonModule,
     ChartsModule
 
  

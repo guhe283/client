@@ -9,7 +9,7 @@ import { Stock } from '../../models/stock';
   selector: 'app-add-stock',
   templateUrl: './add-stock.component.html',
   styleUrls: ['./add-stock.component.css']
-})
+})           
 export class AddStockComponent implements OnInit {
   stock: Stock = {
     name: '',
@@ -45,7 +45,7 @@ export class AddStockComponent implements OnInit {
         cssClass: 'alert-success', timeout: 6000
       });
       // Redirect to dash
-      this.router.navigate(['/stocks']);
+      this.router.navigate(['/stock']);
     }
   }
 

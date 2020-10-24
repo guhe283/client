@@ -9,6 +9,7 @@ import { Invest } from '../../models/invest';
   styleUrls: ['./invests.component.css']
 })
 export class InvestsComponent implements OnInit {
+
   invest :Invest[];
   totalOwed: number;
 

@@ -24,8 +24,8 @@
         <tr *ngFor="let invest of invest">
           <td>{{invest.date.toDate() | date: 'dd/MM/yyyy'}}</td>
           <td>{{invest.amount}}</td>
-          <td><a routerLink="invest/{{invest.id}}" class="btn btn-secondary btn-sm"><i
-                class="fa fa-arrow-circle-o-right"></i>Details</a></td>
+          <td><a routerLink="/invest/{{invest.id}}" class="btn btn-secondary btn-sm"><i
+                class="fa fa-arrow-circle-o-right"></i>Details1</a></td>
         </tr>
       </tbody>
 

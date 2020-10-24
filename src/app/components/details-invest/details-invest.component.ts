@@ -1,25 +1,28 @@
-import { Stock } from './../../models/stock';
+import { Invest } from './../../models/invest';
+import { InvestService } from './../../services/invest.service';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Observable } from 'rxjs';
-import { StockService } from '../../services/stock.service';
+
 
 
 
 @Component({
-  selector: 'app-details-stock',
-  templateUrl: './details-stock.component.html',    
-  styleUrls: ['./details-stock.component.css']
+  selector: 'app-details-invest',
+  templateUrl: './details-invest.component.html',
+  styleUrls: ['./details-invest.component.css']
 })
 
 
-export class DetailsStockComponent implements OnInit {
-  id: string;
-  notes: Observable<Stock>;
-  overview: Stock;
-  //myDate: string;
-  dateOverview = [];
+export class DetailsInvestComponent implements OnInit {
+       
+ 
+  notes: Observable<Invest>;
+  id:string;
+  inv: Invest;
+  dateInvest= [];
+  inf1 :boolean =true;
 
 
   //totalOwed: number;
@@ -28,7 +31,7 @@ export class DetailsStockComponent implements OnInit {
   showBalanceUpdateInput: boolean = false;
 
   constructor(
-    private stockService: StockService,
+    private investService: InvestService,
     private router: Router,
     private route: ActivatedRoute,
     private flashMessage: FlashMessagesService
@@ -37,26 +40,30 @@ export class DetailsStockComponent implements OnInit {
   ngOnInit() {
     //this.notes =  this.stockService.getIsin();
 
-
     this.id = this.route.snapshot.params['id'];
     console.log("Route id---------------------", this.id)
-    this.stockService.getStock(this.id).subscribe(overview => {
-      if (overview != null)
+    this.investService.getInvest(this.id).subscribe(data => {
+      console.log("Data===>", data)
+    
+      if (data != null){
+        console.log("TRUE");
 
-        this.overview = overview;
-      console.log("Result------------------------------", this.overview);
+
+     this.inv = data;
+      console.log("Result------------------------------", this.inv);
+      }
     });
   }
 
 
   onDeleteClick() {
     if (confirm('Are you sure?')) {
-      this.stockService.deleteStock(this.overview);
+      this.investService.deleteInvest(this.inv);
       this.flashMessage.show('Overview was removed',
         {
           cssClass: 'alert-success', timeout: 4000
         });
-      this.router.navigate(['/stock/'])
+      this.router.navigate(['/invest/'])
     }
 
   }
