@@ -182,8 +182,10 @@ export class LineChartComponent implements OnInit {
     console.log("Current Depot and Cash :", this.depot);
     console.log("invetsAmount:", this.investAmount);
     console.log("totalInvest:", this.totalInvest);
-    this.lineChartLabels =[["18.03.2020,''"],["'',12.05.2020"],["12.05.2020,16.05.2020"],["12.05.2020,17.05.2020"],["01.07.2020,17.05.2020"]];
-   // this.lineChartLabels[1] = this.overviewDate;
+    this.lineChartLabels= this.overviewDate;
+   // this.lineChartLabels =[["18.03.2020,''"],["'',12.05.2020"],["12.05.2020,16.05.2020"],["12.05.2020,17.05.2020"],["01.07.2020,17.05.2020"]];
+    //this.lineChartLabels =[["18.03.2020,''"],["'',12.05.2020"],["12.05.2020,16.05.2020"],["12.05.2020,17.05.2020"],["01.07.2020,17.05.2020"]];
+    //this.lineChartLabels[1] = this.overviewDate;
     //this.lineChartLabels[0] = this.overviewDate;
 
     

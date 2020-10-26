@@ -1,17 +1,17 @@
 
 import { EditStockComponent } from './components/edit-stock/edit-stock.component';
 import { DetailsStockComponent } from './components/details-stock/details-stock.component';
-
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 import { DetailsOverviewComponent } from './components/details-overview/details-overview.component';
 import { OverviewService } from './services/overview.service ';
 import { AddInvestComponent } from './components/add-invest/add-invest.component';
 import { InvestService } from './services/invest.service';
-import { FormsModule } from '@angular/Forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { environment } from './../environments/environment';
-import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -44,6 +44,7 @@ import { GpioComponent } from './components/gpio/gpio.component';
 import { AddStockComponent } from './components/add-stock/add-stock.component';
 import { EditInvestComponent } from './components/edit-invest/edit-invest.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { DetailsInvestComponent } from './components/details-invest/details-invest.component';
 
 registerLocaleData(localeDe);
 
@@ -64,6 +65,7 @@ registerLocaleData(localeDe);
     AddClientComponent,
     AddInvestComponent,
     InvestsComponent,
+    DetailsInvestComponent,
     NavbarComponent,
     DashboardComponent,
     ClientsComponent,
@@ -82,8 +84,8 @@ registerLocaleData(localeDe);
     GpioComponent
   ],
   imports: [
+    FormsModule ,
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     FlashMessagesModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase, 'clientpanel'),
@@ -91,6 +93,7 @@ registerLocaleData(localeDe);
     AngularFireAuthModule,
     NgSelectModule,
     CommonModule,
+    ReactiveFormsModule,
     ChartsModule
 
  

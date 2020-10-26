@@ -1,9 +1,11 @@
 import { Invest } from './../../models/invest';
+
 import { InvestService } from './../../services/invest.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Observable } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -17,18 +19,14 @@ import { Observable } from 'rxjs';
 
 export class DetailsInvestComponent implements OnInit {
        
- 
+  isUniquePage : boolean = true;
   notes: Observable<Invest>;
   id:string;
-  inv: Invest;
-  dateInvest= [];
+  inv: Invest={
+    amount:0
+  }
+  investDate= [];
   inf1 :boolean =true;
-
-
-  //totalOwed: number;
-
-  hasBalance: boolean = false;
-  showBalanceUpdateInput: boolean = false;
 
   constructor(
     private investService: InvestService,
@@ -38,11 +36,19 @@ export class DetailsInvestComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //this.notes =  this.stockService.getIsin();
-
     this.id = this.route.snapshot.params['id'];
+    //this.id = this.route.snapshot.params['id'];
     console.log("Route id---------------------", this.id)
     this.investService.getInvest(this.id).subscribe(data => {
+
+      var datePipe = new DatePipe('de-DE');
+      datePipe.transform(data.date.toDate(), 'dd.MM.yyyy');
+      this.investDate.push(datePipe.transform(data.date.toDate(), 'dd.MM.yyyy'))
+      this.inv = data;
+      this.inv.date = this.investDate;
+
+
+
       console.log("Data===>", data)
     
       if (data != null){
@@ -50,7 +56,7 @@ export class DetailsInvestComponent implements OnInit {
 
 
      this.inv = data;
-      console.log("Result------------------------------", this.inv);
+      console.log("Result======>", this.inv);
       }
     });
   }

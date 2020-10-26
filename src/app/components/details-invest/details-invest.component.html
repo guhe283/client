@@ -1,33 +1,20 @@
-<div class="row">
-  <div class="col">
-    <a routerLink="/invest" class="btn btn-link">
-      <i class="fa fa-arrow-circle-o-left"></i> Back to invest
+<div class="flex-container-btn">
+  <a routerLink="/invest" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back to invest
+  </a>
+  <div class="btn-group pull-right">
+    <a routerLink="/invest/edit/{{id}}" class="btn btn-dark">
+      Edit
     </a>
-  </div>
-  <div class="col">
-    <div class="btn-group pull-right">
-      <!--a routerLink="/invest/edit/{{id}}" class="btn btn-dark">
-        Edit
-      </a-->
-      <button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
-    </div>
+    <button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
   </div>
 </div>
-<hr>
-<div *ngIf="inv" class="card">
-  <h3 class="card-header"></h3>
-  <div class="card-body">
-    <div class="row">
-      <div class="col md-8 col-sm-6">
-        <h5>InvestID: {{inv.id}}</h5>
-      </div>
-    </div>
-    <hr>
-    <ul class="list-group">
-      <!--li class="list-group-item">Date: {{overview.date.toDate()  | date: 'dd.MM.yyyy'}}</li-->
-      <li class="list-group-item">Date: {{inv.date}}</li>
-      <li class="list-group-item">Amount: {{inv.amount}}</li>
-      <!--li class="list-group-item">Cash: {{overview.cash | currency:'EUR':true}}</li-->
-    </ul>
-  </div>
+<div *ngIf="inv" class="flex-container-content">
+
+  <ul class="list-group">
+    <li class="list-group-item">ID: {{inv.id}}</li>
+    <li class="list-group-item">Date: {{inv.date}}</li>
+    <li class="list-group-item">Amount: {{inv.amount | currency:'EUR':true}}</li>
+  </ul>
+
 </div>
