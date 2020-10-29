@@ -1,12 +1,12 @@
-<div class="chart-wrapper">
-  <canvas baseChart 
-      [datasets]="lineChartData" 
-      [labels]="lineChartLabels" 
-      [options]="lineChartOptions"
-      [colors]="lineChartColors" 
-      [legend]="lineChartLegend" 
-      [chartType]="lineChartType" 
-      [plugins]="lineChartPlugins">
-  </canvas>
+<div class="flex-container-btn">
+  <h2><i class="fa fa-line-chart"></i>Chart</h2>
 </div>
-<button type="button" class="btn btn-light" (click)="onInvestment()">Invest</button>
+
+<div class="flex-container-content">
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <!--button type="button" class="btn btn-light" (click)="onInvestment()">Invest</button-->
+</div>

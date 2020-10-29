@@ -1,36 +1,28 @@
-<div class="row">
-  <div class="col-md-10">
-    <h2><i class="fa fa-money"></i>Invests</h2>
-  </div>
-  <div class="col-md-2">
-    <a routerLink="/invest/add" class="btn btn-success btn-block">
-      <i class="fa fa-plus"></i> New invest
-    </a>
-  </div>
-
+<div class="flex-container-btn">
+  <h2><i class="fa fa-money"></i>Invests</h2>
 </div>
-<div class="row">
-  <div class="col-sm col-md col-lg">
-    <table *ngIf="invest?.length >0; else noInvests" class="table table-hover">
-      <thead class="thead-inverse">
-        <tr>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Details</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let invest of invest">
-          <td>{{invest.date.toDate() | date: 'dd/MM/yyyy'}}</td>
-          <td>{{invest.amount}}</td>
-          <td><a routerLink="/invest/{{invest.id}}" class="btn btn-secondary btn-sm"><i
-                class="fa fa-arrow-circle-o-right"></i>Details</a></td>
-        </tr>
-      </tbody>
-
-    </table>
-  </div>
+<div class="flex-container-content">
+  <table *ngIf="invest?.length >0; else noInvests" class="table table-hover">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th style="width: 60px;">Details</th>
+        <th style="width: 50px;">New</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let invest of invest">
+        <td>{{invest.date.toDate() | date: 'dd/MM/yyyy'}}</td>
+        <td>{{invest.amount | currency:'EUR':true}}</td>
+        <td style="text-align: center"><a routerLink="/invest/{{invest.id}}" class="btn btn-secondary"><i
+              class="fa fa-arrow-circle-o-right"></i>Details</a></td>
+        <td><a routerLink="/invest/add" class="btn btn-success btn-block">
+            <i class="fa fa-plus"></i> New
+          </a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <ng-template #noInvests>
 

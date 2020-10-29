@@ -1,55 +1,38 @@
-<div class="row">
-  <div class="col-md-6">
-    <a routerLink="/invest" class="btn btn-link">
-      <i class="fa fa-arrow-circle-o-left"></i> Back to invest
-    </a>
-    
-  </div>
-  <div class="col-md-6">
-  </div>
+<div class="flex-container-content">
+  <a routerLink="/invest" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back to invest
+  </a>
 </div>
 
-<div class="card">
-  <div class="card-header">
-    Edit Invest
-  </div>
-  <div class="card-body">
-    <form #investForm="ngForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <div class="form-group">
-        <label for="Name">Date</label>
-        <input type="text" class="form-control" name="date" #investDate="ngModel"
-        
-          [ngClass]="{'is-invalid':investDate.errors && investDate.touched}" [(ngModel)]="invest.date" minlength="4"
-          required>
+<div class="flex-container-content">
 
-        <div [hidden]="!investDate.errors?.required" class="invalid-feedback">
-          Date is required
-        </div>
+  <form #investForm="ngForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="Name">Date</label>
+      <input style="width: 250px;" type="text" class="form-control" name="date" #investDate="ngModel"
+        [ngClass]="{'is-invalid':investDate.errors && investDate.touched}" [(ngModel)]="invest.date" minlength="4"
+        required>
 
-        <div [hidden]="!investDate.errors?.minlength" class="invalid-feedback">
-          Must be at least 4 characters
-        </div>
+      <div [hidden]="!investDate.errors?.required" class="invalid-feedback">
+        Date is required
       </div>
 
-      <div class="form-group">
-        <label for="Name">Amount</label>
-        <input type="text" class="form-control" name="amount" #investAmount="ngModel"
-          [ngClass]="{'is-invalid':investAmount.errors && investAmount.touched}" [(ngModel)]="invest.amount"
-          minlength="1" required>
-
-        <div [hidden]="!investAmount.errors?.required" class="invalid-feedback">
-          Amount is required
-        </div>
-
-        <div [hidden]="!investAmount.errors?.minlength" class="invalid-feedback">
-          Must be at least 1 characters
-        </div>
+      <div [hidden]="!investDate.errors?.minlength" class="invalid-feedback">
+        Must be at least 4 characters
       </div>
-
-
-      <input type="submit" value="Submit" class="btn btn-primary btn-block">
-    </form>
-
-  </div>
-
+    </div>
+    <div class="form-group">
+      <label for="Name">Amount</label>
+      <input style="width: 250px;" type="number" class="form-control" name="amount" #investAmount="ngModel"
+        [ngClass]="{'is-invalid':investAmount.errors && investAmount.touched}" [(ngModel)]="invest.amount" minlength="1"
+        required>
+      <div [hidden]="!investAmount.errors?.required" class="invalid-feedback">
+        Amount is required
+      </div>
+      <div [hidden]="!investAmount.errors?.minlength" class="invalid-feedback">
+        Must be at least 1 characters
+      </div>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary btn-block">
+  </form>
 </div>

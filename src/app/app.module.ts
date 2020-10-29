@@ -34,7 +34,6 @@ import { StockService } from './services/stock.service';
 import { InvestsComponent } from './components/invests/invests.component';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
-import { EditOverviewComponent } from './components/edit-overview/edit-overview.component';
 import { OverviewsComponent } from './components/overviews/overviews.component';
 import { AddOverviewComponent } from './components/add-overview/add-overview.component';
 import localeDe from '@angular/common/locales/de';
@@ -45,6 +44,7 @@ import { AddStockComponent } from './components/add-stock/add-stock.component';
 import { EditInvestComponent } from './components/edit-invest/edit-invest.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { DetailsInvestComponent } from './components/details-invest/details-invest.component';
+import { EditOverviewComponent } from './components/edit-overview/edit-overview.component';
 
 registerLocaleData(localeDe);
 
@@ -71,12 +71,12 @@ registerLocaleData(localeDe);
     ClientsComponent,
     SidebarComponent,
     EditClientComponent,
-    EditOverviewComponent,
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
     NotFoundComponent,
     OverviewsComponent,
+    EditOverviewComponent,
     LineChartComponent,
     DetailsStockComponent,
     EditStockComponent,

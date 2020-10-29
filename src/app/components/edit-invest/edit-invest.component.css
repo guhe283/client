@@ -1,0 +1,43 @@
+
+ .row{
+  margin-left: 100px; margin-right: 100px;
+ }
+
+ .flex-container{
+  display: flex;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #bfddff;
+ }
+  
+  .flex-container >*{
+  margin: .8rem;
+  }
+
+  .flex-container-content{
+    display: flex;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: #bfddff;*/
+    justify-content: center;
+   }
+    
+   /* .flex-container-content >*{
+    margin: .8rem;
+    }*/
+
+
+    .flex-container-btn{
+      display: flex;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    background-color: #bfddff;
+    /*background-color: #bfddff;*/
+   
+
+
+    }

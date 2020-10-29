@@ -1,10 +1,10 @@
-<div class="row">
+<div class="flex-container-btn">
   <div class="col">
     <a routerLink="/stock" class="btn btn-link">
       <i class="fa fa-arrow-circle-o-left"></i> Back to stock
     </a>
   </div>
-  <div class="col">
+  <div>
     <div class="btn-group pull-right">
       <a routerLink="/stock/edit/{{id}}" class="btn btn-dark">
         Edit
@@ -13,20 +13,11 @@
     </div>
   </div>
 </div>
-<div *ngIf="overview" class="card">
-  <h3 class="card-header"></h3>
-  <div class="card-body">
-    <div class="row">
-      <div class="col md-8 col-sm-6">
-        <h5>Stock ID: {{overview.id}}</h5>
-      </div>
-    </div>
-    <hr>
-    <ul class="list-group">
-      <!--li class="list-group-item">Date: {{overview.date.toDate()  | date: 'dd.MM.yyyy'}}</li-->
-      <li class="list-group-item">ISIN: {{overview.isin}}</li>
-      <li class="list-group-item">Name: {{overview.name}}</li>
-      <!--li class="list-group-item">Cash: {{overview.cash | currency:'EUR':true}}</li-->
-    </ul>
-  </div>
+<div *ngIf="overview" class="flex-container-content">
+  <ul class="list-group">
+    <li class="list-group-item">ID: {{overview.id}}</li>
+    <li class="list-group-item">ISIN: {{overview.isin}}</li>
+    <li class="list-group-item">Name: {{overview.name}}</li>
+    <!--li class="list-group-item">Cash: {{overview.cash | currency:'EUR':true}}</li-->
+  </ul>
 </div>

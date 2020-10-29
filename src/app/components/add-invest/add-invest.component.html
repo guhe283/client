@@ -1,4 +1,4 @@
-<div class="row">
+<div class="flex-container-btn">
   <div class="col-md-6">
     <a routerLink="/invest" class="btn btn-link">
       <i class="fa fa-arrow-circle-o-left"></i> Back to invest
@@ -9,10 +9,8 @@
   </div>
 </div>
 
-<div class="card">
-  <div class="card-header">
-    Add Invest
-  </div>
+<div class="flex-container-content">
+ 
   <div class="card-body">
     <form #investForm="ngForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="form-group">
@@ -33,7 +31,7 @@
 
       <div class="form-group">
         <label for="Name">Amount</label>
-        <input type="text" class="form-control" name="amount" #investAmount="ngModel"
+        <input type="number" class="form-control" name="amount" #investAmount="ngModel"
           [ngClass]="{'is-invalid':investAmount.errors && investAmount.touched}" [(ngModel)]="invest.amount"
           minlength="1" required>
 
