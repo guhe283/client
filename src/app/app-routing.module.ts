@@ -23,6 +23,7 @@ import { AddStockComponent } from './components/add-stock/add-stock.component';
 import { AddInvestComponent } from './components/add-invest/add-invest.component';
 import { DetailsInvestComponent } from './components/details-invest/details-invest.component';
 import { EditInvestComponent } from './components/edit-invest/edit-invest.component';
+import { InfoStockComponent } from './components/info-stock/info-stock.component';
 
 
 
@@ -56,8 +57,10 @@ const routes: Routes = [
 
 
   {path:'stock',component:StocksComponent},
+  {path:'stock/info/:isin',component:InfoStockComponent,canActivate:[AuthGuard]},
   {path:'stock/add',component:AddStockComponent,canActivate:[AuthGuard]},
   {path:'stock/:id',component:DetailsStockComponent,canActivate:[AuthGuard]},
+
   {path:'stock/edit/:id',component:EditStockComponent,canActivate:[AuthGuard]},
   {path:'**',component:NotFoundComponent,canActivate:[AuthGuard]}
 

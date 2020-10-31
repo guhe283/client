@@ -1,16 +1,15 @@
 <div class="flex-container-btn">
-  <div class="col">
-    <a routerLink="/stock" class="btn btn-link">
-      <i class="fa fa-arrow-circle-o-left"></i> Back to stock
+  <a routerLink="/stock" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back to stock
+  </a>
+  <div class="btn-group pull-right">
+    <a routerLink="/stock/info/{{isin}}" class="btn btn-dark">
+      Info
     </a>
-  </div>
-  <div>
-    <div class="btn-group pull-right">
-      <a routerLink="/stock/edit/{{id}}" class="btn btn-dark">
-        Edit
-      </a>
-      <button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
-    </div>
+    <a routerLink="/stock/edit/{{id}}" class="btn btn-dark">
+      Edit
+    </a>
+    <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
   </div>
 </div>
 <div *ngIf="overview" class="flex-container-content">

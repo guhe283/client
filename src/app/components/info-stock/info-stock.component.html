@@ -1,0 +1,16 @@
+<div class="flex-container-btn">
+  <div class="col">
+    <a routerLink="/stock" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to stock
+    </a>
+  </div>
+</div>
+<div *ngIf="data" class="flex-container-content">
+  <ul class="list-group">
+    <li class="list-group-item">ISIN: {{data.isin}}</li>
+    <li class="list-group-item">Title: {{data.title}}</li>
+    <li class="list-group-item">WKN: {{data.wkn}}</li>
+    <li class="list-group-item">Type: {{data.title}}</li>
+    <li *ngIf="data.symbol" class="list-group-item">Symbol: {{data.symbol}}</li>
+  </ul>
+</div>

@@ -22,7 +22,7 @@ import { Stock } from 'src/app/models/stock';
 export class EditStockComponent implements OnInit {
   stocks1 :Stock[];
 
-
+ isin:string;
   id: string;
   stock: Stock = {
     name: '',
@@ -45,6 +45,7 @@ export class EditStockComponent implements OnInit {
   ngOnInit_orig() {
     console.log("ngOnInit executed");
     // Get id from url
+    this.isin = this.route.snapshot.params['isin'];
     this.id = this.route.snapshot.params['id'];
     // Get client
     this.stockService.getOverview(this.id).subscribe(d => {
@@ -79,6 +80,8 @@ export class EditStockComponent implements OnInit {
 ngOnInit() {
     console.log("ngOnInit executed--------------------------");
     // Get id from url
+    this.isin = this.route.snapshot.params['isin'];
+    console.log("ISIN:-----------------", this.isin);
     this.id = this.route.snapshot.params['id'];
     console.log("ID:-----------------", this.id);
     // Get client

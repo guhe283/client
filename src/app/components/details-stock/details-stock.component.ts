@@ -1,8 +1,10 @@
+import { InfoStockService } from './../../services/info-stock.service';
+import { InvestService } from './../../services/invest.service';
 import { Stock } from './../../models/stock';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { Observable } from 'rxjs';
+import { observable, Observable } from 'rxjs';
 import { StockService } from '../../services/stock.service';
 
 
@@ -16,6 +18,7 @@ import { StockService } from '../../services/stock.service';
 
 export class DetailsStockComponent implements OnInit {
   id: string;
+  isin: string;
   notes: Observable<Stock>;
   overview: Stock;
   //myDate: string;
@@ -31,21 +34,27 @@ export class DetailsStockComponent implements OnInit {
     private stockService: StockService,
     private router: Router,
     private route: ActivatedRoute,
-    private flashMessage: FlashMessagesService
+    private flashMessage: FlashMessagesService,
+    private infoStock: InfoStockService
   ) { }
 
   ngOnInit() {
     //this.notes =  this.stockService.getIsin();
 
-
+    this.isin = this.route.snapshot.params['isin'];
+    console.log("Route ISIN===>", this.isin)
+    
     this.id = this.route.snapshot.params['id'];
     console.log("Route id---------------------", this.id)
     this.stockService.getStock(this.id).subscribe(overview => {
       if (overview != null)
 
         this.overview = overview;
+        this.isin= overview.isin;
+        console.log("Route ISIN===>", this.isin)
       console.log("Result------------------------------", this.overview);
     });
+    
   }
 
 
@@ -60,6 +69,8 @@ export class DetailsStockComponent implements OnInit {
     }
 
   }
+
+  
 
 
   updateBalance() {

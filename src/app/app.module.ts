@@ -1,4 +1,4 @@
-
+import { InfoStockService } from './services/info-stock.service';
 import { EditStockComponent } from './components/edit-stock/edit-stock.component';
 import { DetailsStockComponent } from './components/details-stock/details-stock.component';
 import { NgModule } from '@angular/core';
@@ -45,6 +45,8 @@ import { EditInvestComponent } from './components/edit-invest/edit-invest.compon
 import { BrowserModule } from '@angular/platform-browser';
 import { DetailsInvestComponent } from './components/details-invest/details-invest.component';
 import { EditOverviewComponent } from './components/edit-overview/edit-overview.component';
+import { HttpClientModule } from '@angular/common/http';
+import { InfoStockComponent } from './components/info-stock/info-stock.component';
 
 registerLocaleData(localeDe);
 
@@ -81,7 +83,8 @@ registerLocaleData(localeDe);
     DetailsStockComponent,
     EditStockComponent,
     EditInvestComponent,
-    GpioComponent
+    GpioComponent,
+    InfoStockComponent
   ],
   imports: [
     FormsModule ,
@@ -94,11 +97,12 @@ registerLocaleData(localeDe);
     NgSelectModule,
     CommonModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    HttpClientModule
 
  
   ],
-  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe],
+  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService],
   bootstrap: [AppComponent]
 })
 

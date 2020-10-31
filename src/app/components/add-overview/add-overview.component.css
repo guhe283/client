@@ -25,9 +25,7 @@ body {
     justify-content: center;
    }
     
-    .flex-container-content >*{
-    margin: .8rem;
-    }
+    
 
 
     .flex-container-btn{
@@ -41,4 +39,23 @@ body {
    
 
 
+    }
+    @media screen and (max-width: 520px) {
+      .flex-container-btn {
+        width:555px;
+        justify-content: center;
+        margin-left: 0;
+       margin-right:0;
+      }
+  
+      .flex-container-content {
+        width:525px;
+        justify-content: center;
+        margin-left: 0;
+       margin-right:0;
+    
+      }
+      .btn-link{
+        min-width: 525px;
+      }
     }
