@@ -7,10 +7,14 @@
 </div>
 <div *ngFor="let post of data3" class="flex-container-content">
   <ul class="list-group">
-    <li class="list-group-item">Telegram: {{post}}</li>
+    <li class="list-group-item">Status: {{text}}</li>
+    <li class="list-group-item">Message ID: {{post.message.message_id}}</li>
+    <li class="list-group-item">Text: {{post.message.text}}</li>
+    <li class="list-group-item">Date: {{post.message.convertDate}}</li>
+    <li class="list-group-item">Update ID: {{post.update_id}}</li>
   </ul>
 </div>
 <div>
   <h5>Severities</h5>
-  <button pButton pRipple type="button" label="Primary" (click)="getData()"></button>
+  <button pButton pRipple type="button" label="Primary"></button>
 </div>
