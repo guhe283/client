@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';;
+import { Injectable} from '@angular/core';;
 import { HttpClient } from '@angular/common/http';
-import { TelegramMessage } from '../models/telegram_message';
+import { TelegramMessage } from '../models/telegram';
 import { map } from 'rxjs/operators';
-
 
 
 @Injectable({
@@ -10,7 +9,6 @@ import { map } from 'rxjs/operators';
 })
 export class TelegramMessageService {
   message: TelegramMessage[];
-  message1: Object;
 
   configUrl: string = 'https://api.lemon.markets/rest/v1/data/instruments/';
   updateUrl: string = 'https://api.telegram.org/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/getUpdates'
@@ -18,11 +16,10 @@ export class TelegramMessageService {
   }
 
   getUpdate() {
-    console.log("Service========================>");
     return this.http.get<TelegramMessage>(this.updateUrl).pipe(map(res => {
-      console.log("Service=============res======", res)
+      console.log("=============Service GetUpdate===========================>", res)
       return new TelegramMessage(res);
-
+    
     }));
   }
 }

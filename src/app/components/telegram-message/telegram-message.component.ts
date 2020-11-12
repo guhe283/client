@@ -1,12 +1,12 @@
-import { Message } from './../../models/message';
+import { Message } from '../../models/telegram-message';
 import { Key } from 'protractor';
 
-import { TelegramMessage } from './../../models/telegram_message';
+import { TelegramMessage } from '../../models/telegram';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TelegramMessageService } from 'src/app/services/telegram-message.service';
 import { database } from 'firebase';
-import { Result } from 'src/app/models/result';
+import { Result } from 'src/app/models/telegram-result';
 
 
 @Component({
@@ -44,13 +44,6 @@ export class TelegramMessageComponent implements OnInit {
         console.log("ngOnInit Componente data====================================>", data);
         this.text=data.ok;
         this.data3=data.result;
-        console.log("ngOnInit Componente data3====================================>",this.data3);
-        console.log("ngOnInit Componente data3====================================>",data.result[0]);
-        console.log("ngOnInit Componente data3====================================>",data.result[1]);
-        
-        
-        
-       
       });
     }
 }
