@@ -1,0 +1,16 @@
+<div class="flex-container-btn">
+  <div class="col">
+    <a routerLink="/overview" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to overview
+    </a>
+  </div>
+</div>
+<div *ngFor="let post of data3" class="flex-container-content">
+  <ul class="list-group">
+    <li class="list-group-item">Telegram: {{post}}</li>
+  </ul>
+</div>
+<div>
+  <h5>Severities</h5>
+  <button pButton pRipple type="button" label="Primary" (click)="getData()"></button>
+</div>

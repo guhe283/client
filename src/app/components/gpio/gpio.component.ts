@@ -1,28 +1,77 @@
 import { GPIOService } from './../../services/gpio.services';
-import { Component, OnInit, Input } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
-import * as io from 'socket.io-client'
-import { identifierModuleUrl } from '@angular/compiler';
+import { Component, OnInit } from '@angular/core';
+import {trigger,state,style,transition,animate} from '@angular/animations';
+import * as io from 'socket.io-client';
+import { SelectItem } from 'primeng/api';
+import { CountryService } from 'src/app/services/country.service';
+
+
 
 //const myWebSocket  = webSocket("ws://192.168.1.5:8080/socket.io/?EIO=3&transport=websocket");
+
 
 @Component({
   selector: 'app-gpio',
   templateUrl: './gpio.component.html',
-  styleUrls: ['./gpio.component.css']
+  styleUrls: ['./gpio.component.css'],
+  providers: [CountryService]
 })
+
+
 export class GpioComponent implements OnInit {
 
-  public socket;
 
+  public socket;
   text: string;
 
+  ///
+  selectedCities: string[] = [];
 
-  constructor(private service: GPIOService) {
+  selectedCountries1: string[] = [];
+
+  selectedCountries2: string[] = [];
+
+  items: SelectItem[];
+
+  item: string;
+
+  cities: any[];
+
+  countries: any[];
 
 
+  constructor(private service: GPIOService, private countryService: CountryService) {
 
+    this.items = [];
+
+    this.countryService.getCountries().then(countries => {
+      this.items = countries;
+    });
+
+    this.countries = [
+      { name: 'Australia', code: 'AU' },
+      { name: 'Brazil', code: 'BR' },
+      { name: 'China', code: 'CN' },
+      { name: 'Egypt', code: 'EG' },
+      { name: 'France', code: 'FR' },
+      { name: 'Germany', code: 'DE' },
+      { name: 'India', code: 'IN' },
+      { name: 'Japan', code: 'JP' },
+      { name: 'Spain', code: 'ES' },
+      { name: 'United States', code: 'US' }
+    ];
+
+    this.cities = [
+      { name: 'New York', code: 'NY' },
+      { name: 'Rome', code: 'RM' },
+      { name: 'London', code: 'LDN' },
+      { name: 'Istanbul', code: 'IST' },
+      { name: 'Paris', code: 'PRS' }
+    ];
+
+
+    console.log("cities1===>", this.cities);
+    console.log("countries===>", this.countries);
 
   }
 

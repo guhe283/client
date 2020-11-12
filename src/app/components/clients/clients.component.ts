@@ -1,4 +1,4 @@
-import { from } from 'rxjs';
+
 import { ClientService } from './../../services/client.service';
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../../models/client';
@@ -12,22 +12,22 @@ export class ClientsComponent implements OnInit {
   clients: Client[];
   totalOwed: number;
 
-  constructor( private clientService: ClientService) { }
+  constructor(private clientService: ClientService) { }
 
   ngOnInit() {
     this.clientService.getClients().subscribe(
-      cl =>{
-         this.clients = cl;
-         this.getTotalOwed();
+      cl => {
+        this.clients = cl;
+        this.getTotalOwed();
       }
 
     );
   }
-    getTotalOwed(){
-     this.totalOwed = this.clients.reduce((total,client)=>{
-        return total + parseFloat(client.balance.toString());
-      },0);
-    }
-    
-
+  getTotalOwed() {
+    this.totalOwed = this.clients.reduce((total, client) => {
+      return total + parseFloat(client.balance.toString());
+    }, 0);
   }
+
+
+}

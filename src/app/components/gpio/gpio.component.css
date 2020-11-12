@@ -60,3 +60,28 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+:host ::ng-deep .p-multiselect {
+  min-width: 15rem;
+}
+
+:host ::ng-deep .multiselect-custom-virtual-scroll .p-multiselect {
+  min-width: 20rem;
+}
+
+:host ::ng-deep .p-multiselect {
+  min-width: 15rem;
+}
+
+:host ::ng-deep .multiselect-custom-virtual-scroll .p-multiselect {
+  min-width: 20rem;
+}
+
+
+
+  .country-placeholder {
+      padding: 0.25rem;
+  }
+
+
+
+

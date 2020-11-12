@@ -24,6 +24,7 @@ import { AddInvestComponent } from './components/add-invest/add-invest.component
 import { DetailsInvestComponent } from './components/details-invest/details-invest.component';
 import { EditInvestComponent } from './components/edit-invest/edit-invest.component';
 import { InfoStockComponent } from './components/info-stock/info-stock.component';
+import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
 
 
 
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path:'linechart',component:LineChartComponent},
   {path:'register',component:RegisterComponent},
   {path:'gpio',component:GpioComponent},
+  {path:'telegram',component:TelegramMessageComponent},
   {path:'client/add',component:AddClientComponent,canActivate:[AuthGuard]},
 
 
@@ -62,7 +64,9 @@ const routes: Routes = [
   {path:'stock/:id',component:DetailsStockComponent,canActivate:[AuthGuard]},
 
   {path:'stock/edit/:id',component:EditStockComponent,canActivate:[AuthGuard]},
-  {path:'**',component:NotFoundComponent,canActivate:[AuthGuard]}
+  {path:'**',component:NotFoundComponent,canActivate:[AuthGuard]},
+  
+  {path:'telegram',component:TelegramMessageComponent,canActivate:[AuthGuard]},
 
 ];
 

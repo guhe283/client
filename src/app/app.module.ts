@@ -1,3 +1,7 @@
+
+import { TelegramMessageService } from './services/telegram-message.service';
+import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 import { InfoStockService } from './services/info-stock.service';
 import { EditStockComponent } from './components/edit-stock/edit-stock.component';
 import { DetailsStockComponent } from './components/details-stock/details-stock.component';
@@ -47,6 +51,10 @@ import { DetailsInvestComponent } from './components/details-invest/details-inve
 import { EditOverviewComponent } from './components/edit-overview/edit-overview.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InfoStockComponent } from './components/info-stock/info-stock.component';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ButtonModule} from 'primeng/button';
+
 
 registerLocaleData(localeDe);
 
@@ -84,11 +92,13 @@ registerLocaleData(localeDe);
     EditStockComponent,
     EditInvestComponent,
     GpioComponent,
-    InfoStockComponent
+    InfoStockComponent,
+    TelegramMessageComponent
   ],
   imports: [
     FormsModule ,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FlashMessagesModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase, 'clientpanel'),
@@ -98,11 +108,13 @@ registerLocaleData(localeDe);
     CommonModule,
     ReactiveFormsModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    MultiSelectModule,
+    AccordionModule,
+    ButtonModule
 
- 
   ],
-  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService],
+  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService],
   bootstrap: [AppComponent]
 })
 
