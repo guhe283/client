@@ -1,6 +1,6 @@
 import { From } from './telegram-from';
 
-export class Message {
+export class EditedMessage {
 
   public message_id: number;
   public text: string;
@@ -9,16 +9,17 @@ export class Message {
   public convertDate: Date;
   public from: From;
 
- 
-  constructor(init?: Partial<Message>) {
+
+  constructor(init?: Partial<EditedMessage>) {
 
     if (init) {
-      console.log("Konstruktor Model Message========================>")
-      this.message_id= init.message_id;
+
+      this.message_id = init.message_id;
       this.text = init.text;
-      this.d =init.date;
-      this.convertDate = new Date(1000*(init.date));
+      this.d = init.date;
+      this.convertDate = new Date(1000 * (init.date));
       this.from = new From(init.from);
     }
+
   }
 }

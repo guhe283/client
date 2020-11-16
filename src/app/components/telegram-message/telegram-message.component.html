@@ -6,15 +6,20 @@
   </div>
 </div>
 <div *ngFor="let post of data3" class="flex-container-content">
-  <ul class="list-group">
-    <li class="list-group-item">Status: {{text}}</li>
+  <ul class="list-group" *ngIf="post.message.message_id">
+    <!--li class="list-group-item">Status: {{text}}</li-->
     <li class="list-group-item">Message ID: {{post.message.message_id}}</li>
     <li class="list-group-item">Text: {{post.message.text}}</li>
     <li class="list-group-item">Date: {{post.message.convertDate}}</li>
-    <li class="list-group-item">Update ID: {{post.update_id}}</li>
+    <!--li class="list-group-item">Update ID: {{post.update_id}}</li-->
+    <!--li class="list-group-item">User ID: {{post.message.from.id}}</li-->
+    <li class="list-group-item">User name {{post.message.from.first_name}}</li>
+    <li class="list-group-item">Is bot: {{post.message.from.is_bot}}</li>
+    <li class="list-group-item">Language code: {{post.message.from.language_code}}
+    </li>
   </ul>
 </div>
-<div>
+<!--div>
   <h5>Severities</h5>
   <button pButton pRipple type="button" label="Primary"></button>
-</div>
+</div-->
