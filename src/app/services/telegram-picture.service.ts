@@ -1,18 +1,20 @@
-import { Message } from './../models/telegram-message';
+import { Message } from '../models/telegram-message';
 import { Injectable } from '@angular/core';;
 import { HttpClient } from '@angular/common/http';
 import { TelegramMessage } from '../models/telegram';
 import { map, filter } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class TelegramMessageService {
+export class TelegramPictureService {
   message: TelegramMessage[];
+  imageurl: any;
 
   configUrl: string = 'https://api.lemon.markets/rest/v1/data/instruments/';
-  updateUrl: string = 'https://api.telegram.org/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/getUpdates'
+  updateUrl: string = 'https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg'
   constructor(private http: HttpClient) {
   }
 
@@ -34,12 +36,12 @@ export class TelegramMessageService {
     }*/
 
 
-  getUpdate() {
-    console.log("=============Service GetUpdate before filter===========================>")
-    return this.http.get<TelegramMessage>(this.updateUrl).pipe(filter(x => x.message !== null || x.photo!==null),
+  getPotos() {
+    console.log("=============Service GetPotos before filter===========================>");
+    return this.http.get("tel1").pipe(
       map((x => {
-        console.log("=============Service GetUpdate after filter===========================>", x)
-        return new TelegramMessage(x);
+        console.log("=============Service GetPhotos after filter===========================>", x);
+        //return new TelegramMessage(x);
       })));
 
 
@@ -50,6 +52,10 @@ export class TelegramMessageService {
   
   
   };*/
+
+  getImage(imageUrl: string): Observable<Blob> {
+    return this.http.get(imageUrl, { responseType: 'blob' });
+  }
 
 }
 

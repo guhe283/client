@@ -1,4 +1,231 @@
-<div class="flex-container-btn">
+<div class="flex-container-content">
+  
+  <p-table #dt1 [value]="customers" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
+    [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['name','country.name','representative.name','status']">
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
+            placeholder="Search keyword" />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Message Id
+            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            User
+            <p-columnFilter type="text" field="country.name" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Message
+            <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false"
+              [showOperator]="false" [showAddButton]="false">
+              <ng-template pTemplate="header">
+                <div class="p-px-3 p-pt-3 p-pb-0">
+                  <span class="p-text-bold">Agent Picker</span>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-multiSelect [ngModel]="value" [options]="representatives" placeholder="Any"
+                  (onChange)="filter($event.value)" optionLabel="name">
+                  <ng-template let-option pTemplate="item">
+                    <div class="p-multiselect-representative-option">
+                      <span class="p-ml-1">{{option.name}}</span>
+                    </div>
+                  </ng-template>
+                </p-multiSelect>
+              </ng-template>
+            </p-columnFilter>
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Date
+            <p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Image
+            <p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter>
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+           Update Id
+            <p-columnFilter field="status" matchMode="equals" display="menu">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any">
+                  <ng-template let-option pTemplate="item">
+                    <span [class]="'customer-badge status-' + option.value">{{option.label}}</span>
+                  </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
+          </div>
+        </th>
+        <th>
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Activity
+            <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false"
+              [showOperator]="false" [showAddButton]="false">
+              <ng-template pTemplate="filter" let-filter="filterCallback">
+                <p-slider [ngModel]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)"
+                  styleClass="p-m-3"></p-slider>
+                <div class="p-d-flex p-ai-center p-jc-between p-px-2">
+                  <span>{{activityValues[0]}}</span>
+                  <span>{{activityValues[1]}}</span>
+                </div>
+              </ng-template>
+            </p-columnFilter>
+          </div>
+        </th>
+        <th style="width: 8rem">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Verified
+            <p-columnFilter type="boolean" field="verified" display="menu"></p-columnFilter>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td>
+          {{customer.message.message_id}}
+        </td>
+        <td>
+          <span class="image-text">{{customer.message.from.first_name}}</span>
+        </td>
+        <td>
+          <span class="image-text">{{customer.message.text}}</span>
+        </td>
+        <td>
+          {{customer.message.convertDate | date:'short'}}
+        </td>
+        <td>
+          <img [src]="img"  alt="Description" width="50" height="50">
+        </td>
+        <td>
+          <span [class]="'customer-badge status-' + customer.status">{{customer.update_id}}</span>
+        </td>
+        <td>
+          <p-progressBar [value]="customer.activity" [showValue]="false"></p-progressBar>
+        </td>
+        <td class="p-text-center">
+          <i class="pi"
+            [ngClass]="{'true-icon pi-check-circle': customer.verified, 'false-icon pi-times-circle': !customer.verified}"></i>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7">No customers found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!--h5>Filter Row</h5>
+<p>Filters are displayed inline within a separate row.</p>
+<p-table #dt2 [value]="customers" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers" [paginator]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [globalFilterFields]="['name','country.name','representative.name','status']">
+  <ng-template pTemplate="caption">
+    <div class="p-d-flex">
+      <span class="p-input-icon-left p-ml-auto">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+          placeholder="Search keyword" />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>User name</th>
+      <th>Country</th>
+      <th>Agent</th>
+      <th>Status</th>
+      <th style="width: 6rem">Verified</th>
+    </tr>
+    <tr>
+      <th>
+        <p-columnFilter type="text" field="name"></p-columnFilter>
+      </th>
+      <th>
+        <p-columnFilter type="text" field="country.name"></p-columnFilter>
+      </th>
+      <th>
+        <p-columnFilter field="representative" matchMode="in" [showMenu]="false">
+          <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+            <p-multiSelect [ngModel]="value" [options]="representatives" placeholder="Any"
+              (onChange)="filter($event.value)" optionLabel="name">
+              <ng-template let-option pTemplate="item">
+                <div class="p-multiselect-representative-option">
+                  <span class="p-ml-1">{{option.name}}</span>
+                </div>
+              </ng-template>
+            </p-multiSelect>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+      <th>
+        <p-columnFilter field="status" matchMode="equals" [showMenu]="false">
+          <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+            <p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any"
+              [showClear]="true">
+              <ng-template let-option pTemplate="item">
+                <span [class]="'customer-badge status-' + option.value">{{option.label}}</span>
+              </ng-template>
+            </p-dropdown>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+      <th>
+        <p-columnFilter type="boolean" field="verified"></p-columnFilter>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-customer>
+    <tr>
+      <td>
+        {{customer.name}}
+      </td>
+      <td>
+        <span class="image-text">{{customer.country.name}}</span>
+      </td>
+      <td>
+        <span class="image-text">{{customer.representative.name}}</span>
+      </td>
+      <td>
+        <span [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
+      </td>
+      <td>
+        <i class="pi"
+          [ngClass]="{'true-icon pi-check-circle': customer.verified, 'false-icon pi-times-circle': !customer.verified}"></i>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="5">No customers found.</td>
+    </tr>
+  </ng-template>
+</p-table>
+</div-->
+
+  <!--div class="flex-container-btn">
   <div class="col">
     <a routerLink="/overview" class="btn btn-link">
       <i class="fa fa-arrow-circle-o-left"></i> Back to overview
@@ -7,19 +234,17 @@
 </div>
 <div *ngFor="let post of data3" class="flex-container-content">
   <ul class="list-group" *ngIf="post.message.message_id">
-    <!--li class="list-group-item">Status: {{text}}</li-->
+  
     <li class="list-group-item">Message ID: {{post.message.message_id}}</li>
     <li class="list-group-item">Text: {{post.message.text}}</li>
+    <li class="list-group-item">Message edited: {{post.message.edited}}</li>
     <li class="list-group-item">Date: {{post.message.convertDate}}</li>
-    <!--li class="list-group-item">Update ID: {{post.update_id}}</li-->
-    <!--li class="list-group-item">User ID: {{post.message.from.id}}</li-->
+    <li class="list-group-item">Update ID: {{post.update_id}}</li>
+    <li class="list-group-item">User ID: {{post.message.from.id}}</li>
     <li class="list-group-item">User name {{post.message.from.first_name}}</li>
     <li class="list-group-item">Is bot: {{post.message.from.is_bot}}</li>
     <li class="list-group-item">Language code: {{post.message.from.language_code}}
     </li>
   </ul>
-</div>
-<!--div>
-  <h5>Severities</h5>
-  <button pButton pRipple type="button" label="Primary"></button>
+  <div><img [src]="img" alt="Place image title"></div>
 </div-->

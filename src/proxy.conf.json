@@ -4,5 +4,24 @@
       "secure": false,
       "ws":true,
       "logLevel": "debug"
+  },
+  
+  "/https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg": {
+    "target": "https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg",
+    "secure": false,
+    "pathRewrite": {
+      "^/https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg": ""
+    },
+    "changeOrigin": true
+  },
+  "/api.telegram.org/test": {
+    "target": "https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg",
+    "secure": false,
+    "pathRewrite": {
+      "^/": ""
+    },
+    "changeOrigin": true
   }
+
+
 }

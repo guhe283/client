@@ -1,11 +1,10 @@
-
 import { TelegramMessageService } from './services/telegram-message.service';
 import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InfoStockService } from './services/info-stock.service';
 import { EditStockComponent } from './components/edit-stock/edit-stock.component';
 import { DetailsStockComponent } from './components/details-stock/details-stock.component';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailsOverviewComponent } from './components/details-overview/details-overview.component';
@@ -54,13 +53,20 @@ import { InfoStockComponent } from './components/info-stock/info-stock.component
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
+import { CustomerService } from './services/customerservice';
+import { TableModule } from 'primeng/table';
+import {ToastModule} from 'primeng/toast';
+import {CalendarModule} from 'primeng/calendar';
+import {SliderModule} from 'primeng/slider';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import {DialogModule} from 'primeng/dialog';
+import {DropdownModule} from 'primeng/dropdown';
+import {ProgressBarModule} from 'primeng/progressbar';
+import { InputTextModule} from 'primeng/inputtext';
+import { PrimeNGConfig } from 'primeng/api';
 
 
 registerLocaleData(localeDe);
-
-
-
-
 
 
 @NgModule({
@@ -111,11 +117,28 @@ registerLocaleData(localeDe);
     HttpClientModule,
     MultiSelectModule,
     AccordionModule,
-    ButtonModule
+    ButtonModule,
+    TableModule,
+    CalendarModule,
+		SliderModule,
+		DialogModule,
+		MultiSelectModule,
+		ContextMenuModule,
+		DropdownModule,
+		ButtonModule,
+		ToastModule,
+    InputTextModule,
+    ProgressBarModule,
+    HttpClientModule,
+    CommonModule
 
   ],
-  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService],
-  bootstrap: [AppComponent]
+  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService],
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 
 

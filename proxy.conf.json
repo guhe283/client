@@ -7,7 +7,14 @@
     },
     "changeOrigin": true
   },
-
+  "/tel1": {
+    "target": "https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg",
+    "secure": false,
+    "pathRewrite": {
+      "^/tel1": ""
+    },
+    "changeOrigin": true
+  },
 
 
   "/https://127.0.0.1:4200/test": {
@@ -26,19 +33,18 @@
     },
     "changeOrigin": true
   },
-  "/api": {
-    "target": "http://google.at",
+  "/api/*": {
+    "target": "http://localhost:4200",
     "secure": false,
-    "pathRewrite": {
-      "^/api": ""
-    },
-    "changeOrigin": true
-  },
+    "ws":true,
+    "logLevel": "debug"
+},
+
   "/ttt/*": {
-    "target": "http://www.bild.de",
+    "target": "https://www.bild.de",
     "secure": false,
     "pathRewrite": {
-      "^/ttt/": ""
+      "^/ttt": ""
     },
     "changeOrigin": true
   }

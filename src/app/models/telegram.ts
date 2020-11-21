@@ -2,13 +2,15 @@ import { from } from 'rxjs';
 import { Message } from './telegram-message';
 import {From } from './telegram-from';
 import { Result } from './telegram-result';
-import { EditedMessage } from './telegram-edited-message copy';
+import { Photo } from './telegram-photo';
+import { EditedMessage } from './telegram-edited-message';
 
 export class TelegramMessage {
 
   public result: Result[];
   public message: Message;
   public edited_message: EditedMessage;
+  public photo: Photo;
   public ok: boolean;
   public from: From[];
 
@@ -21,6 +23,7 @@ export class TelegramMessage {
       //this.message = new Message(init.message);
       //this.edited_message = new Message(init.edited_message);
       //this.from = init.message.from.map((i) => new From(i));
+      //this.photo = new Photo(init.photo);
       this.ok = init.ok;
     }
   }

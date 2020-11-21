@@ -1,4 +1,5 @@
-import { EditedMessage } from './telegram-edited-message copy';
+import { Photo } from './telegram-photo';
+import { EditedMessage } from './telegram-edited-message';
 import { From } from './telegram-from';
 import { Message } from './telegram-message';
 
@@ -6,8 +7,9 @@ export class Result {
 
   public update_id: number;
   public message: Message;
-  public edited_message: EditedMessage;
-  public from: From;
+  public photo: Photo;
+  //public edited_message: EditedMessage;
+  //public from: From;
 
 
   constructor(init?: Partial<Result>) {
@@ -15,11 +17,13 @@ export class Result {
     if (init) {
       console.log("Konstruktor Model Result========================>");
       this.update_id = init.update_id;
-      this.message = new Message(init.message);
-      this.edited_message = new EditedMessage(init.edited_message);
-
-
+      if (init["message"]) {
+        this.message = new Message(init["message"], false);
+      } else if (init["edited_message"]) {
+        this.message = new Message(init["edited_message"], true);
+      }
       //this.from = new From(init.from);
     }
+
   }
 }

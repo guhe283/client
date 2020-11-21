@@ -1,6 +1,8 @@
-import { Message } from '../../models/telegram-message';
-import { Key } from 'protractor';
+import { TableModule } from 'primeng/table';
 
+import { TelegramPictureService } from './../../services/telegram-picture.service';
+
+import { PrimeNGConfig } from 'primeng/api';
 import { TelegramMessage } from '../../models/telegram';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,6 +10,11 @@ import { TelegramMessageService } from 'src/app/services/telegram-message.servic
 import { database } from 'firebase';
 import { Result } from 'src/app/models/telegram-result';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Customer, Representative } from 'src/app/models/customer';
+import { CustomerService } from 'src/app/services/customerservice';
+
+
 
 
 @Component({
@@ -24,6 +31,7 @@ export class TelegramMessageComponent implements OnInit {
   data2: any[];
   //myDate: string;
   data3: Result[];
+  img = 'https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg';
 
 
   //totalOwed: number;
@@ -31,29 +39,127 @@ export class TelegramMessageComponent implements OnInit {
   hasBalance: boolean = false;
   showBalanceUpdateInput: boolean = false;
   subscription: Subscription;
+  base64Image = 'data:image/png;base64,����';
+  imagePath: any;
+
+
+  //customers: Customer[];
+  customers: Result[];
+
+  representatives: Representative[];
+
+  statuses: any[];
+
+  loading: boolean = true;
+
+  activityValues: number[] = [0, 100];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private message: TelegramMessageService
+    private message: TelegramMessageService,
+    private sanitizer: DomSanitizer,
+    private photos: TelegramPictureService,
+    private customerService: CustomerService
   ) { }
 
-    ngOnInit() {
-      console.log("Telegram ngOnInit subscribe getUpdate=====================>");
-      this.subscription = this.message.getUpdate().subscribe(data => {
-  
-        //this.data3.push(... data);
-        console.log("Telegram  ngOnInit Componente data====================================>", data);
-        this.text=data.ok;
-        console.log("Telegram  ngOnInit Componente text====================================>", this.text);
-        this.data3=data.result;
-        console.log("Telegram  ngOnInit Componente data3====================================>", this.data3);
-      });
-    }
+  transform() {
+    this.imagePath = this.sanitizer.bypassSecurityTrustResourceUrl(this.base64Image);
+  }
 
-    ngOnDestroy() {
-      this.subscription.unsubscribe();
-  
+  ngOnInit() {
+
+    this.transform();
+    console.log("Telegram ngOnInit subscribe getUpdate=====================>");
+    this.subscription = this.message.getUpdate().subscribe(data => {
+
+      //this.data3.push(... data);
+      console.log("Telegram  ngOnInit Componente data====================================>", data);
+      this.text = data.ok;
+      console.log("Telegram  ngOnInit Componente text====================================>", this.text);
+      this.customers = data.result;
+      this.loading = false;
+      console.log("Telegram  ngOnInit Componente data3====================================>", this.data3);
+    });
+
+    /*this.subscription = this.photos.getPotos().subscribe(d => {
+ 
+      //this.data3.push(... data);
+      console.log("Telegram  Photodata====================================>", d);
+    });*/
+
+    this.getImageFromService();
+
+
+
+
+    /////
+/*
+    this.customerService.getCustomersLarge().then(customers => {
+      this.customers = customers;
+      this.loading = false;
+
+      this.customers.forEach(
+        customer => (customer.date = new Date(customer.date))
+      );
+    });*/
+/*
+    this.representatives = [
+      { name: "Amy Elsner", image: "amyelsner.png" },
+      { name: "Anna Fali", image: "annafali.png" },
+      { name: "Asiya Javayant", image: "asiyajavayant.png" },
+      { name: "Bernardo Dominic", image: "bernardodominic.png" },
+      { name: "Elwin Sharvill", image: "elwinsharvill.png" },
+      { name: "Ioni Bowcher", image: "ionibowcher.png" },
+      { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
+      { name: "Onyama Limba", image: "onyamalimba.png" },
+      { name: "Stephen Shaw", image: "stephenshaw.png" },
+      { name: "XuXue Feng", image: "xuxuefeng.png" }
+    ];
+
+    this.statuses = [
+      { label: "Unqualified", value: "unqualified" },
+      { label: "Qualified", value: "qualified" },
+      { label: "New", value: "new" },
+      { label: "Negotiation", value: "negotiation" },
+      { label: "Renewal", value: "renewal" },
+      { label: "Proposal", value: "proposal" }
+    ];*/
+
+
+
+    /////
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+
+  }
+
+  getImageFromService() {
+    //this.isImageLoading = true;
+    this.photos.getImage("tel1").subscribe(data => {
+      this.createImageFromBlob(data);
+      console.log("DATADATA__________________________________>", data)
+      //this.isImageLoading = false;
+    }, error => {
+      //this.isImageLoading = false;
+      console.log(error);
+    });
+  }
+
+  imageToShow: any;
+
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+      this.imageToShow = reader.result;
+      console.log("Image to show=======================================================================>", this.imageToShow)
+    }, false);
+
+    if (image) {
+      reader.readAsDataURL(image);
     }
+  }
 
 }
