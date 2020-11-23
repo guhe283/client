@@ -1,3 +1,4 @@
+import { Photo } from './../../models/telegram-photo';
 import { TableModule } from 'primeng/table';
 
 import { TelegramPictureService } from './../../services/telegram-picture.service';
@@ -60,7 +61,7 @@ export class TelegramMessageComponent implements OnInit {
     private message: TelegramMessageService,
     private sanitizer: DomSanitizer,
     private photos: TelegramPictureService,
-    private customerService: CustomerService
+
   ) { }
 
   transform() {
@@ -79,7 +80,11 @@ export class TelegramMessageComponent implements OnInit {
       console.log("Telegram  ngOnInit Componente text====================================>", this.text);
       this.customers = data.result;
       this.loading = false;
-      console.log("Telegram  ngOnInit Componente data3====================================>", this.data3);
+      console.log("Telegram  ngOnInit Componente Custumers====================================>", this.customers);
+
+      this.findFileID();
+
+
     });
 
     /*this.subscription = this.photos.getPotos().subscribe(d => {
@@ -94,37 +99,37 @@ export class TelegramMessageComponent implements OnInit {
 
 
     /////
-/*
-    this.customerService.getCustomersLarge().then(customers => {
-      this.customers = customers;
-      this.loading = false;
-
-      this.customers.forEach(
-        customer => (customer.date = new Date(customer.date))
-      );
-    });*/
-/*
-    this.representatives = [
-      { name: "Amy Elsner", image: "amyelsner.png" },
-      { name: "Anna Fali", image: "annafali.png" },
-      { name: "Asiya Javayant", image: "asiyajavayant.png" },
-      { name: "Bernardo Dominic", image: "bernardodominic.png" },
-      { name: "Elwin Sharvill", image: "elwinsharvill.png" },
-      { name: "Ioni Bowcher", image: "ionibowcher.png" },
-      { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
-      { name: "Onyama Limba", image: "onyamalimba.png" },
-      { name: "Stephen Shaw", image: "stephenshaw.png" },
-      { name: "XuXue Feng", image: "xuxuefeng.png" }
-    ];
-
-    this.statuses = [
-      { label: "Unqualified", value: "unqualified" },
-      { label: "Qualified", value: "qualified" },
-      { label: "New", value: "new" },
-      { label: "Negotiation", value: "negotiation" },
-      { label: "Renewal", value: "renewal" },
-      { label: "Proposal", value: "proposal" }
-    ];*/
+    /*
+        this.customerService.getCustomersLarge().then(customers => {
+          this.customers = customers;
+          this.loading = false;
+    
+          this.customers.forEach(
+            customer => (customer.date = new Date(customer.date))
+          );
+        });*/
+    /*
+        this.representatives = [
+          { name: "Amy Elsner", image: "amyelsner.png" },
+          { name: "Anna Fali", image: "annafali.png" },
+          { name: "Asiya Javayant", image: "asiyajavayant.png" },
+          { name: "Bernardo Dominic", image: "bernardodominic.png" },
+          { name: "Elwin Sharvill", image: "elwinsharvill.png" },
+          { name: "Ioni Bowcher", image: "ionibowcher.png" },
+          { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
+          { name: "Onyama Limba", image: "onyamalimba.png" },
+          { name: "Stephen Shaw", image: "stephenshaw.png" },
+          { name: "XuXue Feng", image: "xuxuefeng.png" }
+        ];
+    
+        this.statuses = [
+          { label: "Unqualified", value: "unqualified" },
+          { label: "Qualified", value: "qualified" },
+          { label: "New", value: "new" },
+          { label: "Negotiation", value: "negotiation" },
+          { label: "Renewal", value: "renewal" },
+          { label: "Proposal", value: "proposal" }
+        ];*/
 
 
 
@@ -162,4 +167,19 @@ export class TelegramMessageComponent implements OnInit {
     }
   }
 
+  findFileID() {
+
+    let t: any;
+    let id: any;
+
+    this.customers.forEach((element) => {
+      if (element.message['photo']) {
+        id = element['update_id']
+        t = element.message['photo'][0].file_id
+        console.log("RESULT=========================================>:", t ,"ID: ", id);
+
+    }
+    })
+
+  }
 }

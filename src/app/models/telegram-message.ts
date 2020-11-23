@@ -12,6 +12,8 @@ export class Message {
   public from: From;
   public edited: boolean;
   public photo: Photo;
+  public caption: string;
+
 
 
   constructor(init?: Partial<Message>, edited?: boolean) {
@@ -24,8 +26,13 @@ export class Message {
       this.d = init.date;
       this.convertDate = new Date(1000 * (init.date));
       this.from = new From(init.from);
-      if(init["photo"]) {
-      this.photo = init.photo;}
+      if (init["photo"]) {
+        this.photo = init.photo;
+      }
+
+      if (init["caption"]) {
+        this.caption = init.caption;
+      }
 
     }
   }

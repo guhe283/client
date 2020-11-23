@@ -62,4 +62,13 @@
       .btn-link{
         min-width: 525px;
       }
+
+
     }
+
+    .test{
+      display: flex;
+      flex-wrap: wrap;
+      width: 3.0rem;
+      height: 3.0rem;
+}

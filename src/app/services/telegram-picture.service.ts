@@ -57,15 +57,24 @@ export class TelegramPictureService {
     return this.http.get(imageUrl, { responseType: 'blob' });
   }
 
+
+  getFile(fileID: string) {
+    return this.http.get(fileID).pipe(map((x => {
+      console.log("=============Service GetFile ===========================>", x);
+      //return new TelegramMessage(x);
+    })));
+
+  }
 }
 
 
 /*
 
-http.get('./data.json')
-  .map(res => res.json())
-  .concatMap(res => res)
-  .filter(x => x.value === 2)
-  .subscribe(data => {
-    this.d = data;
-  });*/
+Get File
+https://api.telegram.org/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/getFile?file_id=AgACAgQAAxkBAANBX7tPu32lQJVsMGOQIPke8JFzWcUAAke0MRtqQeFRFX1xvI7eyLv-hLQnXQADAQADAgADeQADroQCAAEeBA
+
+Get Photos
+https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_2.jpg
+
+*/
+

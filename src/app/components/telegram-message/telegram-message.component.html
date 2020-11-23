@@ -1,5 +1,5 @@
 <div class="flex-container-content">
-  
+
   <p-table #dt1 [value]="customers" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
     [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
     [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -13,22 +13,22 @@
         </span>
       </div>
     </ng-template>
-    <ng-template pTemplate="header">
+    <ng-template pTemplate="header" class="flex-container-content">
       <tr>
         <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
-            Message Id
+          <div>
+            Message ID
             <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
           </div>
         </th>
         <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
+          <div>
             User
             <p-columnFilter type="text" field="country.name" display="menu"></p-columnFilter>
           </div>
         </th>
         <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
+          <div>
             Message
             <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false"
               [showOperator]="false" [showAddButton]="false">
@@ -51,20 +51,20 @@
           </div>
         </th>
         <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
+          <div>
             Date
             <p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
           </div>
         </th>
         <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
+          <div>
             Image
             <p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter>
           </div>
         </th>
         <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
-           Update Id
+          <div>
+            Update Id
             <p-columnFilter field="status" matchMode="equals" display="menu">
               <ng-template pTemplate="filter" let-value let-filter="filterCallback">
                 <p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any">
@@ -77,7 +77,7 @@
           </div>
         </th>
         <th>
-          <div class="p-d-flex p-jc-between p-ai-center">
+          <div>
             Activity
             <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false"
               [showOperator]="false" [showAddButton]="false">
@@ -93,7 +93,7 @@
           </div>
         </th>
         <th style="width: 8rem">
-          <div class="p-d-flex p-jc-between p-ai-center">
+          <div>
             Verified
             <p-columnFilter type="boolean" field="verified" display="menu"></p-columnFilter>
           </div>
@@ -115,7 +115,7 @@
           {{customer.message.convertDate | date:'short'}}
         </td>
         <td>
-          <img [src]="img"  alt="Description" width="50" height="50">
+          <img [src]="img" alt="Description" class="test">
         </td>
         <td>
           <span [class]="'customer-badge status-' + customer.status">{{customer.update_id}}</span>
