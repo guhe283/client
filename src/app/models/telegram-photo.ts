@@ -7,7 +7,7 @@ export class Photo {
   public file_size: number;
   public width: number;
   public height: number;
-
+  public file_path: string;
 
   constructor(init?: Partial<Photo>) {
 

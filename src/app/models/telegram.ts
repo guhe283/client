@@ -13,6 +13,7 @@ export class TelegramMessage {
   public photo: Photo;
   public ok: boolean;
   public from: From[];
+  public file: File;
 
   constructor(init?: Partial<TelegramMessage>) {
 

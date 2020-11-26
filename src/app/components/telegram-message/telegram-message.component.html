@@ -76,7 +76,7 @@
             </p-columnFilter>
           </div>
         </th>
-        <th>
+        <!--th>
           <div>
             Activity
             <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false"
@@ -97,10 +97,10 @@
             Verified
             <p-columnFilter type="boolean" field="verified" display="menu"></p-columnFilter>
           </div>
-        </th>
+        </th-->
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-customer>
+    <ng-template pTemplate="body" let-customer class="flex-container-content">
       <tr>
         <td>
           {{customer.message.message_id}}
@@ -115,18 +115,20 @@
           {{customer.message.convertDate | date:'short'}}
         </td>
         <td>
-          <img [src]="img" alt="Description" class="test">
+          <img *ngIf="customer.message.photo" src="https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/{{customer.message['photo'][3].file_path}}" alt="Description" class="test">
+          <!--img *ngIf="customer.message.photo" [src]="'https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/customer.message['photo'][3].file_path" alt="Description" class="test"-->
+
         </td>
         <td>
           <span [class]="'customer-badge status-' + customer.status">{{customer.update_id}}</span>
         </td>
-        <td>
+        <!--td>
           <p-progressBar [value]="customer.activity" [showValue]="false"></p-progressBar>
         </td>
         <td class="p-text-center">
           <i class="pi"
             [ngClass]="{'true-icon pi-check-circle': customer.verified, 'false-icon pi-times-circle': !customer.verified}"></i>
-        </td>
+        </td-->
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">

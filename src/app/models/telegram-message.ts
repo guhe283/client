@@ -13,14 +13,15 @@ export class Message {
   public edited: boolean;
   public photo: Photo;
   public caption: string;
+  public file_path: string;;
 
 
 
-  constructor(init?: Partial<Message>, edited?: boolean) {
+  constructor(init?, edited?: boolean) {
 
     if (init) {
       this.edited = edited;
-      console.log("Konstruktor Model Message========================>")
+      console.log("Konstruktor Model Message=== message_id=====================>",init.message_id)
       this.message_id = init.message_id;
       this.text = init.text;
       this.d = init.date;
@@ -28,6 +29,10 @@ export class Message {
       this.from = new From(init.from);
       if (init["photo"]) {
         this.photo = init.photo;
+      }
+
+      if (init["file"]) {
+        this.file_path = init.result.file_path;
       }
 
       if (init["caption"]) {
