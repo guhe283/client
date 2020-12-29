@@ -18,7 +18,7 @@ export class TelegramMessage {
   constructor(init?: Partial<TelegramMessage>) {
 
     if (init) {
-      console.log("Konstruktor Model telegram========================>")
+      console.log("Konstruktor Model telegram========================>", init)
       this.result = init.result.map((i) => new Result(i));
       //this.edited_message = new EditedMessage(init.edited_message);
       //this.message = new Message(init.message);

@@ -25,6 +25,7 @@ import { DetailsInvestComponent } from './components/details-invest/details-inve
 import { EditInvestComponent } from './components/edit-invest/edit-invest.component';
 import { InfoStockComponent } from './components/info-stock/info-stock.component';
 import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
+import { DjangoMessageComponent } from './components/django-message/django-message.component';
 
 
 
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'gpio',component:GpioComponent},
   {path:'telegram',component:TelegramMessageComponent},
+  {path:'django',component:DjangoMessageComponent},
   {path:'client/add',component:AddClientComponent,canActivate:[AuthGuard]},
 
 
