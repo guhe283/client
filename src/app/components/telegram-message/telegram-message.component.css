@@ -6,7 +6,7 @@
 
  .flex-container{
   display: flex;
-  width: 90%;
+  width: 75%;
   margin-left: auto;
   margin-right: auto;
   background-color: #bfddff;
@@ -18,7 +18,7 @@
 
   .flex-container-content{
     display: flex;
-    width: 90%;
+    width: 75%;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -43,7 +43,6 @@
 
 
     }
-    
 
     @media screen and (max-width: 520px) {
       .flex-container-btn {
@@ -67,36 +66,9 @@
 
     }
 
-    .test11{
+    .test{
       display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-   
-     
+      flex-wrap: wrap;
+      width: 3.0rem;
+      height: 3.0rem;
 }
-
-.test12{
-  
-  width: 4.0rem;
-  height: 4.0rem;
- 
-}
-
-
-.tableMessage{
-  width: 50px; 
- 
-}
-
-.test13{
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  text-align: start;
-
- 
-}
-
-

@@ -11,7 +11,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Representative } from 'src/app/models/customer';
 import { forkJoin, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import {MenuItem} from 'primeng/api';
 
 
 
@@ -138,11 +137,8 @@ export class TelegramMessageComponent implements OnInit {
     this.subscription = this.message.getUpdate().subscribe(data => {
 
       //this.data3.push(... data);
-      console.log("Telegram  ngOnInit GetUpdate Map Data FileIDIDIDIDIdata!!!!!!!!!!!!!====================================>", data);
+      console.log("Telegram  ngOnInit Componente data====================================>", data);
       this.text = data.ok;
-      console.log("Telegram  ngOnInit GetUpdate Map Data data File_ID====================================>", data.message['photo'].file_id);
-                                                                                                   //element.message['photo']['file_id][0]
-      
       console.log("Telegram  ngOnInit Componente text====================================>", this.text);
       this.customers = data.result;
       this.loading = false;
@@ -256,10 +252,9 @@ var source = Observable.fromEvent<MessageEvent>(websocket, 'message', (e) => JSO
         console.log("RESULT Mthode Array bfore=========================================>:", this.customers);
         //console.log("RESULT Mthode Array bfore=========================================>:", this.customers['message'].caption);
         let v =this.subscription1 = this.photos.getFile(t).subscribe(data => {
-        
 
           //this.data3.push(... data);
-          console.log("Telegram  ngOnInit Componente Fer Phot Map Path image-->data====================================>", data.path_image);;
+          console.log("Telegram  ngOnInit Componente data====================================>", data);;
         //element.message['photo'].push({'file_path':'test1111'});
         console.log("RESULT Mthode Array bfore== last index v=======================================>:", data);
         element.message['photo'].push(data);

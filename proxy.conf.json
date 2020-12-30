@@ -33,15 +33,13 @@
     },
     "changeOrigin": true
   },
-  "/api": {
+  "/api/*": {
     "target": "http://localhost:4200",
     "secure": false,
-    "pathRewrite": {
-      "^/api": ""
-    },
-    "changeOrigin": true,
+    "ws":true,
     "logLevel": "debug"
-  },
+},
+
   "/ttt/*": {
     "target": "https://www.bild.de",
     "secure": false,
@@ -49,15 +47,5 @@
       "^/ttt": ""
     },
     "changeOrigin": true
-  },
-    "/posts": {
-      "target": "http://localhost:8000",
-      "secure": true,
-      "pathRewrite": {
-      "^/posts": ""
-    },
-      "changeOrigin": true
-    }
   }
-    
-
+}
