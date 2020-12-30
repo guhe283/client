@@ -1,3 +1,4 @@
+import { DjangoMessageService } from 'src/app/services/django-message.service';
 import { TelegramMessageService } from './services/telegram-message.service';
 import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -64,6 +65,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {ProgressBarModule} from 'primeng/progressbar';
 import { InputTextModule} from 'primeng/inputtext';
 import { PrimeNGConfig } from 'primeng/api';
+import { DjangoMessageComponent } from './components/django-message/django-message.component';
 
 
 registerLocaleData(localeDe);
@@ -99,7 +101,8 @@ registerLocaleData(localeDe);
     EditInvestComponent,
     GpioComponent,
     InfoStockComponent,
-    TelegramMessageComponent
+    TelegramMessageComponent,
+    DjangoMessageComponent
   ],
   imports: [
     FormsModule ,
@@ -133,7 +136,7 @@ registerLocaleData(localeDe);
     CommonModule
 
   ],
-  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService],
+  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

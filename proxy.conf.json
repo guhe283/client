@@ -47,5 +47,13 @@
       "^/ttt": ""
     },
     "changeOrigin": true
-  }
+  },
+    "/posts": {
+     "target": "http://localhost:8000",
+      "secure": true,
+      "pathRewrite": {
+      "^/posts": ""
+    },
+      "changeOrigin": true
+    }
 }

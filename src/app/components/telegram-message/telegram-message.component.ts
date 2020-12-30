@@ -202,7 +202,7 @@ export class TelegramMessageComponent implements OnInit {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-    this.subscription1.unsubscribe();
+    //this.subscription1.unsubscribe();
 
   }
 
