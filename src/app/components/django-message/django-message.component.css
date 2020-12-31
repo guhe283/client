@@ -1,5 +1,8 @@
 
-
+:host ::ng-deep .p-chip.custom-chip {
+  background: var(--primary-color);
+  color: var(--primary-color-text);
+}
  .row{
   margin-left: 100px; margin-right: 100px;
  }

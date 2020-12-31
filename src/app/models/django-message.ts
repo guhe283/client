@@ -4,20 +4,21 @@ import { Photo } from './telegram-photo';
 
 export class DjangoMessage {
 
-  /*public name: string;
+  public name: string;
   public nach_name: string;
   public age: number;
   public salery: number;
- public code_id: string;
- public mobile: string;
+  public code_id: string;
+  public mobile: string;
   public is_activate: boolean;
-  public is_motivated: boolean;*/
+  public is_motivated: boolean;
+  public activity: number;
   public result: [];
- 
+
 
   constructor(init?) {
 
-   if (init) {
+    if (init) {
       console.log("Call Konstruktor => DjangoMessage");
       console.log("Call Konstruktor => DjangoMessage=> name", init['results'][0]);
       console.log("Call Konstruktor => DjangoMessage=> name", init['results']);
@@ -34,7 +35,7 @@ export class DjangoMessage {
       this.is_activate = init['results'][0]['is_activate'];
       this.is_motivated = init['results'][0]['is_motivated'];*/
       this.result = init['results'];
-  //  this.message = new Message(init["edited_message"], true);
+      //  this.message = new Message(init["edited_message"], true);
 
     }
   }

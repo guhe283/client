@@ -13,7 +13,7 @@ import { Chips } from 'primeng/chips';
 
 @Component({
   selector: 'app-django-message',
-  templateUrl: './django-message.component.html',
+  templateUrl: './django-message.component1.html',
   styleUrls: ['./django-message.component.css']
 })
 
@@ -84,17 +84,7 @@ export class DjangoMessageComponent implements OnInit {
       //this.users.push(data);
       console.log("Django ngOnInit GetUpdate 5this customers====================================>", this.customers);
       console.log("Django ngOnInit GetUpdate 5this customers results ====================================>", this.customers[0]);
-      this.cols = [
-        { field: 'id', header: 'Id' },
-        { field: 'name', header: 'Name' },
-        { field: 'nach_name', header: 'Nachname' },
-        { field: 'age', header: 'Age' },
-        { field: 'salery', header: 'Salery' },
-        { field: 'code_id', header: 'Code ID' },
-        { field: 'mobile', header: 'Mobile' },
-        { field: 'is_activate', header: 'Is active' },
-        { field: 'is_motivated', header: 'Is motivated' },
-      ];
+     
 
 
       this.loading = false;
@@ -107,7 +97,7 @@ export class DjangoMessageComponent implements OnInit {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-    this.subscription1.unsubscribe();
+    //this.subscription1.unsubscribe();
 
   }
 
