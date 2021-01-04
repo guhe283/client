@@ -36,6 +36,7 @@
     "popper.js": "^1.16.1",
     "primeicons": "^4.2.4",
     "primeng": "^10.0.5",
+    "primeng-lts": "^10.0.6",
     "rxjs": "~6.5.4",
     "socket.io": "^2.3.0",
     "tslib": "^1.14.1",
