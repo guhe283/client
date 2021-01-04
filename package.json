@@ -35,7 +35,7 @@
     "ng2-charts": "^2.4.2",
     "popper.js": "^1.16.1",
     "primeicons": "^4.2.4",
-    "primeng": "^10.0.5",
+    "primeng": "^11.1.0-rc.1",
     "primeng-lts": "^10.0.6",
     "rxjs": "~6.5.4",
     "socket.io": "^2.3.0",
