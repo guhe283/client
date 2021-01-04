@@ -13,7 +13,7 @@ import { Chips } from 'primeng/chips';
 
 @Component({
   selector: 'app-django-message',
-  templateUrl: './django-message.component1.html',
+  templateUrl: './django-message.component2.html',
   styleUrls: ['./django-message.component.css']
 })
 
@@ -37,7 +37,12 @@ export class DjangoMessageComponent implements OnInit {
   base64Image = 'data:image/png;base64,ï¿½ï¿½ï¿½ï¿½';
   imagePath: any;
   id11: string;
-
+  selectedEmployee: string;
+  mySelection: string;
+  public tableData: any;
+  public rowGroupMetadata: any;
+  public selectedRow: any;
+  selectedRows = [];
 
   //customers: Customer[];
   customers: any[] = [];
@@ -84,10 +89,7 @@ export class DjangoMessageComponent implements OnInit {
       //this.users.push(data);
       console.log("Django ngOnInit GetUpdate 5this customers====================================>", this.customers);
       console.log("Django ngOnInit GetUpdate 5this customers results ====================================>", this.customers[0]);
-     
-
-
-      this.loading = false;
+      this.loading=false;
 
 
     });
@@ -100,7 +102,6 @@ export class DjangoMessageComponent implements OnInit {
     //this.subscription1.unsubscribe();
 
   }
-
 
 
 
