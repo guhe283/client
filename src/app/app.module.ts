@@ -64,10 +64,8 @@ import {DialogModule} from 'primeng/dialog';
 import {DropdownModule} from 'primeng/dropdown';
 import {ProgressBarModule} from 'primeng/progressbar';
 import { InputTextModule} from 'primeng/inputtext';
-import { PrimeNGConfig } from 'primeng/api';
-import {MenuItem} from 'primeng/api';
-import {FilterUtils} from 'primeng/utils'; 
 import { DjangoMessageComponent } from './components/django-message/django-message.component';
+import { ProductService } from './services/productservice';
 
 
 registerLocaleData(localeDe);
@@ -105,7 +103,6 @@ registerLocaleData(localeDe);
     InfoStockComponent,
     TelegramMessageComponent,
     DjangoMessageComponent
-    
 
   ],
   imports: [
@@ -136,11 +133,12 @@ registerLocaleData(localeDe);
     InputTextModule,
     ProgressBarModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    FormsModule
 
 
   ],
-  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService],
+  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService,ProductService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

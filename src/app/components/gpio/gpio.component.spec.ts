@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {trigger,state,style,transition,animate} from '@angular/animations';
 import { GpioComponent } from './gpio.component';
 
@@ -6,7 +6,7 @@ describe('GpioComponent', () => {
   let component: GpioComponent;
   let fixture: ComponentFixture<GpioComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ GpioComponent ]
     })
