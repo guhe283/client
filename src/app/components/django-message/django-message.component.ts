@@ -102,7 +102,36 @@ export class DjangoMessageComponent implements OnInit {
     this.submitted = false;
     this.productDialog = false;
     console.log("Django ngOnInit subscribe getUpdate=====================>");
+    this.getUpdate();
+    /*
+    this.subscription = this.message.getUpdate().subscribe(data => {
+      this.product = data['result'];
+      //this.products1 = data['result'];
+      //this.products.push(JSON.stringify(data));
+
+      //this.data3.push(... data);
+      console.log("Django ngOnInit subscribe GetUpdate data ====================================>", data['result']);
+      console.log("Django ngOnInit subscribe GetUpdate data Result Data====================================>", data['result']);
+      console.log("Django ngOnInit subscribe GetUpdate -->this products====================================>", this.products);
+      //this.users.push(data);
+      console.log("Django ngOnInit subscribe GetUpdate 5this customers====================================>", this.customers);
+      console.log("Django ngOnInit subscribe  GetUpdate 5this customers results [0] ====================================>", this.customers[0]);
+      this.loading = false;
+    });*/
+    this.statuses = [{ label: 'In Stock', value: 'INSTOCK' }, { label: 'Low Stock', value: 'LOWSTOCK' }, { label: 'Out of Stock', value: 'OUTOFSTOCK' }]
+
     
+      this.loading = false;
+
+
+    
+
+
+
+
+  }
+
+  getUpdate(){
     this.subscription = this.message.getUpdate().subscribe(data => {
       this.product = data['result'];
       //this.products1 = data['result'];
@@ -117,15 +146,6 @@ export class DjangoMessageComponent implements OnInit {
       console.log("Django ngOnInit subscribe  GetUpdate 5this customers results [0] ====================================>", this.customers[0]);
       this.loading = false;
     });
-    this.statuses = [{ label: 'In Stock', value: 'INSTOCK' }, { label: 'Low Stock', value: 'LOWSTOCK' }, { label: 'Out of Stock', value: 'OUTOFSTOCK' }]
-
-    
-      this.loading = false;
-
-
-    
-
-
 
 
   }
@@ -168,6 +188,7 @@ export class DjangoMessageComponent implements OnInit {
   onRowEditInit1(product: Product) {
     console.log("Django  onRowEditInit1l data ====================================>", product)
     this.clonedProducts[product.id] = { ...product };
+    this.getUpdate();
   }
 
   onRowEditSave1(product: Product) {
@@ -179,6 +200,7 @@ export class DjangoMessageComponent implements OnInit {
       console.log("Save===>", product.id)
       console.log("Product===>", product)
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Product is updated' });
+      this.getUpdate();
     }
     else {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Price' });
@@ -186,6 +208,14 @@ export class DjangoMessageComponent implements OnInit {
   }
 
   onRowEditCancel1(product: Product, index: number) {
+    if (product.salery > 0) {
+      this.subscription = this.message.deletePost(product.id).subscribe(data => {
+        console.log("Delete==>:", data)
+        this.getUpdate();
+      });
+    }
+
+    
     this.products2[index] = this.clonedProducts[product.id];
     delete this.clonedProducts[product.id];
   }
@@ -194,6 +224,7 @@ export class DjangoMessageComponent implements OnInit {
     if (product.salery > 0) {
       this.subscription = this.message.addPost(product).subscribe(data => {
         console.log("Add==>:", data)
+        this.getUpdate();
       });
       delete this.clonedProducts[product.id];
       console.log("Save===>", product.id)
