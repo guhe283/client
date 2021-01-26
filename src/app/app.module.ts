@@ -66,6 +66,10 @@ import {ProgressBarModule} from 'primeng/progressbar';
 import { InputTextModule} from 'primeng/inputtext';
 import { DjangoMessageComponent } from './components/django-message/django-message.component';
 import { ProductService } from './services/productservice';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {RippleModule} from 'primeng/ripple';
+
 
 
 registerLocaleData(localeDe);
@@ -134,7 +138,10 @@ registerLocaleData(localeDe);
     ProgressBarModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    MessagesModule,
+    MessageModule,
+    RippleModule
 
 
   ],
