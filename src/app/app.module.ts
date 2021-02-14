@@ -69,6 +69,8 @@ import { ProductService } from './services/productservice';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {RippleModule} from 'primeng/ripple';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmPopupModule } from "primeng/confirmpopup";
 
 
 
@@ -141,11 +143,12 @@ registerLocaleData(localeDe);
     FormsModule,
     MessagesModule,
     MessageModule,
-    RippleModule
+    RippleModule,
+    ConfirmPopupModule
 
 
   ],
-  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService,ProductService],
+  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService,ProductService,ConfirmationService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

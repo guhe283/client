@@ -3,6 +3,8 @@
     <p-messages [(value)]="msgs2" [enableService]="false"></p-messages>
     <h5>Row Editing</h5>
     <p-messages></p-messages>
+    <p-confirmPopup></p-confirmPopup>
+    <p-toast></p-toast>
     <p-table [value]="product" dataKey="id" editMode="row" [paginator]="true" [rows]="10"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10,25,50]">
@@ -122,7 +124,7 @@
                     <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-plus"
                         (click)="onRowEditAdd(product)" class="p-button-rounded p-button-text p-button-danger"></button>
                     <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-minus"
-                        (click)="onRowEditCancel(product, ri)"
+                       (click)="confirm($event,product, ri)"
                         class="p-button-rounded p-button-text p-button-danger"></button>
                     <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-home"
                         (click)="onRowEditMessage()" class="p-button-rounded p-button-text p-button-danger"></button>

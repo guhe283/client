@@ -5,13 +5,13 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { Representative } from 'src/app/models/customer';
 import { DjangoMessageService } from 'src/app/services/django-message.service';
 import { Product } from 'src/app/models/product';
-import { Message, MessageService, PrimeNGConfig } from 'primeng/api';
+import { ConfirmationService, Message, MessageService, PrimeNGConfig } from 'primeng/api';
 
 
 @Component({
   selector: 'app-django-message',
   templateUrl: './django-message.component4.html',
-  providers: [MessageService],
+  providers: [MessageService,ConfirmationService],
   styleUrls: ['./django-message.component.css']
 })
 
@@ -58,7 +58,8 @@ export class DjangoMessageComponent implements OnInit {
   constructor(
     private message: DjangoMessageService,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private confirmationService: ConfirmationService
 
   ) { }
 
@@ -92,7 +93,7 @@ export class DjangoMessageComponent implements OnInit {
     if (product.salery > 0) {
       this.subscription = this.message.editPost(product, product.id).subscribe(data => {
         console.log("onRowEditSave ==>:", data)
-        this.showViaService("Edit Employee", " The emloyee " + product.nach_name + " has been edited");
+        this.showViaService("success","Edit Employee", " The emloyee " + product.nach_name + " has been edited");
       });
       delete this.clonedProducts[product.id];
       this.clearMessages();
@@ -107,7 +108,7 @@ export class DjangoMessageComponent implements OnInit {
     if (product.salery > 0) {
       this.subscription = this.message.deletePost(product.id).subscribe(data => {
         console.log("DonRowEditCancel==>:", data)
-        this.showViaService("Edit Employee", " The employee " + product.nach_name + " has been canceled");
+        this.showViaService("warn","Edit Employee", " The employee " + product.nach_name + " has been canceled");
         this.clearMessages();
         this.getUpdate();
       });
@@ -121,7 +122,7 @@ export class DjangoMessageComponent implements OnInit {
   onRowEditAdd(product: Product) {
     if (product.salery > 0) {
       this.subscription = this.message.addPost(product).subscribe(data => {
-        this.showViaService("Add Employee", " The employee " + product.nach_name + " has been added");
+        this.showViaService("success","Add Employee", " The employee " + product.nach_name + " has been added");
         this.clearMessages();
         this.getUpdate();
       });
@@ -135,7 +136,7 @@ export class DjangoMessageComponent implements OnInit {
 
   onRowEditMessage() {
 
-    this.showViaService("No changes", "Nothing has changed");
+    this.showViaService("info","No changes", "Nothing has changed");
     this.clearMessages();
 
   }
@@ -171,8 +172,32 @@ export class DjangoMessageComponent implements OnInit {
     }, 3000);
   }
 
-  showViaService(nameService: string, message: string) {
-    this.messageService.add({ severity: 'success', summary: nameService, detail: message });
+  showViaService(severity: string, nameService: string, message: string) {
+    this.messageService.add({ severity: severity, summary: nameService, detail: message });
+  }
+
+  confirm(event: Event,product: Product, index: number) {
+    console.log("Confirm ==>:", event)
+    this.confirmationService.confirm({
+      target: event.target,
+      message: "Are you sure that you want to proceed?",
+      icon: "pi pi-exclamation-triangle",
+      accept: () => {
+        this.onRowEditCancel(product,index);
+        this.messageService.add({
+          severity: "info",
+          summary: "Confirmed",
+          detail: "You have accepted"
+        });
+      },
+      reject: () => {
+        this.messageService.add({
+          severity: "error",
+          summary: "Rejected",
+          detail: "You have rejected"
+        });
+      }
+    });
   }
 
 }
