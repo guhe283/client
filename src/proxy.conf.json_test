@@ -5,6 +5,14 @@
       "ws":true,
       "logLevel": "debug"
   },
+
+  "/http://52.59.194.204:8000/*": {
+    "target": "http://localhost:4200",
+    "secure": false,
+    "ws":true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+},
   
   "/https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg": {
     "target": "https://api.telegram.org/file/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/photos/file_0.jpg",

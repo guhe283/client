@@ -16,6 +16,42 @@
     "changeOrigin": true
   },
 
+  
+    "/aws1/*": {
+     "target": "http://52.59.194.204:8000",
+      "secure": true,
+      "pathRewrite": {
+      "^/aws1": ""
+    },
+      "changeOrigin": true
+    },
+
+    
+    "/aws2/*": {
+      "target": "http://52.59.194.204:8000",
+       "secure": true,
+       "pathRewrite": {
+       "^/aws2": ""
+     },
+       "changeOrigin": true
+     },
+
+     "/http://www.guhe283.at/aws3/*": {
+      "target": "http://52.59.194.204:8000",
+       "secure": true,
+       "changeOrigin": true
+     },
+
+    
+    "/test2/*": {
+     "target": "http://52.59.194.204:8000/employee/employee-viewset",
+      "pathRewrite": {
+      "^/test2": ""
+    },
+      "changeOrigin": true
+    },
+    
+
 
   "/https://127.0.0.1:4200/test": {
     "target": "https://api.openweathermap.org/data/2.5/weather?q=London&APPID=19c02af4e4dd58bf1dc19b4977ba82e3",
@@ -33,12 +69,15 @@
     },
     "changeOrigin": true
   },
+
+
   "/api/*": {
     "target": "http://localhost:4200",
     "secure": false,
     "ws":true,
     "logLevel": "debug"
 },
+
 
   "/ttt/*": {
     "target": "https://www.bild.de",
@@ -47,7 +86,10 @@
       "^/ttt": ""
     },
     "changeOrigin": true
-  },
+
+     },
+
+  
     "/posts": {
      "target": "http://localhost:8000",
       "secure": true,
@@ -56,4 +98,7 @@
     },
       "changeOrigin": true
     }
+
+
+
 }

@@ -9,6 +9,10 @@ let header = new HttpHeaders();
 header.set('Access-Control-Allow-Origin', '*');
 
 const baseUrl = 'http://localhost:8080/api/tutorials';
+//const baseUrl = 'http://52.59.194.204:8080/api/tutorials';
+
+
+//http://52.59.194.204:8000/admin/
 
 
 
@@ -16,23 +20,51 @@ const baseUrl = 'http://localhost:8080/api/tutorials';
   providedIn: 'root'
 })
 export class DjangoMessageService {
+  
 
+
+  
 
   message: DjangoMessage[];
 
   //configUrl: string = 'http://localhost:8000/employee/employeeemployee/';
-  configUrl: string = '/posts/employee/employee-viewset/';
+//configUrl: string = '/posts/employee/employee-viewset/';
+   // configUrl: string = 'http://52.59.194.204:8000/employee/employee-viewset';
+    configUrl: string = 'http://52.59.194.204:8000/employee/employee-viewset/';
+    //configUrl1: string = 'localhost:8000/test2/employee/employee-viewset/';
+    configUrl7: string = 'aws2/employee/employee-viewset/';  // worked in aws
+    //configUrl6: string = 'www.guhe283.at/aws3/employee/employee-viewset/';  // worked in aws
+
+   // configUrl1: string = 'http://localhost:8000/rrr';
+   //configUrl: string = 'localhost:8000/aws1/employee/employee-viewset/';
+  //configUrl: string = 'http://localhost:4200/myapi'
   //updateUrl: string = 'https://api.telegram.org/bot1404339917:AAGv8WTIuKCRTjrSjlsKZCLUEzz0sX8AecM/getUpdates'
   constructor(private http: HttpClient) {
   }
-
+ 
   getUpdate() {
-    console.log("Telegram =============Service GetUpdate========= ConfigURL==================>",this.configUrl);
+
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
+    }
+    
+    const requestOptions = {                                                                                                                                                                                 
+      headers: new Headers(headerDict), 
+    };
+  
+
+    console.log("Django =============Service GetUpdate========= ConfigURL==================>",this.configUrl);
     return this.http.get<DjangoMessage>(this.configUrl).pipe(map(res => {
+      //requestOptions
+      requestOptions
       console.log("=============Django Service GET===========================>", res)
       return new DjangoMessage(res);
 
-    }));
+    },));
   }
 
   public deletePost(id: string) {

@@ -1,10 +1,9 @@
-<div class="card">
-    <!--p-messages [(value)]="msgs1" [enableService]="false"></p-messages-->
+<div class="flex-container">
+    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
     <p-messages [(value)]="msgs2" [enableService]="false"></p-messages>
-    <h5>Row Editing</h5>
     <p-messages></p-messages>
     <p-confirmPopup></p-confirmPopup>
-    <p-toast></p-toast>
+    <!--p-toast></p-toast-->
     <p-table [value]="product" dataKey="id" editMode="row" [paginator]="true" [rows]="10"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10,25,50]">
@@ -16,8 +15,8 @@
                 <th>Salery</th>
                 <th>Code ID</th>
                 <th>Mobile</th>
-                <th>Is active</th>
-                <th>Is motivated</th>
+                <th>active</th>
+                <th>motivated</th>
                 <th>Active</th>
                 <th style="width:8rem"></th>
             </tr>
