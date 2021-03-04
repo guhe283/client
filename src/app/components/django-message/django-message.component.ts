@@ -5,19 +5,29 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { Representative } from 'src/app/models/customer';
 import { DjangoMessageService } from 'src/app/services/django-message.service';
 import { Product } from 'src/app/models/product';
-import { ConfirmationService, Message, MessageService, PrimeNGConfig } from 'primeng/api';
+
+import { ConfirmationService, Message, MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
+
+interface City {
+  name: string,
+  code: number
+}
 
 
 @Component({
   selector: 'app-django-message',
-  templateUrl: './django-message.component4.html',
-  providers: [MessageService,ConfirmationService],
-  styleUrls: ['./django-message.component.css']
+  templateUrl: './django-message.component5.html',
+  providers: [MessageService, ConfirmationService],
+  styleUrls: ['./django-message.component5.scss']
 })
+
 
 
 export class DjangoMessageComponent implements OnInit {
 
+  checked: boolean = true;
+
+  cities: City[];
   msgs1: Message[];
   msgs2: Message[];
   productDialog: boolean;
@@ -49,7 +59,7 @@ export class DjangoMessageComponent implements OnInit {
   products2: any[];
   clonedProducts: { [s: string]: any; } = {};
   representatives: Representative[];
-  statuses: any[];
+  status: City[];
   cols: any[];
   loading: boolean = true;
   activityValues: number[] = [0, 100];
@@ -61,9 +71,11 @@ export class DjangoMessageComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private confirmationService: ConfirmationService
 
-  ) { }
+  ) {
 
+  }
 
+  // this.cities=[{name:'motivated', code:'1'}, {name:'unmotivated', code:'0'}];
 
   ngOnInit() {
     this.submitted = false;
@@ -71,6 +83,21 @@ export class DjangoMessageComponent implements OnInit {
     this.getUpdate();
     this.loading = false;
     this.primengConfig.ripple = true;
+    this.cities = [{ name: 'HighMotivated', code: 5 }, { name: 'MiddleMotivated', code: 3 }, { name: 'LowMotivated', code: 1 }, { name: 'NotMotivated', code: 0 }];
+    this.cols = [
+      { field: 'name', header: 'Name' },
+      { field: 'nach_name', header: 'Nachname' },
+      { field: 'age', header: 'age' },
+      { field: 'salery', header: 'salery' },
+      { field: 'code_id', header: 'code id' },
+      { field: 'mobile', header: 'mobile' },
+      { field: 'is_activate', header: 'active' },
+      { field: 'is_motivated', header: 'motivated' },
+      { field: 'activity', header: 'activity' }
+    ];
+
+
+
   }
 
   getUpdate() {
@@ -90,10 +117,10 @@ export class DjangoMessageComponent implements OnInit {
   }
 
   onRowEditSave(product: Product) {
+    console.log("onRowEditSave product ==>:", product)
     if (product.salery > 0) {
       this.subscription = this.message.editPost(product, product.id).subscribe(data => {
-        console.log("onRowEditSave ==>:", data)
-        this.showViaService("success","Edit Employee", " The emloyee " + product.nach_name + " has been edited");
+        this.showViaService("success", "Edit Employee", " The emloyee " + product.nach_name + " has been edited");
       });
       delete this.clonedProducts[product.id];
       this.clearMessages();
@@ -108,7 +135,7 @@ export class DjangoMessageComponent implements OnInit {
     if (product.salery > 0) {
       this.subscription = this.message.deletePost(product.id).subscribe(data => {
         console.log("DonRowEditCancel==>:", data)
-        this.showViaService("warn","Edit Employee", " The employee " + product.nach_name + " has been canceled");
+        this.showViaService("warn", "Edit Employee", " The employee " + product.nach_name + " has been canceled");
         this.clearMessages();
         this.getUpdate();
       });
@@ -122,7 +149,7 @@ export class DjangoMessageComponent implements OnInit {
   onRowEditAdd(product: Product) {
     if (product.salery > 0) {
       this.subscription = this.message.addPost(product).subscribe(data => {
-        this.showViaService("success","Add Employee", " The employee " + product.nach_name + " has been added");
+        this.showViaService("success", "Add Employee", " The employee " + product.nach_name + " has been added");
         this.clearMessages();
         this.getUpdate();
       });
@@ -136,7 +163,7 @@ export class DjangoMessageComponent implements OnInit {
 
   onRowEditMessage() {
 
-    this.showViaService("info","No changes", "Nothing has changed");
+    this.showViaService("info", "No changes", "Nothing has changed");
     this.clearMessages();
 
   }
@@ -176,14 +203,14 @@ export class DjangoMessageComponent implements OnInit {
     this.messageService.add({ severity: severity, summary: nameService, detail: message });
   }
 
-  confirm(event: Event,product: Product, index: number) {
+  confirm(event: Event, product: Product, index: number) {
     console.log("Confirm ==>:", event)
     this.confirmationService.confirm({
       target: event.target,
       message: "Are you sure that you want to proceed?",
       icon: "pi pi-exclamation-triangle",
       accept: () => {
-        this.onRowEditCancel(product,index);
+        this.onRowEditCancel(product, index);
         this.messageService.add({
           severity: "info",
           summary: "Confirmed",

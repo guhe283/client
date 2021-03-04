@@ -71,6 +71,7 @@ import {MessageModule} from 'primeng/message';
 import {RippleModule} from 'primeng/ripple';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmPopupModule } from "primeng/confirmpopup";
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 
 
@@ -144,7 +145,8 @@ registerLocaleData(localeDe);
     MessagesModule,
     MessageModule,
     RippleModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    InputSwitchModule
 
 
   ],
