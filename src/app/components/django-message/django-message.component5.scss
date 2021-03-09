@@ -1,3 +1,16 @@
+
+  .flex-container-content{
+    display: flex;
+    //width: 75%;
+    //margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: #bfddff;*/
+    //justify-content: center;
+   }
+
+
+
 @media screen and (max-width: 55rem) {
     :host ::ng-deep {
         .p-datatable {
@@ -31,4 +44,31 @@
             }
         }
     }
+}
+
+@media (min-width: 55rem) {
+    .disableTable {
+      display: none;
+    }
+  }
+
+  @media (max-width: 55rem) {
+    .enableMessage {
+      display: none;
+    
+    }
+  }
+
+.ui-growl {
+    top: auto;
+    bottom: 0px;
+}
+.p-datatable-thead{
+  background-color: red;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  
+  color: #574949;
+ 
 }

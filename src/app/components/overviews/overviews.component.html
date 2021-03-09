@@ -1,18 +1,16 @@
-<div class="flex-container-btn">
-  <div>
-    <h2><i class="fa fa-users"></i>Cash & Depot</h2>
-  </div>
+<div class="flex-container-title title">
+  <i class="fa fa-users" style="font-size:2.5em;">Cash & Depot</i>
 </div>
 
-<div class="flex-container-content">
-  <table *ngIf="overviews?.length >0; else noOverviews" class="table table-hover">
+<div class="flex-container-btn">
+  <table *ngIf="overviews?.length >0; else noOverviews" class="table">
     <thead class="thead-inverse">
       <tr>
-        <th style="width: 50px;">Date</th>
+        <th>Date</th>
         <th>Depot</th>
         <th>Cashkonto</th>
-        <th style="width: 60px;">Details</th>
-        <th style="width: 50px;">New</th>
+        <th>Details</th>
+        <th>New</th>
       </tr>
     </thead>
     <tbody>
@@ -20,10 +18,10 @@
         <td>{{dateOverview[i]}}</td>
         <td>{{overview.depot | currency:'EUR':true}}</td>
         <td>{{overview.cash | currency:'EUR':true}}</td>
-        <td><a routerLink="overview/{{overview.id}}" class="btn btn-secondary"><i
-              class="fa fa-arrow-circle-o-right center"></i>Details</a></td>
-        <td> <a routerLink="/overview/add" class="btn btn-success">
-            <i class="fa fa-plus"></i> New
+        <td><a routerLink="overview/{{overview.id}}" class="btn btn-secondary btn-xs"><i
+              class="fa fa-arrow-circle-o-right center"></i></a></td>
+        <td> <a routerLink="/overview/add" class="btn btn-success btn-xs">
+            <i class="fa fa-plus"></i>
           </a></td>
       </tr>
     </tbody>

@@ -1,27 +1,36 @@
 <div>
     <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
     <p-messages [(value)]="msgs2" [enableService]="false"></p-messages>
-    <p-messages></p-messages>
+    <div class="enableMessage">
+        <p-messages></p-messages>
+    </div>
+
     <p-confirmPopup></p-confirmPopup>
     <!--p-toast></p-toast-->
 
-    <p-table [value]="product" [columns]="cols" styleClass="p-datatable-responsive-demo" dataKey="id" editMode="row"
-        [paginator]="true" [rows]="5" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    <p-table [value]="product" [columns]="cols" styleClass="p-datatable-responsive-demo" dataKey="id" editMode="row" style="background-color: blue;"
+        [paginator]="true" [rows]="10" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10,25,50]" [responsive]="true">
         <ng-template pTemplate="header" let-columns>
             <tr>
-                <th *ngFor="let col of columns">
+                <th *ngFor="let col of columns" style="background-color:  #FFFFFF;">
                     {{col.header}}
                 </th>
+                <th style="background-color:  #FFFFFF;">edit</th>
             </tr>
         </ng-template>
 
 
         <ng-template pTemplate="body" let-rowData let-columns="columns" let-product let-editing="editing"
             let-ri="rowIndex">
+            <td class="disableTable">
+                <span class="p-column-title">
+                    <p-messages></p-messages>
+                </span>
+
+            </td>
             <tr [pEditableRow]="product">
                 <td *ngFor="let col of columns" pEditableColumn>
-
                     <p-cellEditor>
                         <ng-template pTemplate="input">
                             <span class="p-column-title">{{col.header}}</span>
@@ -33,6 +42,7 @@
                         </ng-template>
                     </p-cellEditor>
                 </td>
+                 
 
                 <td style="text-align:center">
                     <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"

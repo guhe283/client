@@ -72,6 +72,8 @@ import {RippleModule} from 'primeng/ripple';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmPopupModule } from "primeng/confirmpopup";
 import {InputSwitchModule} from 'primeng/inputswitch';
+import { MenubarModule } from 'primeng/menubar';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -97,6 +99,7 @@ registerLocaleData(localeDe);
     SidebarComponent,
     EditClientComponent,
     LoginComponent,
+    LogoutComponent,
     RegisterComponent,
     SettingsComponent,
     NotFoundComponent,
@@ -146,7 +149,8 @@ registerLocaleData(localeDe);
     MessageModule,
     RippleModule,
     ConfirmPopupModule,
-    InputSwitchModule
+    InputSwitchModule,
+    MenubarModule
 
 
   ],

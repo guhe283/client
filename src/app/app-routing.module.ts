@@ -26,6 +26,7 @@ import { DetailsInvestComponent } from './components/details-invest/details-inve
 import { EditInvestComponent } from './components/edit-invest/edit-invest.component';
 import { InfoStockComponent } from './components/info-stock/info-stock.component';
 import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -33,12 +34,13 @@ import { TelegramMessageComponent } from './components/telegram-message/telegram
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'linechart', component: LineChartComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'django', component: DjangoMessageComponent },
-  { path: 'gpio', component: GpioComponent },
-  { path: 'telegram', component: TelegramMessageComponent },
+  { path: 'linechart', component: LineChartComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'django', component: DjangoMessageComponent, canActivate: [AuthGuard] },
+  { path: 'gpio', component: GpioComponent, canActivate: [AuthGuard] },
+  { path: 'telegram', component: TelegramMessageComponent, canActivate: [AuthGuard] },
   { path: 'client/add', component: AddClientComponent, canActivate: [AuthGuard] },
 
 
