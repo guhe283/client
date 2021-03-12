@@ -5,6 +5,10 @@
         <p-messages></p-messages>
     </div>
 
+    <div class="disableTable">
+        <p-toast position="top-center" key="tc"></p-toast>
+    </div>
+
     <p-confirmPopup></p-confirmPopup>
     <!--p-toast></p-toast-->
 
@@ -23,15 +27,11 @@
 
         <ng-template pTemplate="body" let-rowData let-columns="columns" let-product let-editing="editing"
             let-ri="rowIndex">
-            <td class="disableTable">
-                <span class="p-column-title">
-                    <p-messages></p-messages>
-                </span>
-
-            </td>
             <tr [pEditableRow]="product">
+        
                 <td *ngFor="let col of columns" pEditableColumn>
                     <p-cellEditor>
+                    
                         <ng-template pTemplate="input">
                             <span class="p-column-title">{{col.header}}</span>
                             <input pInputText type="text" [(ngModel)]="product[col.field]">

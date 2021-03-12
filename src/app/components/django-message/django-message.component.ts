@@ -120,7 +120,8 @@ export class DjangoMessageComponent implements OnInit {
     console.log("onRowEditSave product ==>:", product)
     if (product.salery > 0) {
       this.subscription = this.message.editPost(product, product.id).subscribe(data => {
-        this.showViaService("success", "Edit Employee", " The emloyee " + product.nach_name + " has been edited");
+        this.showViaService("success", "INFO", " The emloyee " + product.nach_name + " has been edited");
+        this.messageService.add({key: 'tc', severity:'success', summary: 'INFO', detail: "The emloyee " + product.nach_name + " has been edited"});
       });
       delete this.clonedProducts[product.id];
       this.clearMessages();
@@ -135,7 +136,8 @@ export class DjangoMessageComponent implements OnInit {
     if (product.salery > 0) {
       this.subscription = this.message.deletePost(product.id).subscribe(data => {
         console.log("DonRowEditCancel==>:", data)
-        this.showViaService("warn", "Edit Employee", " The employee " + product.nach_name + " has been canceled");
+        this.showViaService("warn",'INFO', " The employee " + product.nach_name + " has been canceled");
+        this.messageService.add({key: 'tc', severity:'warn', summary: 'INFO', detail: "The employee " + product.nach_name + " has been canceled"});
         this.clearMessages();
         this.getUpdate();
       });
@@ -149,7 +151,8 @@ export class DjangoMessageComponent implements OnInit {
   onRowEditAdd(product: Product) {
     if (product.salery > 0) {
       this.subscription = this.message.addPost(product).subscribe(data => {
-        this.showViaService("success", "Add Employee", " The employee " + product.nach_name + " has been added");
+        this.showViaService("success", 'INFO', " The employee " + product.nach_name + " has been added");
+        this.messageService.add({key: 'tc', severity:'success', summary: 'INFO', detail: "The employee " + product.nach_name + " has been added"});
         this.clearMessages();
         this.getUpdate();
       });
@@ -163,7 +166,8 @@ export class DjangoMessageComponent implements OnInit {
 
   onRowEditMessage() {
 
-    this.showViaService("info", "No changes", "Nothing has changed");
+    this.showViaService("info", "INFO", "Nothing has been changed");
+    this.messageService.add({key: 'tc', severity:'info', summary: 'INFO', detail: 'Nothing has been changed'});
     this.clearMessages();
 
   }
