@@ -56,12 +56,8 @@ export class DjangoMessageService {
       headers: new Headers(headerDict), 
     };
   
-
-    console.log("Django =============Service GetUpdate========= ConfigURL==================>",this.configUrl);
     return this.http.get<DjangoMessage>(this.configUrl).pipe(map(res => {
-      //requestOptions
       requestOptions
-      console.log("=============Django Service GET===========================>", res)
       return new DjangoMessage(res);
 
     },));

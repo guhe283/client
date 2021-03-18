@@ -9,9 +9,19 @@
     //justify-content: center;
    }
 
+   .flex-container-edit{
+    display: flex;
+    //width: 75%;
+    //margin-top: 30px;
+    //margin-left: auto;
+    //margin-right: auto;
+    /*background-color: #bfddff;*/
+    //justify-content: center;
+   }
 
 
-@media screen and (max-width: 55rem) {
+
+@media screen and (max-width: 60rem) {
     :host ::ng-deep {
         .p-datatable {
             &.p-datatable-responsive-demo {
@@ -46,17 +56,21 @@
     }
 }
 
-@media (min-width: 55rem) {
+@media (min-width: 60rem) {
     .disableTable {
       display: none;
     }
   }
 
-  @media (max-width: 55rem) {
+  @media (max-width: 60rem) {
     .enableMessage {
       display: none;
     
     }
+    .flex-container-edit{
+      display: none;
+      
+     }
   }
 
 .ui-growl {
@@ -71,4 +85,11 @@
   
   color: #574949;
  
+}
+
+.stretch {
+  flex: 1 1 1 1; /* or 1 0 100px, and no more need in min-width at all */
+  //max-width: 100px;
+  //min-width: 100px;
+  //background: rgb(9, 255, 0);
 }

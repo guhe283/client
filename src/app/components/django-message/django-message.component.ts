@@ -85,15 +85,14 @@ export class DjangoMessageComponent implements OnInit {
     this.primengConfig.ripple = true;
     this.cities = [{ name: 'HighMotivated', code: 5 }, { name: 'MiddleMotivated', code: 3 }, { name: 'LowMotivated', code: 1 }, { name: 'NotMotivated', code: 0 }];
     this.cols = [
-      { field: 'name', header: 'Name' },
-      { field: 'nach_name', header: 'Nachname' },
-      { field: 'age', header: 'age' },
-      { field: 'salery', header: 'salery' },
-      { field: 'code_id', header: 'code id' },
-      { field: 'mobile', header: 'mobile' },
-      { field: 'is_activate', header: 'active' },
-      { field: 'is_motivated', header: 'motivated' },
-      { field: 'activity', header: 'activity' }
+      { field: 'name', header: 'Name', width: '100%', color: '#0c0217'  },
+      { field: 'nach_name', header: 'Nachname', width: '100%', color: '#0c0217'  },
+      { field: 'age', header: 'age', width: '100%', color: '#0c0217'  },
+      { field: 'salery', header: 'salery', width: '100%', color: '#0c0217'  },
+      { field: 'code_id', header: 'code id', width: '100%', color: '#0c0217'  },
+      { field: 'mobile', header: 'mobile', width: '130%', color: '#0c0217'  },
+      { field: 'is_activate', header: 'active', width: '90%', color: '#0c0217'  },
+      { field: 'is_motivated', header: 'motivated', width: '90%', color: '#0c0217'  }
     ];
 
 
@@ -112,6 +111,7 @@ export class DjangoMessageComponent implements OnInit {
   }
 
   onRowEditInit(product: Product) {
+    console.log("Click Edit ==>:", product)
     this.clonedProducts[product.id] = { ...product };
     this.getUpdate();
   }
@@ -121,7 +121,7 @@ export class DjangoMessageComponent implements OnInit {
     if (product.salery > 0) {
       this.subscription = this.message.editPost(product, product.id).subscribe(data => {
         this.showViaService("success", "INFO", " The emloyee " + product.nach_name + " has been edited");
-        this.messageService.add({key: 'tc', severity:'success', summary: 'INFO', detail: "The emloyee " + product.nach_name + " has been edited"});
+        this.messageService.add({ key: 'tc', severity: 'success', summary: 'INFO', detail: "The emloyee " + product.nach_name + " has been edited" });
       });
       delete this.clonedProducts[product.id];
       this.clearMessages();
@@ -136,8 +136,8 @@ export class DjangoMessageComponent implements OnInit {
     if (product.salery > 0) {
       this.subscription = this.message.deletePost(product.id).subscribe(data => {
         console.log("DonRowEditCancel==>:", data)
-        this.showViaService("warn",'INFO', " The employee " + product.nach_name + " has been canceled");
-        this.messageService.add({key: 'tc', severity:'warn', summary: 'INFO', detail: "The employee " + product.nach_name + " has been canceled"});
+        this.showViaService("warn", 'INFO', " The employee " + product.nach_name + " has been canceled");
+        this.messageService.add({ key: 'tc', severity: 'warn', summary: 'INFO', detail: "The employee " + product.nach_name + " has been canceled" });
         this.clearMessages();
         this.getUpdate();
       });
@@ -152,7 +152,7 @@ export class DjangoMessageComponent implements OnInit {
     if (product.salery > 0) {
       this.subscription = this.message.addPost(product).subscribe(data => {
         this.showViaService("success", 'INFO', " The employee " + product.nach_name + " has been added");
-        this.messageService.add({key: 'tc', severity:'success', summary: 'INFO', detail: "The employee " + product.nach_name + " has been added"});
+        this.messageService.add({ key: 'tc', severity: 'success', summary: 'INFO', detail: "The employee " + product.nach_name + " has been added" });
         this.clearMessages();
         this.getUpdate();
       });
@@ -167,7 +167,7 @@ export class DjangoMessageComponent implements OnInit {
   onRowEditMessage() {
 
     this.showViaService("info", "INFO", "Nothing has been changed");
-    this.messageService.add({key: 'tc', severity:'info', summary: 'INFO', detail: 'Nothing has been changed'});
+    this.messageService.add({ key: 'tc', severity: 'info', summary: 'INFO', detail: 'Nothing has been changed' });
     this.clearMessages();
 
   }
