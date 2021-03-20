@@ -27,6 +27,7 @@ import { EditInvestComponent } from './components/edit-invest/edit-invest.compon
 import { InfoStockComponent } from './components/info-stock/info-stock.component';
 import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { PaypalComponent } from './components/paypal/paypal.component';
 
 
 
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'linechart', component: LineChartComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'django', component: DjangoMessageComponent, canActivate: [AuthGuard] },
+  { path: 'paypal', component: PaypalComponent, canActivate: [AuthGuard] },
   { path: 'gpio', component: GpioComponent, canActivate: [AuthGuard] },
   { path: 'telegram', component: TelegramMessageComponent, canActivate: [AuthGuard] },
   { path: 'client/add', component: AddClientComponent, canActivate: [AuthGuard] },

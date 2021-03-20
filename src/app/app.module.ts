@@ -74,6 +74,7 @@ import { ConfirmPopupModule } from "primeng/confirmpopup";
 import {InputSwitchModule} from 'primeng/inputswitch';
 import { MenubarModule } from 'primeng/menubar';
 import { LogoutComponent } from './components/logout/logout.component';
+import { PaypalComponent } from './components/paypal/paypal.component';
 
 
 
@@ -112,7 +113,8 @@ registerLocaleData(localeDe);
     GpioComponent,
     InfoStockComponent,
     TelegramMessageComponent,
-    DjangoMessageComponent
+    DjangoMessageComponent,
+    PaypalComponent
 
   ],
   imports: [

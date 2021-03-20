@@ -107,6 +107,16 @@ export class NavbarComponent implements OnInit {
 
       },
       {
+        label: 'Paypal',
+        icon: 'pi pi-eye',
+        routerLink: ['/paypal'],
+        routerLinkActiveOptions: {
+          exact: true
+        },
+        styleClass: 'menucus'
+
+      },
+      {
         label: 'Settings',
         icon: 'pi pi-fw pi-cog',
         styleClass: 'menucus',
