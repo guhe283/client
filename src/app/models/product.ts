@@ -10,4 +10,5 @@ export interface Product {
   is_aktivate?:boolean;
   is_motivated?:boolean;
   activity?:number;
+  price?: number;
 }

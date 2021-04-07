@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DjangoMessage } from '../models/django-message';
 import { map, filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { DjangoSalesman } from '../models/django-salesman';
 
 let header = new HttpHeaders();
 header.set('Access-Control-Allow-Origin', '*');
@@ -19,7 +20,7 @@ const baseUrl = 'http://localhost:8080/api/tutorials';
 @Injectable({
   providedIn: 'root'
 })
-export class DjangoMessageService {
+export class DjangoSalesmanService {
   
 
 
@@ -30,9 +31,9 @@ export class DjangoMessageService {
   //configUrl: string = 'http://localhost:8000/employee/employeeemployee/';
 //configUrl: string = '/posts/employee/employee-viewset/';
    // configUrl: string = 'http://52.59.194.204:8000/employee/employee-viewset';
-    configUrl: string = 'http://18.184.6.47:8000/employee/employee-viewset/';
-    //configUrl1: string = 'localhost:8000/test2/employee/employee-viewset/';
-    configUrl7: string = 'aws2/employee/employee-viewset/';  // worked in aws
+    //configUrl: string = 'http://52.59.194.204:8000/employee/employee-viewset/';
+    configUrl: string = 'http://localhost:8000/shop/shopshop/';
+    //configUrl7: string = 'aws2/employee/employee-viewset/';  // worked in aws
     //configUrl6: string = 'www.guhe283.at/aws3/employee/employee-viewset/';  // worked in aws
 
    // configUrl1: string = 'http://localhost:8000/rrr';
@@ -56,9 +57,9 @@ export class DjangoMessageService {
       headers: new Headers(headerDict), 
     };
   
-    return this.http.get<DjangoMessage>(this.configUrl).pipe(map(res => {
+    return this.http.get<DjangoSalesman>(this.configUrl).pipe(map(res => {
       requestOptions
-      return new DjangoMessage(res);
+      return new DjangoSalesman(res);
 
     },));
   }
@@ -66,9 +67,9 @@ export class DjangoMessageService {
   public deletePost(id: string) {
     let endPoints = "1/"
     console.log("Django delete Post===========================>");
-    return this.http.delete<DjangoMessage>(this.configUrl+ id +"/").pipe(map(res => {
+    return this.http.delete<DjangoSalesman>(this.configUrl+ id +"/").pipe(map(res => {
       console.log("=============Django Delete===========================>", res)
-      return new DjangoMessage(res);
+      return new DjangoSalesman(res);
 
     }));
   }
@@ -76,7 +77,7 @@ export class DjangoMessageService {
   public editPost(data: any, id: string) {
     let endPoints = "1/"
     console.log("Django delete Post===========================>");
-    return this.http.put<DjangoMessage>(this.configUrl+ id +"/", data).pipe(map(res => {
+    return this.http.put<DjangoSalesman>(this.configUrl+ id +"/", data).pipe(map(res => {
       console.log("=============Django PUT===========================>", res)
       //return new DjangoMessage(res);
 
@@ -87,7 +88,7 @@ export class DjangoMessageService {
     console.log("Django Add Post Data===========================>", data);
     return this.http.post<any>(this.configUrl,data).pipe(map(res => {
       console.log("=============Django ADD Post===========================>", res)
-      return new DjangoMessage(null);
+      return new DjangoSalesman(null);
 
     }));
   }

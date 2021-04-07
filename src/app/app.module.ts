@@ -75,6 +75,7 @@ import {InputSwitchModule} from 'primeng/inputswitch';
 import { MenubarModule } from 'primeng/menubar';
 import { LogoutComponent } from './components/logout/logout.component';
 import { PaypalComponent } from './components/paypal/paypal.component';
+import { DjangoSalesmanComponent } from './components/django-salesman/django-salesman.component';
 
 
 
@@ -114,7 +115,8 @@ registerLocaleData(localeDe);
     InfoStockComponent,
     TelegramMessageComponent,
     DjangoMessageComponent,
-    PaypalComponent
+    PaypalComponent,
+    DjangoSalesmanComponent
 
   ],
   imports: [

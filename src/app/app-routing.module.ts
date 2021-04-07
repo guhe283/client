@@ -28,6 +28,7 @@ import { InfoStockComponent } from './components/info-stock/info-stock.component
 import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { PaypalComponent } from './components/paypal/paypal.component';
+import { DjangoSalesmanComponent } from './components/django-salesman/django-salesman.component';
 
 
 
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'django', component: DjangoMessageComponent, canActivate: [AuthGuard] },
   { path: 'paypal', component: PaypalComponent, canActivate: [AuthGuard] },
+  { path: 'salesman', component: DjangoSalesmanComponent, canActivate: [AuthGuard] },
   { path: 'gpio', component: GpioComponent, canActivate: [AuthGuard] },
   { path: 'telegram', component: TelegramMessageComponent, canActivate: [AuthGuard] },
   { path: 'client/add', component: AddClientComponent, canActivate: [AuthGuard] },

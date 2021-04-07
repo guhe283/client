@@ -1,0 +1,95 @@
+
+  .flex-container-content{
+    display: flex;
+    //width: 75%;
+    //margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: #bfddff;*/
+    //justify-content: center;
+   }
+
+   .flex-container-edit{
+    display: flex;
+    //width: 75%;
+    //margin-top: 30px;
+    //margin-left: auto;
+    //margin-right: auto;
+    /*background-color: #bfddff;*/
+    //justify-content: center;
+   }
+
+
+
+@media screen and (max-width: 60rem) {
+    :host ::ng-deep {
+        .p-datatable {
+            &.p-datatable-responsive-demo {
+                .p-datatable-thead > tr > th,
+                .p-datatable-tfoot > tr > td {
+                    display: none !important;
+                }
+                
+
+                .p-datatable-tbody > tr > td {
+                    text-align: left;
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    clear: left;
+                    border: 0 none;
+
+                    .p-column-title {
+                        padding: .4rem;
+                        min-width: 30%;
+                        display: inline-block;
+                        margin: -.4em 1em -.4em -.4rem;
+                        font-weight: bold;
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid var(--surface-d);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 60rem) {
+    .disableTable {
+      display: none;
+    }
+  }
+
+  @media (max-width: 60rem) {
+    .enableMessage {
+      display: none;
+    
+    }
+    .flex-container-edit{
+      display: none;
+      
+     }
+  }
+
+.ui-growl {
+    top: auto;
+    bottom: 0px;
+}
+.p-datatable-thead{
+  background-color: red;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  
+  color: #574949;
+ 
+}
+
+.stretch {
+  flex: 1 1 1 1; /* or 1 0 100px, and no more need in min-width at all */
+  //max-width: 100px;
+  //min-width: 100px;
+  //background: rgb(9, 255, 0);
+}
