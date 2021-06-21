@@ -127,6 +127,16 @@ export class NavbarComponent implements OnInit {
 
       },
       {
+        label: 'Flexbox',
+        icon: 'pi pi-eye',
+        routerLink: ['/flexbox'],
+        routerLinkActiveOptions: {
+          exact: true
+        },
+        styleClass: 'menucus'
+
+      },
+      {
         label: 'Settings',
         icon: 'pi pi-fw pi-cog',
         styleClass: 'menucus',

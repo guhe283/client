@@ -1,3 +1,5 @@
+import { MyHttpService } from './../../services/test';
+import { HttpClient } from '@angular/common/http';
 
 import { Component, OnInit } from '@angular/core';
 import { Result } from 'src/app/models/telegram-result';
@@ -7,6 +9,7 @@ import { DjangoSalesmanService } from 'src/app/services/django-salesman.service'
 import { Product } from 'src/app/models/product';
 
 import { ConfirmationService, Message, MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
+
 
 interface City {
   name: string,
@@ -69,7 +72,8 @@ export class DjangoSalesmanComponent implements OnInit {
     private message: DjangoSalesmanService,
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private myHttp: MyHttpService
 
   ) {
 
@@ -85,11 +89,10 @@ export class DjangoSalesmanComponent implements OnInit {
     this.primengConfig.ripple = true;
     this.cities = [{ name: 'HighMotivated', code: 5 }, { name: 'MiddleMotivated', code: 3 }, { name: 'LowMotivated', code: 1 }, { name: 'NotMotivated', code: 0 }];
     this.cols = [
-      { field: 'name', header: 'Name', width: '100%', color: '#0c0217'  },
-      { field: 'price', header: 'Price', width: '100%', color: '#0c0217'  } 
+      { field: 'name', header: 'Name', width: '100%', color: '#0c0217' },
+      { field: 'price', header: 'Price', width: '100%', color: '#0c0217' }
     ];
-
-
+    
 
   }
 

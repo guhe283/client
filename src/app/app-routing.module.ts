@@ -29,6 +29,7 @@ import { TelegramMessageComponent } from './components/telegram-message/telegram
 import { LogoutComponent } from './components/logout/logout.component';
 import { PaypalComponent } from './components/paypal/paypal.component';
 import { DjangoSalesmanComponent } from './components/django-salesman/django-salesman.component';
+import { FlexboxComponent } from './components/Flexbox/flexbox.component';
 
 
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'salesman', component: DjangoSalesmanComponent, canActivate: [AuthGuard] },
   { path: 'gpio', component: GpioComponent, canActivate: [AuthGuard] },
   { path: 'telegram', component: TelegramMessageComponent, canActivate: [AuthGuard] },
+  { path: 'flexbox', component: FlexboxComponent, canActivate: [AuthGuard] },
   { path: 'client/add', component: AddClientComponent, canActivate: [AuthGuard] },
 
 

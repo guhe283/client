@@ -1,3 +1,5 @@
+import { FlexboxComponent } from './components/Flexbox/flexbox.component';
+import { MyHttpService } from './services/test';
 import { DjangoMessageService } from 'src/app/services/django-message.service';
 import { TelegramMessageService } from './services/telegram-message.service';
 import { TelegramMessageComponent } from './components/telegram-message/telegram-message.component';
@@ -116,7 +118,8 @@ registerLocaleData(localeDe);
     TelegramMessageComponent,
     DjangoMessageComponent,
     PaypalComponent,
-    DjangoSalesmanComponent
+    DjangoSalesmanComponent,
+    FlexboxComponent
 
   ],
   imports: [
@@ -158,7 +161,7 @@ registerLocaleData(localeDe);
 
 
   ],
-  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService,ProductService,ConfirmationService],
+  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService,ProductService,ConfirmationService,MyHttpService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
