@@ -1,7 +1,36 @@
-
 <p-menubar [model]="items">
-  <div>
-      <!--input type="text" pInputText placeholder="Search"-->
-      <!--button type="button" pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em"></button-->
-  </div>
+  <div><i class="burgermenu pi pi-ellipsis-v" [class.selected]="menuOpened" (click)="toggleMenuOpened()"></i></div>
 </p-menubar>
+
+<div class="menu-overlay main" [class.active]="menuOpened" (click)="toggleMenuOpened()"></div>
+<div class="menu-overlay top" [class.active]="menuOpened" (click)="toggleMenuOpened()"></div>
+
+<div class="menu-content entries" [class.active]="menuOpened">
+  <div *ngIf="menuOpened" class="menu-config-entries">
+    <h2>Info</h2>
+    <ul class="menu-entries">
+      <li (click)="clickConfigSection('app-uirouting-section')">
+        <app-uirouting-menuentry>
+        </app-uirouting-menuentry>
+      </li>
+      <li (click)="clickConfigSection('app-uirouting-section1')">
+        <app-uirouting-menuentry1>
+        </app-uirouting-menuentry1>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<div *ngIf="configSection" class="menu-content config" [class.active]="menuOpened">
+  <i class="pi pi-times" (click)="configSection = undefined"></i>
+  <div class="menu-config-area" [class.active]="menuOpened && configSection">
+    <div class="config-page">
+      <app-uirouting-section *ngIf="configSection==='app-uirouting-section'">
+      </app-uirouting-section>
+      <app-uirouting-section1 *ngIf="configSection==='app-uirouting-section1'">
+      </app-uirouting-section1>
+    </div>
+  </div>
+</div>

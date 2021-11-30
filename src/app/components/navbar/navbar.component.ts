@@ -10,7 +10,7 @@ import { MegaMenuItem } from 'primeng/api';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component3.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
 
@@ -18,6 +18,9 @@ export class NavbarComponent implements OnInit {
   loggedInUser: string;
   showRegister: boolean;
   public items: MenuItem[];
+  public menuOpened = false;
+  public configSection: string;
+  
 
   constructor(
     private authService: AuthService,
@@ -181,6 +184,19 @@ export class NavbarComponent implements OnInit {
 
 
   }
+  public toggleMenuOpened(): void {
+    this.menuOpened = !this.menuOpened;
+    this.configSection = undefined;
+}
+
+public clickConfigSection(configSection: string | undefined): void {
+  if (configSection === this.configSection) {
+      this.configSection = undefined;
+  }
+  else {
+      this.configSection = configSection;
+  }
+}
 
   onLogoutClick() {
     this.authService.logout();

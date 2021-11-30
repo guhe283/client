@@ -1,3 +1,8 @@
+
+import { UiroutingSectionComponent1 } from './components/configuration/sections/uirouting-section.component1';
+import { UiroutingMenuentryComponent1 } from './components/configuration/menuentry/uirouting-menuentry.component1';
+import { UiroutingSectionComponent } from './components/configuration/sections/uirouting-section.component';
+import { UiroutingMenuentryComponent } from './components/configuration/menuentry/uirouting-menuentry.component';
 import { FlexboxComponent } from './components/Flexbox/flexbox.component';
 import { MyHttpService } from './services/test';
 import { DjangoMessageService } from 'src/app/services/django-message.service';
@@ -119,7 +124,11 @@ registerLocaleData(localeDe);
     DjangoMessageComponent,
     PaypalComponent,
     DjangoSalesmanComponent,
-    FlexboxComponent
+    FlexboxComponent,
+    UiroutingMenuentryComponent1,
+    UiroutingSectionComponent1,
+    UiroutingMenuentryComponent,
+    UiroutingSectionComponent
 
   ],
   imports: [

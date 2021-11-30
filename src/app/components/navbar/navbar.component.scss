@@ -1,0 +1,223 @@
+
+/*C:\angular\stock\src\scss\media.scss*/
+/*@import "~./scss/variables";*/
+@use "../../../scss/my.scss";
+@import "../../../styles";
+@import "../../../stylings/variables.scss";
+
+  
+
+.flex-container{
+ 
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  background-color: #1671da;
+  
+ }
+
+.nav-link{ font-size: 1.5em }
+.navbar-brand{
+  font-size: 1.5em;
+
+}
+
+@media screen and (max-width: 520px) {
+  .flex-container {
+    width:555px;
+    justify-content: center;
+    margin-left: 0;
+   margin-right:0;
+   
+  }
+}
+
+.smart-scroll{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+.scrolled-down{
+   transform:translateY(-100%); transition: all 0.3s ease-in-out;
+}
+.scrolled-up{
+   transform:translateY(0); transition: all 0.3s ease-in-out;
+}
+
+::ng-deep .menucus ul li:nth-child(1) {
+  background: #e4e7e9;
+}
+::ng-deep .menucus ul li:nth-child(2) {
+  background: #e4e7e9;
+}
+::ng-deep .menucus ul li:nth-child(3) {
+  background: #e4e7e9c;
+}
+::ng-deep .menucus ul li:nth-child(4) {
+  background: #e4e7e9c;
+}
+::ng-deep .menucus ul li:nth-child(5) {
+  background: #e4e7e9c;
+}
+::ng-deep .ui-menu .ui-menuitem .ui-menuitem-link:hover{
+  background-color: #d4e0e7;
+}
+::ng-deep .ui-menu,.ui-menu .ui-menu-child{
+  border: 0px;
+  background:#d7dee2 0 0 repeat-x !important;
+}
+::ng-deep .ui-menu .ui-menuitem .ui-state-active{
+  background-color: #ebedee;
+}
+::ng-deep .ui-menu .ui-menuitem.ui-menuitem-active>.ui-menuitem-link,
+.ui-menu .ui-menuitem .ui-menuitem-link:hover{
+  background-color:#c7cfd4;
+}
+
+nav {
+  position: absolute;
+  width: 100%;
+  background:yellow;
+  min-height: 30px;
+  line-height: 30px;
+  height: 30px;
+  border-bottom: 1px solid yellow;
+}
+
+  div.burgermenu {
+    position: absolute;
+    right: 0px;
+    float: right;
+    padding-top: 2px;
+    padding-left: 5px;
+    padding-right: 5px;}
+
+   .selected {
+      border-bottom: 3px solid yellow;}
+   .hover {
+      background: rgb(247, 246, 244);
+      cursor: pointer;
+    }
+  
+
+    
+.menu-overlay {
+  z-index: -8;
+ 
+}
+.menu-overlay.active {
+  z-index: 3;
+  animation: fadein 0.5s;
+}
+
+.menu-overlay.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 35px;
+  height: 30px;
+}
+.menu-overlay.main {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.menu-content {
+  position: absolute;
+  background-color: rgb(240, 235, 235);
+  display: flex;
+  flex-direction: column;
+  z-index: -3;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  transform: translateX(100%);
+
+}
+
+ 
+
+
+  .menu-content.entries {
+  
+      width: 200px;
+  
+  
+  
+  }
+
+ul.menu-entries {
+  flex: 1 1 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 14px;
+  list-style-type: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;}
+  
+  div.menu-config-area {
+    max-height: 100%;
+  }
+
+
+.menu-content.entries {
+  width: $myVar;
+ 
+  
+    
+}
+
+.menu-content.config {
+  
+    right: 200px;
+    width: 600px;
+}
+  i {
+    width: 30px;
+    height: 30px;
+    z-index: 4;
+   
+  }
+
+
+  div.config-page {
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 60px;
+  }
+
+
+.menu-content.active {
+ 
+  animation: slide-in 0.5s forwards;
+  animation-timing-function: ease;
+}
+.menu-content.entries.active {
+
+  transition: box-shadow 0.1s ease-in-out;
+  box-shadow: -11px -9px 15px -15px rgba(0,0,0,0.75);
+  z-index: 4;
+
+}
+.menu-content.config.active {
+
+  /*width: 600px;*/
+  box-shadow: -11px -9px 15px -15px rgba(0,0,0,0.75);
+  z-index: 3;
+}
+.menu-content.entries.configopen {
+  box-shadow: 0px -9px 15px -15px rgba(0,0,0,0.75);
+  border-left: 1px solid yellowgreen;
+}
+
+@keyframes slide-in {
+  100% { transform: translateX(0%); }
+}
+
