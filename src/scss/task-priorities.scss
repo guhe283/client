@@ -1,0 +1,79 @@
+@import 'colors';
+
+.task-priority-100 {
+  background: #b90000;
+  color: #fff;
+  background-clip: unset !important;
+}
+
+@for $i from 90 through 99 {
+  .task-priority-#{$i} {
+    background: #d60000;
+    color: #fff;
+    background-clip: unset !important;
+  }
+}
+
+@for $i from 80 through 89 {
+  .task-priority-#{$i} {
+    background: #ffaf1a;
+    color: #000;
+    background-clip: unset !important;
+  }
+}
+
+@for $i from 70 through 79 {
+  .task-priority-#{$i} {
+    background: #ffc124;
+    color: #000;
+    background-clip: unset !important;
+  }
+}
+
+@for $i from 60 through 69 {
+  .task-priority-#{$i} {
+    background: #ffd631;
+    color: #000;
+    background-clip: unset !important;
+  }
+}
+
+@for $i from 50 through 59 {
+  .task-priority-#{$i} {
+    background: #ffde50;
+    color: #000;
+    background-clip: unset !important;
+  }
+}
+
+@for $i from 40 through 49 {
+  .task-priority-#{$i} {
+    background: #ffe66f;
+    color: #000;
+    background-clip: unset !important;
+  }
+}
+
+@for $i from 30 through 39 {
+  .task-priority-#{$i} {
+    background: #ffef8e;
+    color: #000;
+    background-clip: unset !important;
+  }
+}
+
+@for $i from 20 through 29 {
+  .task-priority-#{$i} {
+    background: #fff7ad;
+    color: #000;
+    background-clip: unset !important;
+  }
+}
+
+@for $i from 1 through 19 {
+  .task-priority-#{$i} {
+    background: #ffffcc;
+    color: #000;
+    background-clip: unset !important;
+  }
+}

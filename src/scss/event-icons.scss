@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'scon-events';
+  src:  url('^./assets/fonts/events.eot');
+  src:  url('^./assets/fonts/events.eot') format('embedded-opentype'),
+  url('^./assets/fonts/events.ttf') format('truetype'),
+  url('^./assets/fonts/events.woff') format('woff'),
+  url('^./assets/fonts/events.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+div.event-type,
+div.availability-type,
+div.incident-type {
+  font-family: 'scon-events' !important;
+  font-size: 16px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    content: '\e904';
+  }
+}
+
+div.availability-type-available:before {
+  content: "\e900";
+  font-size: 20px;
+}
+
+div.availability-type-unavailable:before {
+  content: "\e908";
+  font-size: 20px;
+}
+
+div.availability-type-unknown:before {
+  content: "\e909";
+  font-size: 20px;
+}
+
+div.incident-type-fault:before {
+  content: "\e902";
+}
+
+div.incident-type-warn:before {
+  content: "\e90a";
+}
+
+div.incident-type-irregularity:before {
+  content: "\e905";
+}
+
+div.incident-type-info:before {
+  content: "\e904";
+}
+
+div.event-type-manualrelease:before {
+  content: "\e901";
+}
+
+div.event-type-operationmode:before {
+  content: "\e906";
+}
+
+/* These are status icons and not used in the event-log
+
+div.status-inactive:before {
+  content: "\e903";
+}
+
+div.status-ok:before {
+  content: "\e907";
+}
+*/

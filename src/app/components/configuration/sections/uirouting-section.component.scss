@@ -1,1 +1,24 @@
+@import "operation-sections";
 
+div.toolbar {
+  padding-bottom: 5px;
+
+  button:not(:first-child) {
+    margin-left: 2px;
+  }
+
+}
+
+td, p-dropdown, p-calendar {
+  background: $w;
+}
+
+td, th {
+  height: 32px;
+}
+
+:host-context ::ng-deep {
+  .ui-paginator.ui-widget-header {
+    background: transparent;
+  }
+}

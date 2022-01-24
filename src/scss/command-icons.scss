@@ -1,0 +1,540 @@
+@font-face {
+  font-family: 'scon-commands';
+  src: url('^./assets/fonts/commands.eot');
+  src: url('^./assets/fonts/commands.eot') format('embedded-opentype'),
+  url('^./assets/fonts/commands.ttf') format('truetype'),
+  url('^./assets/fonts/commands.woff') format('woff'),
+  url('^./assets/fonts/commands.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+div.device-command {
+  font-family: 'scon-commands' !important;
+  font-size: 24px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    content: "\e90d";
+  }
+}
+
+div.device-command-osci-activatecardvialicenceplate:before {
+  content: "\e900";
+}
+
+div.device-command-osci-activatedevice:before {
+  content: "\e901";
+}
+
+div.device-command-osci-deactivatedevice:before {
+  content: "\e901";
+}
+
+div.device-command-osci-toggledevicestate:before {
+  content: "\e901";
+}
+
+div.device-command-osci-activateextendedexitgraceperiod:before {
+  content: "\e902";
+}
+
+div.device-command-osci-activatelicenseplaterecognition:before {
+  content: "\e903";
+}
+
+div.device-command-osci-togglelicenseplaterecognition:before {
+  content: "\e903";
+}
+
+div.device-command-osci-activatenilpayment:before {
+  content: "\e904";
+}
+
+div.device-command-osci-activateoperatorvideo:before {
+  content: "\e905";
+}
+
+div.device-command-osci-activaterespite:before {
+  content: "\e906";
+}
+
+div.device-command-osci-activateticketloss:before {
+  content: "\e907";
+}
+
+div.device-command-osci-activatevariablesubstituteticket:before {
+  content: "\e908";
+}
+
+div.device-command-osci-automaticopenactivate:before {
+  content: "\e909";
+}
+
+div.device-command-osci-automaticopendeactivate:before {
+  content: "\e930";
+}
+
+div.device-command-osci-toggleautomaticopen:before {
+  content: "\e909";
+}
+
+div.device-command-osci-cashupterminal:before {
+  content: "\e90a";
+}
+
+div.device-command-osci-deactivateextendedexitgraceperiod:before {
+  content: "\e92f";
+}
+
+div.device-command-osci-deactivatelicenseplaterecognition:before {
+  content: "\e903";
+}
+
+div.device-command-osci-deactivateoperatorvideo:before {
+  content: "\e905";
+}
+
+div.device-command-osci-keepopenactivate:before {
+  content: "\e91a";
+}
+
+div.device-command-osci-keepopendeactivate:before {
+  content: "\e934";
+}
+
+div.device-command-osci-togglekeepopen:before {
+  content: "\e91a";
+}
+
+div.device-command-osci-doorkeepopenactivate:before {
+  content: "\e90f";
+}
+
+div.device-command-osci-doorkeepopendeactivate:before {
+  content: "\e90f";
+}
+
+div.device-command-osci-toggledoorkeepopen:before {
+  content: "\e90f";
+}
+
+div.device-command-osci-doormanualopen:before {
+  content: "\e910";
+}
+
+div.device-command-osci-endofdayfiscaldevice:before {
+  content: "\e912";
+}
+
+div.device-command-osci-keeplockedactivate:before {
+  content: "\e919";
+}
+
+div.device-command-osci-keeplockeddeactivate:before {
+  content: "\e933";
+}
+
+div.device-command-osci-togglekeeplocked:before {
+  content: "\e919";
+}
+
+div.device-command-osci-manualopen:before {
+  content: "\e91b";
+}
+
+div.device-command-osci-nextcardneutral:before {
+  content: "\e91e";
+}
+
+div.device-command-osci-remotevalidation:before {
+  content: "\e920";
+}
+
+div.device-command-osci-restartdevice:before {
+  content: "\e929";
+}
+
+div.device-command-osci-shutdowndevice:before {
+  content: "\e921";
+}
+
+div.device-command-osci-reversiblelaneactivateentry:before {
+  content: "\e922";
+}
+
+div.device-command-osci-toggleentryreversiblelane:before {
+  content: "\e922";
+}
+
+div.device-command-osci-reversiblelaneactivateexit:before {
+  content: "\e923";
+}
+
+div.device-command-osci-toggleexitreversiblelane:before {
+  content: "\e923";
+}
+
+div.device-command-osci-terminatesecurityalarm:before {
+  content: "\e92b";
+}
+
+div.device-command-osci-trafficjammodeactivate:before {
+  content: "\e92d";
+}
+
+div.device-command-osci-trafficjammodedeactivate:before {
+  content: "\e92d";
+}
+
+div.device-command-osci-toggletrafficjammode:before {
+  content: "\e92d";
+}
+
+div.device-command-osci-unlockterminal:before {
+  content: "\e92e";
+}
+
+div.device-command-osci-initiatelicenseplatepaymenttransaction:before {
+  content: "\e916";
+}
+
+div.device-command-osci-initiatelicenseplateentrytransaction:before {
+  content: "\e915";
+}
+
+div.device-command-osci-createlicenseplateparkingtransaction:before {
+  content: "\e90c";
+}
+
+div.device-command-osci-disableticketissuingmode:before {
+  content: "\e90e";
+}
+
+div.device-command-osci-enableticketissuingmode:before {
+  content: "\e911";
+}
+
+div.device-command-osci-toggleticketissuingmode:before {
+  content: "\e911";
+}
+
+div.device-command-osci-ignorequotaonnexttransaction:before {
+  content: "\e914";
+}
+
+div.device-command-osci-setmode:before {
+  content: "\e927";
+}
+
+div.device-command-osci-setlevel:before {
+  content: "\e926";
+}
+
+div.device-command-osci-setcapacity:before {
+  content: "\e924";
+}
+
+div.device-command-osci-setfreelimit:before {
+  content: "\e925";
+}
+
+div.device-command-osci-setoccupancylimit:before {
+  content: "\e928";
+}
+
+div.device-command-osci-keepclosedactivate:before {
+  content: "\e918";
+}
+
+div.device-command-osci-keepcloseddeactivate:before {
+  content: "\e932";
+}
+
+div.device-command-osci-firedepartmentkeeplockactivate:before {
+  content: "\e913";
+}
+
+div.device-command-osci-firedepartmentkeeplockdeactivate:before {
+  content: "\e931";
+}
+
+div.device-command-osci-transactionneutral:before {
+  content: "\e91d";
+}
+
+div.device-command-ols-changeoperationmode:before {
+  content: "\e90b";
+}
+
+div.device-command-ols-intoorder:before {
+  content: "\e917";
+}
+
+div.device-command-ols-manualrelease:before {
+  content: "\e91c";
+}
+
+div.device-command-ols-outoforder:before {
+  content: "\e91f";
+}
+
+div.device-command-ols-shutdownrestartapp:before {
+  content: "\e929";
+}
+
+div.device-command-ols-shutdownrestart:before {
+  content: "\e929";
+}
+
+div.device-command-ols-stopalarm:before {
+  content: "\e92a";
+}
+
+div.device-command-ols-ticketloss:before {
+  content: "\e92c";
+}
+
+
+// ADV Connector
+div.device-command-advconn-carparkactivateeventmode:before {
+  content: "\e901"; // TODO - CHECK
+}
+
+div.device-command-advconn-carparkactivateextendedgraceperiod:before {
+  content: "\e902";
+}
+
+div.device-command-advconn-carparkautomaticopenactivate:before {
+  content: "\e909";
+}
+
+div.device-command-advconn-carparkautomaticopendeactivate:before {
+  content: "\e930";
+}
+
+div.device-command-advconn-carparkdeactivateeventmode:before {
+  content: "\e901"; // TODO - CHECK
+}
+
+div.device-command-advconn-carparkdeactivateextendedgraceperiod:before {
+  content: "\e92f";
+}
+
+div.device-command-advconn-carparkfiredepartmentkeeplockedactivate:before {
+  content: "\e913";
+}
+
+div.device-command-advconn-carparkfiredepartmentkeeplockeddeactivate:before {
+  content: "\e931";
+}
+
+div.device-command-advconn-carparkkeepclosedactivate:before {
+  content: "\e918";
+}
+
+div.device-command-advconn-carparkkeepcloseddeactivate:before {
+  content: "\e932";
+}
+
+div.device-command-advconn-carparkkeeplockedactivate:before {
+  content: "\e919";
+}
+
+div.device-command-advconn-carparkkeeplockeddeactivate:before {
+  content: "\e933";
+}
+
+div.device-command-advconn-carparkkeepopenactivate:before {
+  content: "\e91a";
+}
+
+div.device-command-advconn-carparkkeepopendeactivate:before {
+  content: "\e934";
+}
+
+div.device-command-advconn-carparksectiontransactionneutral:before {
+  content: "\e91d"; // TODO - need new icon
+}
+
+div.device-command-advconn-carparktransactionneutral:before {
+  content: "\e91d";
+}
+
+div.device-command-advconn-deviceautomaticopentoggle:before {
+  content: "\e909";
+}
+
+div.device-command-advconn-devicedoorkeepopentoggle:before {
+  content: "\e90f";
+}
+
+div.device-command-advconn-deviceeventmodetoggle:before {
+  content: "\e927"; // TODO - check icon
+}
+
+div.device-command-advconn-devicekeeplockedtoggle:before {
+  content: "\e919";
+}
+
+div.device-command-advconn-devicekeepopentoggle:before {
+  content: "\e91a";
+}
+
+div.device-command-advconn-deviceactivatelicenseplaterecognitiontoggle:before {
+  content: "\e903";
+}
+
+div.device-command-advconn-devicestatetoggle:before {
+  content: "\e901";
+}
+
+div.device-command-advconn-deviceticketissuingmodetoggle:before {
+  content: "\e911";
+}
+
+div.device-command-advconn-devicetrafficjamnodetoggle:before {
+  content: "\e92d";
+}
+
+div.device-command-advconn-deviceactivatecardvialicenseplate:before {
+  content: "\e900";
+}
+
+div.device-command-advconn-deviceactivateextendedexitgraceperiod:before {
+  content: "\e902";
+}
+
+div.device-command-advconn-deviceactivatelostticketwithfixedprice:before {
+  content: "\e907"; // TODO - check icon
+}
+
+div.device-command-advconn-deviceactivatelostticketwithvariableprice:before {
+  content: "\e908"; // TODO - check icon
+}
+
+div.device-command-advconn-deviceactivatenilpayment:before {
+  content: "\e904";
+}
+
+div.device-command-advconn-deviceactivaterespite:before {
+  content: "\e906";
+}
+
+div.device-command-advconn-deviceactivatevariablesubstituteticket:before {
+  content: "\e908";
+}
+
+div.device-command-advconn-devicecashupterminal:before {
+  content: "\e90a";
+}
+
+div.device-command-advconn-devicecreatelicenseplateparkingtransaction:before {
+  content: "\e90c";
+}
+
+div.device-command-advconn-devicedeactivateextendedexitgraceperiod:before {
+  content: "\e92f";
+}
+
+div.device-command-advconn-devicedoormanualopen:before {
+  content: "\e910";
+}
+
+div.device-command-advconn-deviceendofdayfiscal:before {
+  content: "\e912";
+}
+
+div.device-command-advconn-deviceignorequotaonnexttransaction:before {
+  content: "\e914";
+}
+
+div.device-command-advconn-deviceinitiatelicenseplateentrytransaction:before {
+  content: "\e915";
+}
+
+div.device-command-advconn-deviceinitiatelicenseplatepaymenttransaction:before {
+  content: "\e916";
+}
+
+div.device-command-advconn-devicemanualopen:before {
+  content: "\e91b";
+}
+
+div.device-command-advconn-devicenextcardneutral:before {
+  content: "\e91e";
+}
+
+div.device-command-advconn-deviceproduceentranceticket:before {
+  content: "\e908"; // TODO - check icon
+}
+
+div.device-command-advconn-deviceproduceshortparkticket:before {
+  content: "\e908"; // TODO - check icon
+}
+
+div.device-command-advconn-deviceremotevalidation:before {
+  content: "\e920";
+}
+
+div.device-command-advconn-devicerestart:before {
+  content: "\e929";
+}
+
+div.device-command-advconn-devicereversiblelaneentrytoggle:before {
+  content: "\e922";
+}
+
+div.device-command-advconn-devicereversiblelaneexittoggle:before {
+  content: "\e923";
+}
+
+div.device-command-advconn-deviceshutdown:before {
+  content: "\e921";
+}
+
+div.device-command-advconn-deviceterminatesecurityalarm:before {
+  content: "\e92b";
+}
+
+div.device-command-advconn-deviceunlockterminal:before {
+  content: "\e92e";
+}
+
+// Reservation
+
+div.device-command-advconn-reservationmanualpayment:before {
+  content: "\e936";
+}
+
+div.device-command-advconn-reservationmanualterminate:before {
+  content: "\e938";
+}
+
+div.device-command-advconn-reservationmanualclose:before {
+  content: "\e935";
+}
+
+div.device-command-advconn-reservationmanualentry:before {
+  content: "\e937";
+}
+
+// SPARK
+div.device-command-spark-nodecommandbarrieropen:before {
+  content: "\e91b";
+}
+
+div.device-command-spark-nodecommandbarrieropenpermanent:before {
+  content: "\e91a";
+}
+
+div.device-command-spark-nodecommandbarrierclosepermanent:before {
+  content: "\e919";
+}
+
+div.device-command-spark-nodecommandbarrierreset:before {
+  content: "\e929";
+}

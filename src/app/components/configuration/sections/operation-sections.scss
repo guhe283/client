@@ -1,14 +1,4 @@
-
-@import "operation-sections";
-
-div.toolbar {
-  padding-bottom: 5px;
-
-  button:not(:first-child) {
-    margin-left: 2px;
-  }
-
-}
+@import "~src/styles";
 
 td, p-dropdown, p-calendar {
   background: $w;
@@ -22,4 +12,15 @@ td, th {
   .ui-paginator.ui-widget-header {
     background: transparent;
   }
+}
+
+.overflow {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rtl {
+  direction: rtl;
 }

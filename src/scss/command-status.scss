@@ -1,0 +1,62 @@
+@import 'colors';
+
+section.command-container {
+  div.urn_skidata_scon_connectors_osci_cmd_toggleDeviceState.togglecommand-true > div.command-item {
+    div.command-status {
+      display: block;
+      .slider {
+        background-color: $gw70;
+      }
+      .slider:before {
+        -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        transform: translateX(0px);
+        will-change: transform;
+      }
+    }
+  }
+
+  div.urn_skidata_scon_connectors_osci_cmd_toggleDeviceState.togglecommand-false > div.command-item {
+    div.command-status {
+      display: block;
+      .slider {
+        background-color: $yb10;
+      }
+      .slider:before {
+        -webkit-transform: translateX(15px);
+        -ms-transform: translateX(15px);
+        transform: translateX(15px);
+        will-change: transform;
+      }
+    }
+  }
+  div.urn_skidata_scon_connectors_advconn_cmd_deviceStateToggle.togglecommand-true > div.command-item {
+    div.command-status {
+      display: block;
+      .slider {
+        background-color: $gw70;
+      }
+      .slider:before {
+        -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        transform: translateX(0px);
+        will-change: transform;
+      }
+    }
+  }
+
+  div.urn_skidata_scon_connectors_advconn_cmd_deviceStateToggle.togglecommand-false > div.command-item {
+    div.command-status {
+      display: block;
+      .slider {
+        background-color: $yb10;
+      }
+      .slider:before {
+        -webkit-transform: translateX(15px);
+        -ms-transform: translateX(15px);
+        transform: translateX(15px);
+        will-change: transform;
+      }
+    }
+  }
+}

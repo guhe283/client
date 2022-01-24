@@ -1,0 +1,359 @@
+@import 'colors';
+
+@font-face {
+  font-family: 'scon-devices';
+  src: url('^./assets/fonts/devices.eot');
+  src: url('^./assets/fonts/devices.eot') format('embedded-opentype'),
+  url('^./assets/fonts/devices.ttf') format('truetype'),
+  url('^./assets/fonts/devices.woff') format('woff'),
+  url('^./assets/fonts/devices.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+div.node-type {
+  font-family: 'scon-devices' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  color: $w;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    content: '\e928';
+  }
+}
+
+// Generic node-types
+
+div.node-type-node:before {
+  content: '\e928';
+}
+div.node-type-nodegroup:before {
+  content: '\e929';
+}
+div.node-type-facility:before {
+  content: '\e913';
+}
+
+// Generic Intercom
+
+div.node-type-urn_skidata_scon_connectors_gi_classifier_desktopstation:before {
+  content: '\e90c';
+}
+div.node-type-urn_skidata_scon_connectors_gi_classifier_device:before {
+  content: '\e90e';
+}
+div.node-type-urn_skidata_scon_connectors_gi_classifier_hwclient:before {
+  content: '\e90c';
+}
+div.node-type-urn_skidata_scon_connectors_gi_classifier_input:before {
+  content: '\e916';
+}
+div.node-type-urn_skidata_scon_connectors_gi_classifier_output:before {
+  content: '\e92a';
+}
+div.node-type-urn_skidata_scon_connectors_gi_classifier_server:before {
+  content: '\e92d';
+}
+div.node-type-urn_skidata_scon_connectors_gi_classifier_sipclient:before {
+  content: '\e92f';
+}
+div.node-type-urn_skidata_scon_connectors_gi_classifier_swclient:before {
+  content: '\e932';
+}
+div.node-type-urn_skidata_scon_connectors_gi_classifier_swdevice:before {
+  content: '\e932';
+}
+
+// OLS
+
+div.node-type-urn_skidata_scon_connectors_ols_classifier_area:before {
+  content: '\e928';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_barrier-gate:before {
+  content: '\e901';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_cgroup:before {
+  content: '\e929';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_column-gate:before {
+  content: '\e906';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_contingent:before {
+  content: '\e928';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_credit-cash:before {
+  content: '\e909';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_deibox:before {
+  content: '\e90b';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_dooropener:before {
+  content: '\e90f';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_doorreader:before {
+  content: '\e910';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_easy-cash:before {
+  content: '\e911';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_easy-gate:before {
+  content: '\e912';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_easy-ticket-reload:before {
+  content: '\e933';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_easy-ticket-wallmount:before {
+  content: '\e934';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_freemotion-gate:before {
+  content: '\e915';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_lite-cash:before {
+  content: '\e924';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_lite-gate:before {
+  content: '\e925';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_manual-cash:before {
+  content: '\e926';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_power-cash:before {
+  content: '\e92b';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_power-gate:before {
+  content: '\e92c';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_servicebox:before {
+  content: '\e92e';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_simplemanageddevice:before {
+  content: '\e92e';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_slim-cash:before {
+  content: '\e930';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_smart-cash:before {
+  content: '\e931';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_smart-cash-parking:before {
+  content: '\e931';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_smart-cash-refund:before {
+  content: '\e931';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_smart-cash-vending:before {
+  content: '\e931';
+}
+div.node-type-urn_skidata_scon_connectors_ols_classifier_vario-gate:before {
+  content: '\e935';
+}
+
+// OSCI
+div.node-type-urn_skidata_scon_connectors_osci_classifier_arcnet:before {
+  content: '\e928';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_barriergatesmart:before {
+  content: '\e901';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_ca:before {
+  content: '\e902';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_cashless:before {
+  content: '\e928';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_cc:before {
+  content: '\e904';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_columngate:before {
+  content: '\e906';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_cpc:before {
+  content: '\e908';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_cpd:before {
+  content: '\e903';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_creditcash:before {
+  content: '\e909';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_dau:before {
+  content: '\e90a';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_dooropener:before {
+  content: '\e90f';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_dooropenereagle:before {
+  content: '\e90f';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_doorreader:before {
+  content: '\e910';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_doorreadergate:before {
+  content: '\e910';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_easycash:before {
+  content: '\e911';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_flexgate:before {
+  content: '\e914';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_genericapm:before {
+  content: '\e900';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_keydetectorgate:before {
+  content: '\e917';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_litecash:before {
+  content: '\e924';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_litegate:before {
+  content: '\e925';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_mps:before {
+  content: '\e927';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_powercash:before {
+  content: '\e92b';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_powergate:before {
+  content: '\e92c';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_slimcash:before {
+  content: '\e930';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_smartcash:before {
+  content: '\e931';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_unlimited:before {
+  content: '\e906';
+}
+div.node-type-urn_skidata_scon_connectors_osci_classifier_doorgate:before {
+  content: '\e91b';
+}
+
+
+// ADV Conn
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_cpd:before {
+  content: '\e903';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_paystation:before {
+  content: '\e927';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_cashless:before {
+  content: '\e928';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_creditcash:before {
+  content: '\e909';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_easycash:before {
+  content: '\e911';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_genericapm:before {
+  content: '\e900';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_powercash:before {
+  content: '\e92b';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_smartcash:before {
+  content: '\e931';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_3mfapd:before {
+  content: '\e919';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_3mfapdpil:before {
+  content: '\e918';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_slimcash:before {
+  content: '\e930';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_litecash:before {
+  content: '\e924';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_columngate:before {
+  content: '\e906';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_arcnet:before {
+  content: '\e928';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_unlimited:before {
+  content: '\e906';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_doorreader:before {
+  content: '\e910';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_doorreadergate:before {
+  content: '\e910';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_dooropener:before {
+  content: '\e90f';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_powergate:before {
+  content: '\e92c';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_litegate:before {
+  content: '\e925';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_nohw:before {
+  content: '\e91c';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_flexgate:before {
+  content: '\e914';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_smartbarrier:before {
+  content: '\e91d';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_lightgate:before {
+  content: '\e92c';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_doorgate:before {
+  content: '\e91b';
+}
+div.node-type-urn_skidata_scon_connectors_advconn_classifier_dau:before {
+  content: '\e90a';
+}
+
+// PLATE TECH
+div.node-type-urn_skidata_scon_connectors_platetech_classifier_device:before {
+  content: '\e91a';
+}
+
+// SPARK
+div.node-type-urn_skidata_scon_connectors_spark_classifier_defaultEntry:before {
+  content: '\e906';
+}
+
+div.node-type-urn_skidata_scon_connectors_spark_classifier_defaultExit:before {
+  content: '\e906';
+}
+
+div.node-type-durn_skidata_scon_connectors_spark_classifier_defaultZone:before {
+  content: '\e92c';
+}
+
+div.node-type-urn_skidata_scon_connectors_ipparking_classifier_entry:before {
+  content: '\e923';
+}
+div.node-type-urn_skidata_scon_connectors_ipparking_classifier_doorreader:before {
+  content: '\e920';
+}
+div.node-type-urn_skidata_scon_connectors_ipparking_classifier_exit:before {
+  content: '\e923';
+}
+div.node-type-urn_skidata_scon_connectors_ipparking_classifier_apm:before {
+  content: '\e921';
+}
+div.node-type-urn_skidata_scon_connectors_ipparking_classifier_bidirectionallane:before {
+  content: '\e936';
+}
+div.node-type-urn_skidata_scon_connectors_ipparking_classifier_carpark:before {
+  content: '\e937';
+}

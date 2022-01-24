@@ -1,0 +1,61 @@
+// SKIDATA color palette
+$gb90: #0b0c0c;
+$gb80: #171819;
+$gb70: #222425;
+$gb60: #2d3032;
+$gb50: #383c3e;
+$gb40: #44484b;
+$gb30: #4f5457;
+$gb20: #5a6064;
+$gb10: #656c70;
+$g: #71787d;
+$gw10: #7f868a;
+$gw20: #8d9397;
+$gw30: #9ca1a4;
+$gw40: #aaaeb1;
+$gw50: #b8bcbe;
+$gw60: #c6c9cb;
+$gw70: #d5d7d8;
+$gw80: #e3e4e5;
+$gw90: #f1f2f2;
+$yb90: #191505;
+$yb80: #332b0a;
+$yb70: #4c400f;
+$yb60: #665614;
+$yb50: #7f6b18;
+$yb40: #99801d;
+$yb30: #b29522;
+$yb20: #ccab27;
+$yb10: #e5c02c;
+$y: #ffd631;
+$yw10: #ffda46;
+$yw20: #ffde5a;
+$yw30: #ffe26f;
+$yw40: #ffe683;
+$yw50: #ffeb98;
+$yw60: #ffefad;
+$yw70: #fff3c2;
+$yw80: #fff7d6;
+$yw90: #fffbeb;
+$w: #fff;
+$b: #186ba6;
+
+// SCON color palette (additional)
+$scon_color_black: #000000;
+$scon_color_blue: #186ca7;
+$scon_color_green: #31a04b;
+$scon_color_red: #d82424;
+
+// Status colors
+$status_color_ok: $scon_color_green;
+$status_color_unknown: $scon_color_black;
+$status_color_critical: $scon_color_red;
+$status_color_warning: $yb10;
+$status_color_inactive: $gw50;
+$status_color_maintenance: $scon_color_blue;
+
+// Incident type colors
+$incident_type_color_fault: $scon_color_red;
+$incident_type_color_warn: $yb10;
+$incident_type_color_info: $scon_color_green;
+$incident_type_color_irregularity: $gw50;

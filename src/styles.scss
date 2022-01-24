@@ -5,3 +5,186 @@
   padding:0;
 }
 $myVar: 444px;
+
+// Remove all section-outlines
+*:focus {
+  outline: none;
+}
+
+@import "scss/colors";
+
+// Overwrite PrimeNG styling
+
+p-breadcrumb > div.ui-breadcrumb.ui-widget {
+  border-style: none;
+  min-height: 39px;
+  max-height: 39px;
+}
+
+scon-logical {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+
+scon-tasks {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+
+div.ui-breadcrumb {
+  ul {
+    margin-top: 2px;
+  }
+}
+
+h4 {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.force-user-select {
+  -webkit-user-select: text; /* Chrome 49+ */
+  -moz-user-select: text; /* Firefox 43+ */
+  -ms-user-select: text; /* No support yet */
+  user-select: text; /* Likely future */
+}
+
+@mixin scon-height($min-height, $max-height, $height) {
+  min-height: $min-height;
+  max-height: $max-height;
+  height: $height;
+}
+
+@mixin scon-width($min-width, $max-width, $width) {
+  min-width: $min-width;
+  max-width: $max-width;
+  width: $width;
+}
+
+.ui-dialog-mask, .ui-widget-overlay {
+  opacity: 0.3 !important;
+  animation: none !important;
+}
+
+.ui-dialog {
+  border: 1px transparent !important;
+}
+
+.ui-dialog.slide-down {
+  animation-name: slideDown;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  will-change: transform;
+
+  display: flex;
+  flex-direction: column;
+  .ui-dialog-content {
+    display: flex;
+    flex: 1;
+    background: $w;
+  }
+}
+
+.ui-dialog.slide-up {
+  animation-name: slideUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  will-change: transform;
+
+  display: flex;
+  flex-direction: column;
+  .ui-dialog-content {
+    display: flex;
+    flex: 1;
+    background: $w;
+  }
+}
+
+.ui-dialog.slide-left {
+  animation-name: slideLeft;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  will-change: transform;
+
+  display: flex;
+  flex-direction: column;
+  .ui-dialog-content {
+    display: flex;
+    flex: 1;
+    background: $w;
+  }
+}
+
+.ui-menuitem-link:hover {
+  //background: $gw90;
+}
+
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%)
+  }
+  100% {
+    transform: translateY(0)
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(50%)
+  }
+  100% {
+    transform: translateY(0)
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+:host-context ::ng-deep {
+  .ui-button:disabled {
+    border: 1px solid #c6c9cb;
+  }
+}
+
+select.ng-invalid.ng-touched:not(.ng-required), p-multiselect.ng-invalid:not(.ng-required).ng-touched .ui-multiselect, p-spinner.ng-invalid:not(.ng-required).ng-touched .ui-spinner-input, p-dropdown.ng-invalid:not(.ng-required).ng-touched .ui-dropdown > .ui-inputtext, ch-dropdown.ng-invalid:not(.ng-required).ng-touched .ui-dropdown > .ui-inputtext, ch-treedropdown.ng-invalid:not(.ng-required).ng-touched .ui-dropdown > .ui-inputtext, ch-localeselector.ng-invalid:not(.ng-required).ng-touched .ui-dropdown > .ui-inputtext, ch-numericinput.ng-invalid:not(.ng-required).ng-touched > .ui-inputtext.numeric-step, p-calendar.ng-invalid:not(.ng-required).ng-touched > .ui-calendar.ui-calendar-w-btn > .ui-inputtext, ch-fileupload.ng-invalid:not(.ng-required).ng-touched > .ui-inputtext {
+  padding-right: 48px !important;
+}
+select.ng-required, select[required], p-multiselect.ng-required .ui-multiselect, p-multiselect[required] .ui-multiselect, p-spinner.ng-required .ui-spinner-input, p-spinner[required] .ui-spinner-input, p-dropdown.ng-required .ui-dropdown > .ui-inputtext, p-dropdown[required] .ui-dropdown > .ui-inputtext, ch-dropdown.ng-required .ui-dropdown > .ui-inputtext, ch-dropdown[required] .ui-dropdown > .ui-inputtext, ch-treedropdown.ng-required .ui-dropdown > .ui-inputtext, ch-treedropdown[required] .ui-dropdown > .ui-inputtext, ch-localeselector.ng-required .ui-dropdown > .ui-inputtext, ch-localeselector[required] .ui-dropdown > .ui-inputtext, ch-numericinput.ng-required > .ui-inputtext.numeric-step, ch-numericinput[required] > .ui-inputtext.numeric-step, p-calendar.ng-required > .ui-calendar.ui-calendar-w-btn > .ui-inputtext, p-calendar[required] > .ui-calendar.ui-calendar-w-btn > .ui-inputtext, ch-fileupload.ng-required > .ui-inputtext, ch-fileupload[required] > .ui-inputtext, ch-multiselect.ui-overflow.ng-required .ui-autocomplete-multiple-container, ch-multiselect.ui-overflow[required] .ui-autocomplete-multiple-container, input.ng-required, input[required], textarea.ng-required, textarea[required], ch-numericinput.ng-required > .ui-inputtext:not(.numeric-step), ch-numericinput[required] > .ui-inputtext:not(.numeric-step), p-autocomplete.ng-required .ui-autocomplete > .ui-inputtext, p-autocomplete[required] .ui-autocomplete > .ui-inputtext, p-calendar.ng-required > .ui-calendar > .ui-inputtext, p-calendar[required] > .ui-calendar > .ui-inputtext, p-inputMask.ng-required input, p-inputMask[required] input, ch-multiselect.ng-required .ui-autocomplete-multiple-container, ch-multiselect[required] .ui-autocomplete-multiple-container {  padding-right: 48px !important;
+  padding-right: 48px !important;
+}
+
+span.ui-dialog-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.search-with {
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px dashed;
+}
+
+#widget-container > ngx-gridster > div > ngx-gridster-item > div > div.gridster-item-resizable-handler.handle-s {
+  bottom: -10px;
+}
+#widget-container > ngx-gridster > div > ngx-gridster-item > div > div.gridster-item-resizable-handler.handle-e {
+  right: -10px;
+}
+
+p-table > div > div > table > thead > tr > th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-clip: initial !important;
+}

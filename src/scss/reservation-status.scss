@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'scon-reservations';
+  src:  url('^./assets/fonts/reservation.eot');
+  src:  url('^./assets/fonts/reservation.eot') format('embedded-opentype'),
+  url('^./assets/fonts/reservation.ttf') format('truetype'),
+  url('^./assets/fonts/reservation.woff') format('woff'),
+  url('^./assets/fonts/reservation.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+div.reservation-status {
+  font-family: 'scon-reservations' !important;
+  font-size: 16px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    content: '\e904';
+  }
+}
+
+div.reservation-status-open:before {
+  content: "\e904";
+}
+
+div.reservation-status-used:before {
+  content: "\e900";
+}
+
+div.reservation-status-present:before {
+  content: "\e901";
+}
+
+div.reservation-status-present:before {
+  content: "\e901";
+}
+
+div.reservation-status-expired:before {
+  content: "\e902";
+}
+
+div.reservation-status-expired:before {
+  content: "\e903";
+}

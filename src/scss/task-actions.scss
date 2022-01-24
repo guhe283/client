@@ -1,0 +1,69 @@
+@import 'colors';
+
+@font-face {
+  font-family: 'task-actions';
+  src:  url('^./assets/fonts/task-actions.eot');
+  src:  url('^./assets/fonts/task-actions.eot') format('embedded-opentype'),
+  url('^./assets/fonts/task-actions.ttf?') format('truetype'),
+  url('^./assets/fonts/task-actions.woff') format('woff'),
+  url('^./assets/fonts/task-actions.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+div.task-action {
+  font-family: 'task-actions' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  color: $g;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    content: '\e928';
+    content: '\e90d';
+  }
+}
+
+div.task-action-claim:before {
+  content: '\e93f';
+}
+
+div.task-action-release:before {
+  content: '\e944';
+}
+
+div.task-action-start:before {
+  content: '\e946';
+}
+
+div.task-action-stop:before {
+  content: '\e947';
+}
+
+div.task-action-delegate:before {
+  content: '\e942';
+}
+
+div.task-action-forward:before {
+  content: '\e943';
+}
+
+div.task-action-skip:before {
+  content: '\e945';
+}
+
+div.task-action-complete:before {
+  content: '\e941';
+}
+
+div.task-action-comment:before {
+  content: '\e940';
+}
