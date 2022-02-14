@@ -18,7 +18,7 @@ interface City {
   selector: 'app-django-message',
   templateUrl: './django-message.component5.html',
   providers: [MessageService, ConfirmationService],
-  styleUrls: ['./django-message.component5.scss']
+  styleUrls: ['./django-message.component.scss']
 })
 
 
@@ -200,7 +200,7 @@ export class DjangoMessageComponent implements OnInit {
   clearMessages() {
     setTimeout(() => {
       this.messageService.clear();
-    }, 3000);
+    }, 5000);
   }
 
   showViaService(severity: string, nameService: string, message: string) {

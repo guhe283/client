@@ -1,16 +1,15 @@
-<div>
+<div class="flex-container">
     <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
-    <p-messages [(value)]="msgs2" [enableService]="false"></p-messages>
+    <!--p-messages [(value)]="msgs2" [enableService]="false"></p-messages-->
     <div class="enableMessage">
         <p-messages></p-messages>
     </div>
 
-    <div class="disableTable">
+    <!--div class="disableTable">
         <p-toast position="top-center" key="tc"></p-toast>
-    </div>
+    </div-->
 
     <p-confirmPopup></p-confirmPopup>
-    <!--p-toast></p-toast-->
 
     <p-table [value]="product" [columns]="cols" [responsive]="true" styleClass="p-datatable-responsive-demo"
         dataKey="id" editMode="row" [paginator]="true" [rows]="10"
