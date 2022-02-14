@@ -332,4 +332,5 @@ main {
 p-menubar.myclass{
   display: flex;
   justify-content: center;
+  flex-flow: column;
 }
