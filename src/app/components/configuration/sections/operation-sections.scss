@@ -15,7 +15,8 @@ td, th {
 }
 
 .overflow {
-  display: block;
+  display: flex;
+  //display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

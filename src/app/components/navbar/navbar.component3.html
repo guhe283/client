@@ -1,5 +1,5 @@
-<p-menubar [model]="items">
-  <div><i class="burgermenu pi pi-ellipsis-v" [class.selected]="menuOpened" (click)="toggleMenuOpened()"></i></div>
+<p-menubar [model]="items" class="myclass">
+  <div ><i class="burgermenu pi pi-ellipsis-v" [class.selected]="menuOpened" (click)="toggleMenuOpened()"></i></div>
 </p-menubar>
 
 <div class="menu-overlay main" [class.active]="menuOpened" (click)="toggleMenuOpened()"></div>
@@ -23,8 +23,8 @@
 
 
 
-<div *ngIf="configSection" class="menu-content config" [class.active]="menuOpened">
-  <i class="pi pi-times" (click)="configSection = undefined"></i>
+<div *ngIf="configSection" class="menu-content config myclass" [class.active]="menuOpened">
+  <i class="pi pi-times myclass" (click)="configSection = undefined"></i>
   <div class="menu-config-area" [class.active]="menuOpened && configSection">
     <div class="config-page">
       <app-uirouting-section *ngIf="configSection==='app-uirouting-section'">

@@ -54,11 +54,12 @@ main {
 
     div.burgermenu {
       position: absolute;
-      right: 0px;
-      float: right;
+      right: 20px;
+      float: left;
       padding-top: 2px;
       padding-left: 5px;
       padding-right: 5px;
+      margin-left: 0px;
       &.selected {
         border-bottom: 3px solid $yw20;
         background: $yw50;
@@ -109,41 +110,6 @@ main {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-      }
-    }
-
-    div.search {
-      position: absolute;
-      right: 0px;
-      float: right;
-
-      @include media("<desktop") {
-        width: 150px;
-        right: 235px;
-      }
-      @include media("<large", ">=desktop") {
-        width: 200px;
-        right: 315px;
-      }
-      @include media(">=large") {
-        width: 250px;
-        right: 415px;
-      }
-
-      input {
-        width: 100%;
-        border: none;
-        box-shadow: none !important;
-        outline: transparent none;
-        height: 30px;
-        background: $w;
-        border: 1px solid $gw60;
-        border-radius: 15px;
-      }
-      i.ch-icon-search-find {
-        position: absolute;
-        right: 5px;
-        top: 2px;
       }
     }
 
@@ -212,6 +178,7 @@ main {
   height: 30px;
 }
 .menu-overlay.main {
+  display: flex;
   position: absolute;
   top: 30px;
   right: 0;
@@ -361,4 +328,8 @@ main {
   scon-main {
     height: 100%;
   }
+}
+p-menubar.myclass{
+  display: flex;
+  justify-content: center;
 }

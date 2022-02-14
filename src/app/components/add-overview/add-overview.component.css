@@ -1,10 +1,10 @@
 
-@import "@ng-select/ng-select/themes/default.theme.css";
-body {
-  padding: 20px;
-}
 
-.flex-container{
+ .row{
+  margin-left: 100px; margin-right: 100px;
+ }
+
+ .flex-container{
   display: flex;
   width: 75%;
   margin-left: auto;
@@ -18,14 +18,16 @@ body {
 
   .flex-container-content{
     display: flex;
-    width: 45%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
     /*background-color: #bfddff;*/
     justify-content: center;
    }
     
-    
+    .flex-container-content >*{
+    margin: .8rem;
+    }
 
 
     .flex-container-btn{
@@ -36,26 +38,4 @@ body {
     justify-content: space-between;
     background-color: #bfddff;
     /*background-color: #bfddff;*/
-   
-
-
-    }
-    @media screen and (max-width: 520px) {
-      .flex-container-btn {
-        width:555px;
-        justify-content: center;
-        margin-left: 0;
-       margin-right:0;
-      }
-  
-      .flex-container-content {
-        width:525px;
-        justify-content: center;
-        margin-left: 0;
-       margin-right:0;
-    
-      }
-      .btn-link{
-        min-width: 525px;
-      }
     }
