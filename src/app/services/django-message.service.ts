@@ -27,12 +27,12 @@ export class DjangoMessageService {
 
   message: DjangoMessage[];
 
-  //configUrl: string = 'http://localhost:8000/employee/employeeemployee/';
+  configUrl: string = 'http://localhost:8000/employee/employee-viewset/'; //lovalhost
 //configUrl: string = '/posts/employee/employee-viewset/';
-   // configUrl: string = 'http://52.59.194.204:8000/employee/employee-viewset';
-    configUrl: string = 'http://18.184.6.47:8000/employee/employee-viewset/';
+  // configUrl1: string = 'http://172.31.44.120:8000/employee/employee-viewset/'; //aws
+    configUrl2: string = 'http://ec2-3-121-184-45.eu-central-1.compute.amazonaws.com:8000/employee/employee-viewset/';
     //configUrl1: string = 'localhost:8000/test2/employee/employee-viewset/';
-    configUrl7: string = 'aws2/employee/employee-viewset/';  // worked in aws
+    //configUrl7: string = 'aws2/employee/employee-viewset/';  // worked in aws
     //configUrl6: string = 'www.guhe283.at/aws3/employee/employee-viewset/';  // worked in aws
 
    // configUrl1: string = 'http://localhost:8000/rrr';
@@ -56,7 +56,7 @@ export class DjangoMessageService {
       headers: new Headers(headerDict), 
     };
   
-    return this.http.get<DjangoMessage>(this.configUrl).pipe(map(res => {
+    return this.http.get<DjangoMessage>(this.configUrl2).pipe(map(res => {
       requestOptions
       return new DjangoMessage(res);
 

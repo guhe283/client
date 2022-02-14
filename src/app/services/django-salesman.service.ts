@@ -30,9 +30,9 @@ export class DjangoSalesmanService {
 
   //configUrl: string = 'http://localhost:8000/employee/employeeemployee/';
 //configUrl: string = '/posts/employee/employee-viewset/';
-   // configUrl: string = 'http://52.59.194.204:8000/employee/employee-viewset';
+    configUrl2: string = 'http://ec2-3-121-184-45.eu-central-1.compute.amazonaws.com:8000/shop/shopshop/'; //amazon
     //configUrl: string = 'http://52.59.194.204:8000/employee/employee-viewset/';
-    configUrl: string = 'http://localhost:8000/shop/shopshop/';
+    configUrl: string = 'http://localhost:8000/shop/shopshop/';//local
     //configUrl7: string = 'aws2/employee/employee-viewset/';  // worked in aws
     //configUrl6: string = 'www.guhe283.at/aws3/employee/employee-viewset/';  // worked in aws
 
@@ -57,8 +57,9 @@ export class DjangoSalesmanService {
       headers: new Headers(headerDict), 
     };
   
-    return this.http.get<DjangoSalesman>(this.configUrl).pipe(map(res => {
+    return this.http.get<DjangoSalesman>(this.configUrl2).pipe(map(res => {
       requestOptions
+      console.log("=============Django GET AWS===========================>", res.price)
       return new DjangoSalesman(res);
 
     },));
