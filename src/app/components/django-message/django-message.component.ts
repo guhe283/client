@@ -7,6 +7,7 @@ import { DjangoMessageService } from 'src/app/services/django-message.service';
 import { Product } from 'src/app/models/product';
 
 import { ConfirmationService, Message, MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
+import { CurrencyPipe, formatCurrency } from '@angular/common';
 
 interface City {
   name: string,
@@ -88,11 +89,12 @@ export class DjangoMessageComponent implements OnInit {
       { field: 'name', header: 'Name', width: '100%', color: '#0c0217'  },
       { field: 'nach_name', header: 'Nachname', width: '100%', color: '#0c0217'  },
       { field: 'age', header: 'age', width: '100%', color: '#0c0217'  },
-      { field: 'salery', header: 'salery', width: '100%', color: '#0c0217'  },
+      { field: 'salery', header: 'salery', width: '100%', color: '#0c0217', data: true },
       { field: 'code_id', header: 'code id', width: '100%', color: '#0c0217'  },
       { field: 'mobile', header: 'mobile', width: '130%', color: '#0c0217'  },
       { field: 'is_activate', header: 'active', width: '90%', color: '#0c0217'  },
-      { field: 'is_motivated', header: 'motivated', width: '90%', color: '#0c0217'  }
+      { field: 'is_motivated', header: 'motivated', width: '90%', color: '#0c0217'  },
+      { field: 'currency', header: 'currency', width: '90%', color: '#0c0217'  }
     ];
 
 

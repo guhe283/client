@@ -1,3 +1,4 @@
+import { PlaceholderDirective } from './components/shared/placeholder/placeholder.directive';
 
 import { UiroutingSectionComponent1 } from './components/configuration/sections/uirouting-section.component1';
 import { UiroutingMenuentryComponent1 } from './components/configuration/menuentry/uirouting-menuentry.component1';
@@ -12,7 +13,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { InfoStockService } from './services/info-stock.service';
 import { EditStockComponent } from './components/edit-stock/edit-stock.component';
 import { DetailsStockComponent } from './components/details-stock/details-stock.component';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule, NO_ERRORS_SCHEMA, ViewContainerRef } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailsOverviewComponent } from './components/details-overview/details-overview.component';
@@ -83,7 +84,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { LogoutComponent } from './components/logout/logout.component';
 import { PaypalComponent } from './components/paypal/paypal.component';
 import { DjangoSalesmanComponent } from './components/django-salesman/django-salesman.component';
-
+import { AlertComponent } from './components/shared/alert.component';
 
 
 registerLocaleData(localeDe);
@@ -128,7 +129,9 @@ registerLocaleData(localeDe);
     UiroutingMenuentryComponent1,
     UiroutingSectionComponent1,
     UiroutingMenuentryComponent,
-    UiroutingSectionComponent
+    UiroutingSectionComponent,
+    AlertComponent,
+    PlaceholderDirective
 
   ],
   imports: [
@@ -170,7 +173,10 @@ registerLocaleData(localeDe);
 
 
   ],
-  providers: [ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService,ProductService,ConfirmationService,MyHttpService],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'de-DE'
+  },ClientService,AuthService,InvestService,StockService,OverviewService,FormatDateService,DatePipe,InfoStockService,TelegramMessageService,CustomerService,DjangoMessageService,ProductService,ConfirmationService,MyHttpService,PlaceholderDirective],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

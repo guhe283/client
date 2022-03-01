@@ -45,7 +45,7 @@ export class DjangoSalesmanService {
  
   getUpdate() {
 
-    const headerDict = {
+    const headerDict = { 
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
@@ -57,7 +57,7 @@ export class DjangoSalesmanService {
       headers: new Headers(headerDict), 
     };
   
-    return this.http.get<DjangoSalesman>(this.configUrl2).pipe(map(res => {
+    return this.http.get<DjangoSalesman>(this.configUrl).pipe(map(res => {
       requestOptions
       console.log("=============Django GET AWS===========================>", res.price)
       return new DjangoSalesman(res);

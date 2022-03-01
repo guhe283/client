@@ -37,7 +37,7 @@
                         </ng-template>
                         <ng-template pTemplate="output">
                             <span class="p-column-title" [ngStyle]="{'width': col.width}">{{col.header}}</span>
-                            {{rowData[col.field]}}
+                            {{ col.field==='salery' ? (rowData[col.field] | currency:'EUR':'symbol':'3.2-2':'de') : rowData[col.field] }}
                         </ng-template>
                     </p-cellEditor>
                 </td>

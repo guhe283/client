@@ -13,6 +13,7 @@ export class DjangoMessage {
   public is_activate: boolean;
   public is_motivated: boolean;
   public activity: number;
+  public currency: string;
   public result: [];
 
 
@@ -23,6 +24,7 @@ export class DjangoMessage {
       console.log("Call Konstruktor => DjangoMessage=> name", init['results'][0]);
       console.log("Call Konstruktor => DjangoMessage=> name", init['results']);
       console.log("Call Konstruktor => DjangoMessage=> name", init['results'][0]['name']);
+      console.log("Call Konstruktor => DjangoMessage=> name", init['results'][0]['currency']);
       //this.name= new DjangoMessage(init['name']);  //this.message = new Message(init["message"], false);
       //console.log("Konstruktor Name", init['results'].name);
       //console.log("Konstruktor Nachname", init['results']['nach_name']);

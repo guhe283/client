@@ -56,7 +56,7 @@ export class DjangoMessageService {
       headers: new Headers(headerDict),
     };
 
-    return this.http.get<DjangoMessage>(this.configUrl2).pipe(map(res => {
+    return this.http.get<DjangoMessage>(this.configUrl).pipe(map(res => {
       requestOptions
       return new DjangoMessage(res);
 
@@ -66,7 +66,7 @@ export class DjangoMessageService {
   public deletePost(id: string) {
     let endPoints = "1/"
     console.log("Django delete Post===========================>");
-    return this.http.delete<DjangoMessage>(this.configUrl2 + id + "/").pipe(map(res => {
+    return this.http.delete<DjangoMessage>(this.configUrl + id + "/").pipe(map(res => {
       console.log("=============Django Delete===========================>", res)
       return new DjangoMessage(res);
 
@@ -76,7 +76,7 @@ export class DjangoMessageService {
   public editPost(data: any, id: string) {
     let endPoints = "1/"
     console.log("Django delete Post===========================>");
-    return this.http.put<DjangoMessage>(this.configUrl2 + id + "/", data).pipe(map(res => {
+    return this.http.put<DjangoMessage>(this.configUrl + id + "/", data).pipe(map(res => {
       console.log("=============Django PUT===========================>", res)
       //return new DjangoMessage(res);
 
@@ -85,7 +85,7 @@ export class DjangoMessageService {
 
   public addPost(data: any) {
     console.log("Django Add Post Data===========================>", data);
-    return this.http.post<any>(this.configUrl2, data).pipe(map(res => {
+    return this.http.post<any>(this.configUrl, data).pipe(map(res => {
       console.log("=============Django ADD Post===========================>", res)
       return new DjangoMessage(null);
 
