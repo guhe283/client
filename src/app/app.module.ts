@@ -85,6 +85,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { PaypalComponent } from './components/paypal/paypal.component';
 import { DjangoSalesmanComponent } from './components/django-salesman/django-salesman.component';
 import { AlertComponent } from './components/shared/alert.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 registerLocaleData(localeDe);
@@ -169,7 +170,8 @@ registerLocaleData(localeDe);
     RippleModule,
     ConfirmPopupModule,
     InputSwitchModule,
-    MenubarModule
+    MenubarModule,
+    CheckboxModule
 
 
   ],

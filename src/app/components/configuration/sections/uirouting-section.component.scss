@@ -9,11 +9,14 @@ div.toolbar {
 
 }
 
-td, p-dropdown, p-calendar {
+td,
+p-dropdown,
+p-calendar {
   background: $w;
 }
 
-td, th {
+td,
+th {
   height: 32px;
 }
 
@@ -22,11 +25,28 @@ td, th {
     background: transparent;
   }
 }
-.tile-item-component{
+
+.tile-item-component {
   display: flex;
   //width: 25%;
   margin-left: auto;
   margin-right: auto;
   background-color: #bfddff;
- }
-  
+}
+
+.form-item {
+  display: flex;
+  float: left;
+  display: inline-flex;
+  padding: 15;
+  margin: 5px;
+  width: 100%;
+}
+
+.form-label {
+  display: flex;
+  width: 150px;
+  flex-direction: row-reverse;
+  justify-content: right;
+
+}
