@@ -2,7 +2,9 @@ import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} 
 import { DeviceInfo } from 'src/app/models/webrtc/device-info';
 interface SelectItem{
     name: string,
-    code: string
+    code: string,
+    value: string,
+    label: any
 }
 
 @Component({
