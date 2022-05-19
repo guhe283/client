@@ -1,20 +1,18 @@
-import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { DeviceInfo } from 'src/app/models/webrtc/device-info';
-interface SelectItem{
+interface SelectItem {
     name: string,
     code: string
 }
 
+
+
 @Component({
-    selector: 'app-uirouting-section',
-    templateUrl: './uirouting-section.component.html',
-    styleUrls: ['./uirouting-section.component.scss']
-
+    selector: 'app-media-section',
+    templateUrl: './media-section.component.html',
+    styleUrls: ['./media-section.component.scss'],
 })
-
-
-export class UiroutingSectionComponent implements OnInit {
-
+export class MediaSectionComponent implements OnInit, OnDestroy {
     private static LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO = 'scon-webrtc-transmit-local-video';
     private static LOCALSTORAGE_VIDEO_INPUT = 'scon-webrtc-video-input';
     private static LOCALSTORAGE_AUDIO_INPUT = 'scon-webrtc-audio-input';
@@ -23,11 +21,12 @@ export class UiroutingSectionComponent implements OnInit {
     constructor(private cd: ChangeDetectorRef) {
     }
 
-    @ViewChild('localVideoStream', {static: false}) localVideoStream: ElementRef;
+    @ViewChild('localVideoStream', { static: false }) localVideoStream: ElementRef;
     private mediaDeviceInfo: DeviceInfo[];
     public localStorageSourceVideoId: string;
     public localStorageSourceInputAudio: string;
     public localStorageSourceVideo: string;
+    public selectedVideo: SelectItem;
     public selectedItemVideo: SelectItem[];
     public selectedItemAudio: SelectItem[];
     public transmitLocalVideo: boolean;
@@ -40,19 +39,19 @@ export class UiroutingSectionComponent implements OnInit {
             this.checkboxDisabled = false;
             this.selectedItemVideo = [];
             this.selectedItemAudio = [];
-            this.localStorageSourceInputAudio = localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_AUDIO_INPUT);
-            this.localStorageSourceVideo = localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT);
-            this.localStorageSourceVideoId = JSON.parse(localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES));
-            if (localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === null || (localStorage.getItem('scon-webrtc-transmit-local-video') !== 'false')) {
-                localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO, '' + 'true');
+            this.localStorageSourceInputAudio = localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_AUDIO_INPUT);
+            this.localStorageSourceVideo = localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT);
+            this.localStorageSourceVideoId = JSON.parse(localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES));
+            if (localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === null || (localStorage.getItem('scon-webrtc-transmit-local-video') !== 'false')) {
+                localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO, '' + 'true');
                 this.transmitLocalVideo = true;
             } else {
-                this.transmitLocalVideo = (localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === 'true') ? true : false;
+                this.transmitLocalVideo = (localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === 'true') ? true : false;
             }
             await this.getConnectedDevices();
             if (this.mediaDeviceInfo !== null && this.mediaDeviceInfo.length > 0) {
-                const init = this.mediaDeviceInfo.filter(v => v.label === localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT));
-                await localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES, '' + JSON.stringify(init[0]));
+                const init = this.mediaDeviceInfo.filter(v => v.label === localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT));
+                localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES, '' + JSON.stringify(init[0]));
                 await this.streamLocalVideo();
             }
         } catch (e) {
@@ -63,7 +62,7 @@ export class UiroutingSectionComponent implements OnInit {
     async ngOnDestroy(): Promise<void> {
         try {
             this.destroyed = true;
-            if ((localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO)) !== 'true') {
+            if ((localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO)) !== 'true') {
                 await this.terminateVideoStream();
             }
             this.checkboxDisabled = false;
@@ -75,7 +74,7 @@ export class UiroutingSectionComponent implements OnInit {
     public async getConnectedDevices(): Promise<any> {
         try {
             // gets local video stream
-            await navigator.mediaDevices.getUserMedia({audio: true, video: true});
+            await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
             this.mediaDeviceInfo = await navigator.mediaDevices.enumerateDevices();
             if (this.mediaDeviceInfo !== null && this.mediaDeviceInfo.length > 0) {
                 this.selectedItemVideo = this.mediaDeviceInfo.filter(v => v.kind === 'videoinput').map(v => {
@@ -95,17 +94,17 @@ export class UiroutingSectionComponent implements OnInit {
             }
             // Set local storage
             const first = this.mediaDeviceInfo.filter(v => v.kind === 'videoinput');
-            localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES, '' + JSON.stringify(first[0]));
+            localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES, '' + JSON.stringify(first[0]));
             if (this.selectedItemVideo !== null && this.selectedItemVideo.length > 0) {
                 if (!this.localStorageSourceVideo || this.localStorageSourceVideo === null) {
-                    localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT, '' + this.selectedItemVideo[0].name)
+                    localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT, '' + this.selectedItemVideo[0].name)
                     this.localStorageSourceVideo = this.selectedItemVideo[0].name;
                 }
             }
             if (this.selectedItemAudio !== null && this.selectedItemAudio.length > 0) {
                 if (!this.localStorageSourceInputAudio || this.localStorageSourceInputAudio === null) {
-                    localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_AUDIO_INPUT, '' + this.selectedItemAudio[0].name);
-                    this.localStorageSourceInputAudio = this.selectedItemAudio[0].name;
+                    localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_AUDIO_INPUT, '' + this.selectedItemAudio[0].name);
+                    this.localStorageSourceInputAudio = this.selectedItemAudio[0].name
                 }
             }
         } catch (e) {
@@ -114,14 +113,15 @@ export class UiroutingSectionComponent implements OnInit {
     }
 
     public onAudioChange(event: Event): void {
-        localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_AUDIO_INPUT, this.localStorageSourceInputAudio);
+        localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_AUDIO_INPUT, this.localStorageSourceInputAudio);
     }
 
     public async onVideoChange(event: Event): Promise<void> {
-        localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT, this.localStorageSourceVideo);
-        const first = this.mediaDeviceInfo.filter(v => v.label === localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT));
-        localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES, '' + JSON.stringify(first[0]));
-        if (localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === 'true') {
+        localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT, this.selectedVideo.name);
+        
+        const first = this.mediaDeviceInfo.filter(v => v.label === localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT));
+        localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES, '' + JSON.stringify(first[0]));
+        if (localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === 'true') {
             await this.streamLocalVideo();
         } else {
             await this.terminateVideoStream();
@@ -131,8 +131,8 @@ export class UiroutingSectionComponent implements OnInit {
     public async onTransmitLocalVideoChanged(event: Event): Promise<void> {
         this.checkboxDisabled = true;
         this.triggerChangeDetection();
-        localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO, '' + this.transmitLocalVideo);
-        if (localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === 'true') {
+        localStorage.setItem(MediaSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO, '' + this.transmitLocalVideo);
+        if (localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === 'true') {
             await this.streamLocalVideo();
         } else {
             await this.terminateVideoStream();
@@ -155,13 +155,13 @@ export class UiroutingSectionComponent implements OnInit {
         }
     }
 
-    public async streamLocalVideo(event ?: any): Promise<any> {
+    public async streamLocalVideo(event?: any): Promise<any> {
         try {
-            if (localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === 'true') {
+            if (localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_TRANSMIT_LOCAL_VIDEO) === 'true') {
                 await this.terminateVideoStream();
-                const videoSource = await JSON.parse(localStorage.getItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES)).deviceId;
+                const videoSource = await JSON.parse(localStorage.getItem(MediaSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES)).deviceId;
                 const constraints = {
-                    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+                    video: { deviceId: videoSource ? { exact: videoSource } : undefined }
                 };
                 await navigator.mediaDevices.getUserMedia(constraints)
                     .then(stream => {
@@ -174,7 +174,7 @@ export class UiroutingSectionComponent implements OnInit {
                 this.localVideoStream.nativeElement.srcObject = null;
             }
         } catch
-            (e) {
+        (e) {
             console.log('ERROR => Stream Video', e);
         }
     }

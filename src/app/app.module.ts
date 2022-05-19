@@ -2,7 +2,7 @@ import { PlaceholderDirective } from './components/shared/placeholder/placeholde
 
 import { UiroutingSectionComponent1 } from './components/configuration/sections/uirouting-section.component1';
 import { UiroutingMenuentryComponent1 } from './components/configuration/menuentry/uirouting-menuentry.component1';
-import { UiroutingSectionComponent } from './components/configuration/sections/uirouting-section.component';
+import { MediaSectionComponent} from './components/configuration/sections/media-section.component';
 import { UiroutingMenuentryComponent } from './components/configuration/menuentry/uirouting-menuentry.component';
 import { FlexboxComponent } from './components/Flexbox/flexbox.component';
 import { MyHttpService } from './services/test';
@@ -130,7 +130,7 @@ registerLocaleData(localeDe);
     UiroutingMenuentryComponent1,
     UiroutingSectionComponent1,
     UiroutingMenuentryComponent,
-    UiroutingSectionComponent,
+    MediaSectionComponent,
     AlertComponent,
     PlaceholderDirective
 

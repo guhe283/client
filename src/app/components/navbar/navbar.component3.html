@@ -9,7 +9,7 @@
   <div *ngIf="menuOpened" class="menu-config-entries">
     <h2>Info</h2>
     <ul class="menu-entries">
-      <li (click)="clickConfigSection('app-uirouting-section')">
+      <li (click)="clickConfigSection('app-media-section')">
         <app-uirouting-menuentry>
         </app-uirouting-menuentry>
       </li>
@@ -27,8 +27,8 @@
   <i class="pi pi-times myclass" (click)="configSection = undefined"></i>
   <div class="menu-config-area" [class.active]="menuOpened && configSection">
     <div class="config-page">
-      <app-uirouting-section *ngIf="configSection==='app-uirouting-section'">
-      </app-uirouting-section>
+      <app-media-section *ngIf="configSection==='app-media-section'">
+      </app-media-section>
       <app-uirouting-section1 *ngIf="configSection==='app-uirouting-section1'">
       </app-uirouting-section1>
     </div>

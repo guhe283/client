@@ -1,6 +1,6 @@
 <div class="ch-page">
   <div class="ch-content ch-scroll ch-pad">
-    <h2 translate="VSMMonitoringControl.UserMedia" class="first-header"></h2>
+    <h2></h2>
     <div class="ui-g-12 ui-g-nopad">
 
       <!--div class="g-row">
@@ -19,7 +19,7 @@
       <div class="form-item">
         <label class="form-label">Video</label>
         <p-dropdown  style="margin-left:20px; width:330px;" id="dropdown-video" [options]="selectedItemVideo" optionLabel="name"
-          [placeholder]="localStorageSourceVideo" [(ngModel)]="localStorageSourceVideo"
+          [placeholder]="localStorageSourceVideo" [(ngModel)]="selectedVideo"
           (ngModelChange)="onVideoChange($event)" appendTo="body"></p-dropdown>
       </div>
       <div class="form-item">
