@@ -2,9 +2,7 @@ import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} 
 import { DeviceInfo } from 'src/app/models/webrtc/device-info';
 interface SelectItem{
     name: string,
-    code: string,
-    value: string,
-    label: any
+    code: string
 }
 
 @Component({
@@ -82,16 +80,16 @@ export class UiroutingSectionComponent implements OnInit {
             if (this.mediaDeviceInfo !== null && this.mediaDeviceInfo.length > 0) {
                 this.selectedItemVideo = this.mediaDeviceInfo.filter(v => v.kind === 'videoinput').map(v => {
                     const item = {} as SelectItem;
-                    item.label = v.label;
-                    item.value = v.label;
+                    item.name = v.label;
+                    item.code = v.label;
                     return item;
                 });
             }
             if (this.mediaDeviceInfo.length !== null && this.mediaDeviceInfo.length > 0) {
                 this.selectedItemAudio = this.mediaDeviceInfo.filter(v => v.kind === 'audioinput').map(v => {
                     const item = {} as SelectItem;
-                    item.label = v.deviceId;
-                    item.value = v.label;
+                    item.name = v.deviceId;
+                    item.code = v.label;
                     return item;
                 });
             }
@@ -100,14 +98,14 @@ export class UiroutingSectionComponent implements OnInit {
             localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT_VALUES, '' + JSON.stringify(first[0]));
             if (this.selectedItemVideo !== null && this.selectedItemVideo.length > 0) {
                 if (!this.localStorageSourceVideo || this.localStorageSourceVideo === null) {
-                    localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT, '' + this.selectedItemVideo[0].value)
-                    this.localStorageSourceVideo = this.selectedItemVideo[0].value;
+                    localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_VIDEO_INPUT, '' + this.selectedItemVideo[0].name)
+                    this.localStorageSourceVideo = this.selectedItemVideo[0].name;
                 }
             }
             if (this.selectedItemAudio !== null && this.selectedItemAudio.length > 0) {
                 if (!this.localStorageSourceInputAudio || this.localStorageSourceInputAudio === null) {
-                    localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_AUDIO_INPUT, '' + this.selectedItemAudio[0].value);
-                    this.localStorageSourceInputAudio = this.selectedItemAudio[0].value;
+                    localStorage.setItem(UiroutingSectionComponent.LOCALSTORAGE_AUDIO_INPUT, '' + this.selectedItemAudio[0].name);
+                    this.localStorageSourceInputAudio = this.selectedItemAudio[0].name;
                 }
             }
         } catch (e) {
